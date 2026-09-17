@@ -1,1 +1,1 @@
- 
+:root{--bg:#070b16;--panel:#11182a;--panel2:#0d1424;--text:#f5f7ff;--muted:#8e9ab3;--border:rgba(255,255,255,.09);--accent:#6d5dfc;--accent2:#18c8ff;--success:#32d27f;--radius:16px}body{background:radial-gradient(circle at 10% 0%,rgba(109,93,252,.14),transparent 32%),radial-gradient(circle at 90% 10%,rgba(24,200,255,.1),transparent 28%),var(--bg)}
