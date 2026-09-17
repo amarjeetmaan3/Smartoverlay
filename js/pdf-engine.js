@@ -1,0 +1,1 @@
+export const pdfEngine={state:{url:null,page:1,total:1,zoom:1},next(){this.state.page=Math.min(this.state.total,this.state.page+1)},previous(){this.state.page=Math.max(1,this.state.page-1)}};

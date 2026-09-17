@@ -1,0 +1,1 @@
+export const sceneManager={create(name="New Scene"){return {id:Date.now().toString(),name,boxes:[],createdAt:Date.now(),updatedAt:Date.now()}}};

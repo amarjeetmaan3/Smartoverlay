@@ -1,0 +1,1 @@
+export const boxManager={create(type="box"){return {id:crypto.randomUUID?.()||String(Date.now()),type,x:0,y:0,width:320,height:120,rotation:0,opacity:1,visible:true,locked:false}}};

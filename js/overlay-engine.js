@@ -1,0 +1,1 @@
+export const overlayEngine={render(state,root){if(!root)return;root.dataset.scene=state?.sceneId||"";}};

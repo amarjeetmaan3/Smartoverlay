@@ -1,1 +1,1 @@
- 
+console.log("SmartOverlay Overlay Phase 1 loaded. Firebase realtime renderer will be connected in the next step.");

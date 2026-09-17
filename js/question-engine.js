@@ -1,0 +1,1 @@
+export function normalizeQuestion(row={}){return {no:row.No??"",question:row.Question??"",A:row.A??"",B:row.B??"",C:row.C??"",D:row.D??"",answer:row.Answer??"",explanation:row.Explanation??""}}

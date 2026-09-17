@@ -1,0 +1,1 @@
+export function createTimer(seconds=30,onTick=()=>{},onEnd=()=>{}){let left=Math.max(0,Number(seconds)||0),id=null;return{start(){if(id)return;id=setInterval(()=>{left--;onTick(left);if(left<=0){clearInterval(id);id=null;onEnd()}},1000)},stop(){clearInterval(id);id=null},reset(v=seconds){left=Math.max(0,Number(v)||0);onTick(left)},get value(){return left}}}

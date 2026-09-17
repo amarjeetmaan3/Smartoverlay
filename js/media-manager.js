@@ -1,0 +1,1 @@
+export const mediaManager={items:[],add(item){this.items.push(item);return item},remove(id){this.items=this.items.filter(x=>x.id!==id)}};

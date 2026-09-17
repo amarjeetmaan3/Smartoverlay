@@ -1,0 +1,1 @@
+export const quizEngine={score({correct=0,wrong=0,skipped=0,positive=1,negative=0}={}){return correct*positive-wrong*negative},accuracy(correct,total){return total>0?(correct/total)*100:0}};

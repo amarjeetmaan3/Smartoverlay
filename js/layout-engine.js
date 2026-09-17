@@ -1,0 +1,1 @@
+export const layoutEngine={version:1,normalize(box){return {...box,x:Number(box.x)||0,y:Number(box.y)||0,width:Math.max(1,Number(box.width)||1),height:Math.max(1,Number(box.height)||1),rotation:Number(box.rotation)||0,opacity:Math.max(0,Math.min(1,Number(box.opacity) ?? 1))}}};
