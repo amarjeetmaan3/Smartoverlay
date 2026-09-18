@@ -1,0 +1,181 @@
+/* =========================================
+   SmartOverlay Timeline / Bottom Controls
+   ========================================= */
+
+.timeline {
+  width: 100%;
+  min-height: 72px;
+
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  padding: 10px 12px;
+
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+
+  background: rgba(18, 23, 34, 0.82);
+  box-shadow: var(--shadow-md);
+
+  overflow: hidden;
+}
+
+.timeline-controls {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  flex-shrink: 0;
+}
+
+.timeline-controls button {
+  width: 36px;
+  height: 36px;
+
+  display: grid;
+  place-items: center;
+
+  border: 1px solid var(--border);
+  border-radius: 8px;
+
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--text-soft);
+
+  transition:
+    background var(--transition),
+    color var(--transition),
+    transform var(--transition);
+}
+
+.timeline-controls button:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+}
+
+.timeline-controls button:active {
+  transform: scale(0.94);
+}
+
+.timeline-track {
+  position: relative;
+
+  flex: 1;
+  height: 42px;
+
+  border: 1px solid var(--border);
+  border-radius: 8px;
+
+  background:
+    repeating-linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.035) 0,
+      rgba(255, 255, 255, 0.035) 1px,
+      transparent 1px,
+      transparent 50px
+    );
+
+  overflow: hidden;
+}
+
+.timeline-progress {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+
+  width: 0%;
+
+  background: rgba(108, 99, 255, 0.12);
+
+  pointer-events: none;
+}
+
+.timeline-playhead {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+
+  width: 2px;
+
+  background: var(--accent);
+
+  box-shadow: 0 0 12px var(--theme-glow);
+
+  pointer-events: none;
+}
+
+.timeline-playhead::before {
+  content: "";
+
+  position: absolute;
+  top: 0;
+  left: 50%;
+
+  width: 9px;
+  height: 9px;
+
+  border-radius: 50%;
+
+  background: var(--accent);
+
+  transform: translateX(-50%);
+}
+
+.timeline-marker {
+  position: absolute;
+  top: 7px;
+
+  width: 7px;
+  height: 28px;
+
+  border-radius: 3px;
+
+  background: var(--text-muted);
+
+  opacity: 0.65;
+}
+
+.timeline-marker.active {
+  background: var(--accent);
+  opacity: 1;
+}
+
+.timeline-time {
+  min-width: 70px;
+
+  color: var(--text-soft);
+
+  font-size: 11px;
+  font-variant-numeric: tabular-nums;
+  text-align: center;
+}
+
+.timeline-label {
+  color: var(--text-muted);
+  font-size: 10px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+@media (max-width: 700px) {
+  .timeline {
+    min-height: 62px;
+    padding: 7px;
+    gap: 7px;
+  }
+
+  .timeline-controls button {
+    width: 32px;
+    height: 32px;
+  }
+
+  .timeline-time {
+    min-width: 52px;
+    font-size: 10px;
+  }
+
+  .timeline-label {
+    display: none;
+  }
+}
