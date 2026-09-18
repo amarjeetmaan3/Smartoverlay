@@ -1,0 +1,101 @@
+/* =========================================
+   SmartOverlay Status / Notification UI
+   ========================================= */
+
+.status-bar {
+  min-height: 34px;
+
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  padding: 0 10px;
+
+  border: 1px solid var(--border);
+  border-radius: 8px;
+
+  background: rgba(255, 255, 255, 0.025);
+
+  color: var(--text-muted);
+  font-size: 10px;
+}
+
+.status-indicator {
+  width: 7px;
+  height: 7px;
+
+  flex-shrink: 0;
+
+  border-radius: 50%;
+
+  background: var(--text-muted);
+}
+
+.status-indicator.online {
+  background: var(--success);
+  box-shadow: 0 0 10px rgba(34, 197, 94, 0.7);
+}
+
+.status-indicator.offline {
+  background: var(--danger);
+}
+
+.status-indicator.connecting {
+  background: var(--warning);
+  animation: so-pulse 1s ease-in-out infinite;
+}
+
+.connection-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.live-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+
+  padding: 5px 9px;
+
+  border-radius: 999px;
+
+  background: rgba(239, 68, 68, 0.1);
+  color: #fca5a5;
+
+  font-size: 10px;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.live-status .status-indicator {
+  background: #ef4444;
+  box-shadow: 0 0 10px rgba(239, 68, 68, 0.8);
+}
+
+.save-status {
+  color: var(--text-muted);
+  font-size: 10px;
+}
+
+.save-status.saved {
+  color: #86efac;
+}
+
+.save-status.saving {
+  color: #fcd34d;
+}
+
+.save-status.error {
+  color: #fca5a5;
+}
+
+@media (max-width: 600px) {
+  .status-bar {
+    min-height: 38px;
+  }
+
+  .live-status {
+    padding: 6px 9px;
+  }
+}
