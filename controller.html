@@ -1,358 +1,610 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SmartOverlay — Controller</title>
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0"
+  >
+
+  <title>SmartOverlay Controller</title>
+
   <link rel="stylesheet" href="css/base.css">
   <link rel="stylesheet" href="css/theme.css">
   <link rel="stylesheet" href="css/dashboard.css">
   <link rel="stylesheet" href="css/editor.css">
   <link rel="stylesheet" href="css/responsive.css">
+
+  <link rel="stylesheet" href="css/scene.css">
+  <link rel="stylesheet" href="css/timeline.css">
+  <link rel="stylesheet" href="css/question.css">
+  <link rel="stylesheet" href="css/media.css">
+  <link rel="stylesheet" href="css/controls.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/overlay-editor.css">
+  <link rel="stylesheet" href="css/modal.css">
+  <link rel="stylesheet" href="css/toast.css">
+  <link rel="stylesheet" href="css/context-menu.css">
+  <link rel="stylesheet" href="css/color-picker.css">
+  <link rel="stylesheet" href="css/notification.css">
+  <link rel="stylesheet" href="css/pdf.css">
+  <link rel="stylesheet" href="css/timer.css">
+  <link rel="stylesheet" href="css/score.css">
+  <link rel="stylesheet" href="css/camera.css">
+  <link rel="stylesheet" href="css/form.css">
+
 </head>
 
-<body>
-  <div class="controller-app">
+<body class="controller-page">
 
-    <header class="topbar glass">
-      <a class="brand" href="index.html">
-        <span class="brand-mark small">SO</span>
-        <span>SmartOverlay</span>
+<div class="controller-app">
+
+
+  <!-- TOP BAR -->
+
+  <header class="controller-topbar">
+
+    <div class="controller-brand">
+
+      <a href="index.html"
+         class="back-button"
+         title="Dashboard">
+        ←
       </a>
 
-      <div class="topbar-center">
-        <span class="live-dot"></span>
-        <span id="connectionText">Local Preview</span>
+      <div class="brand-logo">
+        SO
       </div>
 
-      <div class="top-actions">
-        <button class="icon-btn" id="saveBtn" type="button">Save</button>
-        <a class="icon-btn" href="overlay.html">Overlay ↗</a>
+      <div class="brand-info">
+        <strong>SmartOverlay</strong>
+        <span>Live Controller</span>
       </div>
-    </header>
 
-    <div class="workspace">
+    </div>
 
-      <!-- LEFT TOOL PANEL -->
-      <aside class="sidebar glass">
 
-        <div class="panel-title">TOOLS</div>
+    <div class="controller-actions">
 
-        <button class="tool-btn active" data-tool="select" type="button">
-          ↖ <span>Select</span>
+      <button
+        id="undoBtn"
+        class="icon-btn"
+        title="Undo">
+        ↶
+      </button>
+
+      <button
+        id="redoBtn"
+        class="icon-btn"
+        title="Redo">
+        ↷
+      </button>
+
+      <button
+        id="saveBtn"
+        class="btn btn-primary">
+        Save
+      </button>
+
+      <a
+        href="overlay.html"
+        target="_blank"
+        class="btn btn-secondary">
+        Preview
+      </a>
+
+    </div>
+
+  </header>
+
+
+
+  <!-- MAIN WORKSPACE -->
+
+  <main class="controller-workspace">
+
+
+    <!-- LEFT TOOL PANEL -->
+
+    <aside class="left-panel">
+
+      <div class="panel-header">
+        <strong>Tools</strong>
+      </div>
+
+
+      <div class="tool-list">
+
+        <button
+          class="tool-btn active"
+          data-tool="select">
+          <span>↖</span>
+          <small>Select</small>
         </button>
 
-        <button class="tool-btn" data-tool="text" type="button">
-          T <span>Text</span>
+
+        <button
+          class="tool-btn"
+          data-tool="text">
+          <span>T</span>
+          <small>Text</small>
         </button>
 
-        <button class="tool-btn" data-tool="image" type="button">
-          ▧ <span>Image</span>
+
+        <button
+          class="tool-btn"
+          data-tool="image">
+          <span>▧</span>
+          <small>Image</small>
         </button>
 
-        <button class="tool-btn" data-tool="pdf" type="button">
-          ▤ <span>PDF</span>
+
+        <button
+          class="tool-btn"
+          data-tool="pdf">
+          <span>PDF</span>
+          <small>PDF</small>
         </button>
 
-        <button class="tool-btn" data-tool="question" type="button">
-          ? <span>Question</span>
+
+        <button
+          class="tool-btn"
+          data-tool="question">
+          <span>?</span>
+          <small>Question</small>
         </button>
 
-        <button class="tool-btn" data-tool="timer" type="button">
-          ◷ <span>Timer</span>
+
+        <button
+          class="tool-btn"
+          data-tool="timer">
+          <span>◷</span>
+          <small>Timer</small>
         </button>
 
-        <button class="tool-btn" data-tool="score" type="button">
-          # <span>Score</span>
+
+        <button
+          class="tool-btn"
+          data-tool="score">
+          <span>★</span>
+          <small>Score</small>
         </button>
 
-        <button class="tool-btn" data-tool="camera" type="button">
-          ● <span>Camera</span>
+
+        <button
+          class="tool-btn"
+          data-tool="camera">
+          <span>▣</span>
+          <small>Camera</small>
         </button>
 
-        <!-- MEDIA UPLOAD -->
-        <div class="panel-title lower">MEDIA</div>
+      </div>
+
+
+      <div class="panel-divider"></div>
+
+
+      <div class="media-upload">
+
+        <div class="panel-header">
+          <strong>Media</strong>
+        </div>
 
         <input
-          id="mediaFileInput"
           type="file"
-          accept="image/*,application/pdf,video/*,audio/*"
+          id="mediaFile"
+          accept="image/*,video/*,audio/*,application/pdf"
           hidden
         >
 
         <button
-          class="tool-btn"
           id="uploadMediaBtn"
-          type="button"
-        >
-          ↑ <span>Upload Media</span>
+          class="btn btn-secondary full-width">
+          Upload Media
         </button>
 
-        <div id="uploadStatus" class="upload-status" aria-live="polite"></div>
+        <div
+          id="uploadStatus"
+          class="upload-status">
+          No file selected
+        </div>
 
-        <!-- SCENES -->
-        <div class="panel-title lower">SCENES</div>
+      </div>
 
-        <button class="scene-btn active" type="button">Intro</button>
-        <button class="scene-btn" type="button">Question</button>
-        <button class="scene-btn" type="button">Explanation</button>
-        <button class="scene-btn" type="button">Test</button>
-        <button class="scene-btn" type="button">Result</button>
-
-        <button class="add-scene" type="button">
-          + New Scene
-        </button>
-
-      </aside>
+    </aside>
 
 
-      <!-- CENTER EDITOR -->
-      <main class="editor-area">
 
-        <div class="editor-toolbar glass">
+    <!-- CENTER -->
 
-          <div>
-            <strong>Scene:</strong>
-            <span id="sceneName">Intro</span>
-          </div>
+    <section class="center-panel">
 
-          <div class="toolbar-actions">
 
-            <button type="button" id="undoBtn">
-              ↶
-            </button>
+      <!-- CENTER HEADER -->
 
-            <button type="button" id="redoBtn">
-              ↷
-            </button>
+      <div class="canvas-header">
 
-            <button type="button" id="addBoxBtn">
-              + Add Box
-            </button>
+        <div class="canvas-title">
 
-            <button type="button" id="clearBtn">
-              Clear
-            </button>
+          <strong id="activeSceneTitle">
+            Intro
+          </strong>
 
-          </div>
+          <span>
+            1920 × 1080
+          </span>
 
         </div>
 
 
-        <div class="canvas-wrap">
+        <div class="canvas-actions">
 
-          <div
-            class="canvas"
-            id="canvas"
-            aria-label="SmartOverlay preview canvas"
-          >
+          <button
+            id="zoomOutBtn"
+            class="icon-btn">
+            −
+          </button>
 
-            <div class="canvas-grid"></div>
+          <span id="zoomValue">
+            100%
+          </span>
 
-            <div
-              class="canvas-hint"
-              id="canvasHint"
-            >
-              Your live canvas
-              <br>
-              <small>Select a tool or add a box</small>
+          <button
+            id="zoomInBtn"
+            class="icon-btn">
+            +
+          </button>
+
+          <button
+            id="fitCanvasBtn"
+            class="icon-btn">
+            Fit
+          </button>
+
+        </div>
+
+      </div>
+
+
+
+      <!-- CANVAS -->
+
+      <div
+        id="editorViewport"
+        class="editor-viewport">
+
+        <div
+          id="editorCanvas"
+          class="editor-canvas">
+
+          <!-- Dynamic boxes appear here -->
+
+        </div>
+
+      </div>
+
+
+
+      <!-- BOTTOM TOOLBAR -->
+
+      <div class="editor-toolbar">
+
+        <button
+          id="addBoxBtn"
+          class="toolbar-btn">
+          ＋ Add Box
+        </button>
+
+        <button
+          id="duplicateBtn"
+          class="toolbar-btn">
+          Duplicate
+        </button>
+
+        <button
+          id="deleteBtn"
+          class="toolbar-btn danger">
+          Delete
+        </button>
+
+        <button
+          id="clearBtn"
+          class="toolbar-btn">
+          Clear
+        </button>
+
+      </div>
+
+
+    </section>
+
+
+
+    <!-- RIGHT PANEL -->
+
+    <aside class="right-panel">
+
+
+      <div class="panel-header properties-header">
+
+        <strong>Properties</strong>
+
+        <button
+          id="closeProperties"
+          class="icon-btn">
+          ×
+        </button>
+
+      </div>
+
+
+      <div class="properties-body">
+
+
+        <div class="property-section">
+
+          <label>Element</label>
+
+          <input
+            id="propText"
+            type="text"
+            placeholder="Element text">
+
+        </div>
+
+
+        <div class="property-section">
+
+          <label>Position</label>
+
+          <div class="property-grid">
+
+            <div>
+              <span>X</span>
+              <input
+                id="propX"
+                type="number"
+                value="0">
+            </div>
+
+            <div>
+              <span>Y</span>
+              <input
+                id="propY"
+                type="number"
+                value="0">
             </div>
 
           </div>
 
         </div>
 
-      </main>
 
+        <div class="property-section">
 
-      <!-- RIGHT PROPERTIES -->
-      <aside class="properties glass">
+          <label>Size</label>
 
-        <div class="panel-title">
-          PROPERTIES
-        </div>
+          <div class="property-grid">
 
-
-        <div
-          class="empty-state"
-          id="propertiesEmpty"
-        >
-
-          <div class="empty-icon">
-            ◇
-          </div>
-
-          <strong>
-            Select an element
-          </strong>
-
-          <p>
-            Position, size, opacity, color and behavior controls will appear here.
-          </p>
-
-        </div>
-
-
-        <div
-          id="propertiesForm"
-          class="properties-form hidden"
-        >
-
-          <label>
-            Text
-            <input
-              id="textInput"
-              type="text"
-              value="SmartOverlay"
-            >
-          </label>
-
-
-          <div class="two-col">
-
-            <label>
-              X
+            <div>
+              <span>Width</span>
               <input
-                id="xInput"
+                id="propWidth"
                 type="number"
-                value="0"
-              >
-            </label>
+                value="300">
+            </div>
 
-            <label>
-              Y
+            <div>
+              <span>Height</span>
               <input
-                id="yInput"
+                id="propHeight"
                 type="number"
-                value="0"
-              >
-            </label>
+                value="100">
+            </div>
 
           </div>
 
+        </div>
 
-          <div class="two-col">
 
-            <label>
-              Width
+        <div class="property-section">
+
+          <label>Transform</label>
+
+          <div class="property-grid">
+
+            <div>
+              <span>Rotation</span>
               <input
-                id="wInput"
+                id="propRotation"
                 type="number"
-                value="320"
-              >
-            </label>
+                value="0">
+            </div>
 
-            <label>
-              Height
+            <div>
+              <span>Opacity</span>
               <input
-                id="hInput"
+                id="propOpacity"
                 type="number"
-                value="120"
-              >
-            </label>
+                min="0"
+                max="100"
+                value="100">
+            </div>
 
           </div>
 
-
-          <label>
-            Opacity
-            <input
-              id="opacityInput"
-              type="range"
-              min="0"
-              max="100"
-              value="100"
-            >
-          </label>
+        </div>
 
 
-          <button
-            class="btn primary full"
-            id="deleteBtn"
-            type="button"
-          >
-            Delete Element
-          </button>
+        <div class="property-section">
+
+          <label>Layer</label>
+
+          <div class="layer-buttons">
+
+            <button id="bringFrontBtn">
+              Front
+            </button>
+
+            <button id="bringForwardBtn">
+              Forward
+            </button>
+
+            <button id="sendBackwardBtn">
+              Backward
+            </button>
+
+            <button id="sendBackBtn">
+              Back
+            </button>
+
+          </div>
 
         </div>
 
-      </aside>
+
+        <div class="property-section">
+
+          <label>State</label>
+
+          <div class="state-buttons">
+
+            <button id="hideBtn">
+              Hide
+            </button>
+
+            <button id="lockBtn">
+              Lock
+            </button>
+
+          </div>
+
+        </div>
+
+
+      </div>
+
+    </aside>
+
+  </main>
+
+
+
+  <!-- SCENES -->
+
+  <section class="scene-bar">
+
+    <div class="scene-bar-header">
+
+      <strong>Scenes</strong>
+
+      <button
+        id="newSceneBtn"
+        class="btn btn-primary">
+        + New Scene
+      </button>
 
     </div>
 
-  </div>
+
+    <div
+      id="sceneList"
+      class="scene-list">
+
+      <button
+        class="scene-item active"
+        data-scene="Intro">
+        Intro
+      </button>
+
+      <button
+        class="scene-item"
+        data-scene="Question">
+        Question
+      </button>
+
+      <button
+        class="scene-item"
+        data-scene="Explanation">
+        Explanation
+      </button>
+
+      <button
+        class="scene-item"
+        data-scene="Test">
+        Test
+      </button>
+
+      <button
+        class="scene-item"
+        data-scene="Result">
+        Result
+      </button>
+
+    </div>
+
+  </section>
 
 
-  <!-- SUPABASE + CONTROLLER -->
-  <script type="module">
-
-    import {
-      uploadFile
-    } from "./js/media-manager.js";
-
-    const fileInput =
-      document.getElementById("mediaFileInput");
-
-    const uploadButton =
-      document.getElementById("uploadMediaBtn");
-
-    const uploadStatus =
-      document.getElementById("uploadStatus");
+</div>
 
 
-    uploadButton.addEventListener("click", () => {
-      fileInput.click();
-    });
+
+<!-- CORE -->
+
+<script type="module" src="js/controller.js"></script>
+
+<script type="module">
+
+  import {
+    uploadFile
+  } from "./js/media-manager.js";
 
 
-    fileInput.addEventListener("change", async (event) => {
+  const mediaInput =
+    document.getElementById("mediaFile");
+
+  const uploadButton =
+    document.getElementById("uploadMediaBtn");
+
+  const status =
+    document.getElementById("uploadStatus");
+
+
+  uploadButton.addEventListener(
+    "click",
+    () => {
+      mediaInput.click();
+    }
+  );
+
+
+  mediaInput.addEventListener(
+    "change",
+    async () => {
 
       const file =
-        event.target.files?.[0];
+        mediaInput.files[0];
 
-      if (!file) return;
+      if (!file) {
+        return;
+      }
 
 
-      uploadStatus.textContent =
+      status.textContent =
         "Uploading...";
-
-
-      uploadButton.disabled = true;
 
 
       try {
 
-        let folder = "media";
-
-        if (file.type === "application/pdf") {
-          folder = "pdf";
-        }
-
-        else if (file.type.startsWith("image/")) {
-          folder = "images";
-        }
-
-        else if (file.type.startsWith("video/")) {
-          folder = "media/video";
-        }
-
-        else if (file.type.startsWith("audio/")) {
-          folder = "media/audio";
-        }
-
-
         const result =
-          await uploadFile(file, folder);
+          await uploadFile(file);
 
 
-        uploadStatus.textContent =
-          "Uploaded ✓";
-
-
-        console.log(
-          "SmartOverlay File:",
-          result
-        );
+        status.textContent =
+          "Uploaded: " + result.name;
 
 
         window.dispatchEvent(
@@ -364,44 +616,20 @@
           )
         );
 
-      }
+      } catch (error) {
 
-      catch (error) {
+        console.error(error);
 
-        console.error(
-          "Upload failed:",
-          error
-        );
-
-
-        uploadStatus.textContent =
+        status.textContent =
           "Upload failed";
 
-
-        alert(
-          error?.message ||
-          "File upload failed."
-        );
-
       }
 
-      finally {
+    }
+  );
 
-        uploadButton.disabled = false;
+</script>
 
-        fileInput.value = "";
-
-      }
-
-    });
-
-  </script>
-
-
-  <script
-    type="module"
-    src="js/controller.js"
-  ></script>
 
 </body>
 </html>
