@@ -1,0 +1,1 @@
+export const MEDIA_FITS=["contain","cover","fill","none","scale-down"];export function setFit(box,fit){if(!box)return null;box.fit=MEDIA_FITS.includes(fit)?fit:"contain";return box}export default setFit;

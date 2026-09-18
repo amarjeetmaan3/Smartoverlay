@@ -1,0 +1,1 @@
+export function setMediaOpacity(box,value){if(!box)return null;box.opacity=Math.max(0,Math.min(1,Number(value)));return box}export default setMediaOpacity;

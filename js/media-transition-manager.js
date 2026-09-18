@@ -1,0 +1,1 @@
+export const MEDIA_TRANSITIONS=["none","fade","slide","zoom"];export function setTransition(box,{name="fade",duration=400}={}){if(!box)return null;box.transition={name:MEDIA_TRANSITIONS.includes(name)?name:"fade",duration:Math.max(0,Number(duration)||0)};return box}export default setTransition;
