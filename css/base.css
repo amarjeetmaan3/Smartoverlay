@@ -302,4 +302,19 @@ label {
   color: #fff;
 }
 
-/* Mobile
+/* Mobile */
+
+@media (max-width: 700px) {
+  body {
+    font-size: 13px;
+  }
+
+  .two-col {
+    gap: 8px;
+  }
+
+  .btn,
+  .icon-btn {
+    min-height: 42px;
+  }
+}
