@@ -1,0 +1,1 @@
+.so-slideshow{position:relative;overflow:hidden}.so-slideshow-item{position:absolute;inset:0;opacity:0;transition:opacity var(--so-slide-duration,400ms) ease}.so-slideshow-item.active{opacity:1}
