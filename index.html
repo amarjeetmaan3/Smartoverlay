@@ -4,97 +4,80 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>SmartOverlay — Live Studio</title>
+  <title>SmartOverlay</title>
 
   <link rel="stylesheet" href="css/base.css">
   <link rel="stylesheet" href="css/theme.css">
   <link rel="stylesheet" href="css/dashboard.css">
+  <link rel="stylesheet" href="css/editor.css">
   <link rel="stylesheet" href="css/responsive.css">
+
+  <link rel="stylesheet" href="css/scene.css">
+  <link rel="stylesheet" href="css/timeline.css">
+  <link rel="stylesheet" href="css/controls.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/modal.css">
+  <link rel="stylesheet" href="css/toast.css">
 </head>
 
 <body>
 
   <div class="app-shell">
 
-    <header class="topbar glass">
+    <header class="topbar">
+      <div class="brand">
+        <div class="brand-logo">SO</div>
 
-      <a
-        class="brand"
-        href="index.html"
-        aria-label="SmartOverlay Home"
-      >
-        <span class="brand-mark">SO</span>
-
-        <span class="brand-text">
-          SmartOverlay
-        </span>
-      </a>
-
-      <div class="topbar-center">
-
-        <span class="status-dot"></span>
-
-        <span id="systemStatus">
-          Ready
-        </span>
-
+        <div>
+          <h1>SmartOverlay</h1>
+          <span>Live Graphics Studio</span>
+        </div>
       </div>
 
-      <div class="top-actions">
-
-        <a
-          class="icon-btn"
-          href="controller.html"
-        >
-          Controller
+      <div class="topbar-actions">
+        <a href="controller.html" class="btn btn-primary">
+          Open Controller
         </a>
 
-        <a
-          class="icon-btn primary"
-          href="overlay.html"
-        >
-          Open Overlay ↗
+        <a href="overlay.html"
+           target="_blank"
+           class="btn btn-secondary">
+          Open Overlay
         </a>
-
       </div>
-
     </header>
 
 
     <main class="dashboard">
 
-      <section class="hero glass">
+      <section class="hero-card">
 
         <div class="hero-content">
 
-          <div class="eyebrow">
-            LIVE PRODUCTION STUDIO
-          </div>
+          <span class="eyebrow">
+            BROADCAST GRAPHICS SYSTEM
+          </span>
 
-          <h1>
-            Build. Control.
-            <span>Go Live.</span>
-          </h1>
+          <h2>
+            Build. Control. Go Live.
+          </h2>
 
           <p>
-            Create professional live overlays,
-            questions, PDFs, timers, media and
-            scenes from one control center.
+            Create professional live overlays, questions,
+            PDFs, timers, scores, media and scenes from one
+            powerful control center.
           </p>
 
           <div class="hero-actions">
 
-            <a
-              class="btn primary"
-              href="controller.html"
-            >
-              Open Controller
+            <a href="controller.html"
+               class="btn btn-primary btn-large">
+              Launch Controller
             </a>
 
-            <a
-              class="btn"
-              href="overlay.html"
-            >
+            <a href="overlay.html"
+               target="_blank"
+               class="btn btn-secondary btn-large">
               Preview Overlay
             </a>
 
@@ -102,22 +85,32 @@
 
         </div>
 
-        <div class="hero-orbit">
+        <div class="hero-visual">
 
-          <div class="orbit-card card-one">
-            TEXT
-          </div>
+          <div class="preview-window">
 
-          <div class="orbit-card card-two">
-            PDF
-          </div>
+            <div class="preview-top">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
 
-          <div class="orbit-card card-three">
-            QUIZ
-          </div>
+            <div class="preview-screen">
 
-          <div class="orbit-core">
-            SO
+              <div class="preview-box preview-question">
+                QUESTION
+              </div>
+
+              <div class="preview-box preview-answer">
+                ANSWER
+              </div>
+
+              <div class="preview-box preview-timer">
+                00:30
+              </div>
+
+            </div>
+
           </div>
 
         </div>
@@ -125,261 +118,242 @@
       </section>
 
 
-      <section class="quick-grid">
+      <section class="section">
 
-        <a
-          class="feature-card glass"
-          href="controller.html"
-        >
-
-          <div class="feature-icon">
-            ↗
+        <div class="section-heading">
+          <div>
+            <span class="eyebrow">WORKSPACE</span>
+            <h2>SmartOverlay Studio</h2>
           </div>
-
-          <h3>
-            Live Controller
-          </h3>
-
-          <p>
-            Control every overlay element,
-            scene and live graphic.
-          </p>
-
-          <span class="feature-link">
-            Open Studio →
-          </span>
-
-        </a>
-
-
-        <a
-          class="feature-card glass"
-          href="overlay.html"
-        >
-
-          <div class="feature-icon">
-            ◉
-          </div>
-
-          <h3>
-            Live Overlay
-          </h3>
-
-          <p>
-            Clean 16:9 broadcast canvas
-            for your live stream.
-          </p>
-
-          <span class="feature-link">
-            Preview →
-          </span>
-
-        </a>
-
-
-        <div class="feature-card glass">
-
-          <div class="feature-icon">
-            ?
-          </div>
-
-          <h3>
-            Question Engine
-          </h3>
-
-          <p>
-            Questions, options, answers,
-            explanations and quiz controls.
-          </p>
-
-          <span class="feature-status">
-            Ready
-          </span>
-
         </div>
 
 
-        <div class="feature-card glass">
+        <div class="feature-grid">
 
-          <div class="feature-icon">
-            ▤
+          <a href="controller.html"
+             class="feature-card">
+
+            <div class="feature-icon">🎛️</div>
+
+            <h3>Controller</h3>
+
+            <p>
+              Complete control center for scenes,
+              boxes, graphics, media and live content.
+            </p>
+
+            <span class="feature-link">
+              Open Controller →
+            </span>
+
+          </a>
+
+
+          <a href="overlay.html"
+             target="_blank"
+             class="feature-card">
+
+            <div class="feature-icon">🖥️</div>
+
+            <h3>Live Overlay</h3>
+
+            <p>
+              Transparent broadcast output designed
+              for OBS and YouTube live production.
+            </p>
+
+            <span class="feature-link">
+              Open Overlay →
+            </span>
+
+          </a>
+
+
+          <div class="feature-card">
+
+            <div class="feature-icon">🎬</div>
+
+            <h3>Scenes</h3>
+
+            <p>
+              Save complete layouts, content,
+              graphics and behavior as reusable scenes.
+            </p>
+
+            <span class="feature-status">
+              Ready
+            </span>
+
           </div>
 
-          <h3>
-            PDF Studio
-          </h3>
 
-          <p>
-            Display PDFs with page,
-            zoom and presentation controls.
-          </p>
+          <div class="feature-card">
 
-          <span class="feature-status">
-            Ready
-          </span>
+            <div class="feature-icon">📚</div>
+
+            <h3>Question Bank</h3>
+
+            <p>
+              Manage bulk questions, answers and
+              explanations for live teaching and quizzes.
+            </p>
+
+            <span class="feature-status">
+              Ready
+            </span>
+
+          </div>
+
+
+          <div class="feature-card">
+
+            <div class="feature-icon">📄</div>
+
+            <h3>PDF Studio</h3>
+
+            <p>
+              Display PDF pages with independent
+              positioning, zoom and explanation layers.
+            </p>
+
+            <span class="feature-status">
+              Ready
+            </span>
+
+          </div>
+
+
+          <div class="feature-card">
+
+            <div class="feature-icon">🎥</div>
+
+            <h3>Camera & Media</h3>
+
+            <p>
+              Combine camera, images, video and other
+              media inside freely positioned boxes.
+            </p>
+
+            <span class="feature-status">
+              Ready
+            </span>
+
+          </div>
 
         </div>
 
       </section>
 
 
-      <section class="system-panel glass">
+      <section class="section">
 
         <div class="section-heading">
 
           <div>
-
-            <div class="eyebrow">
-              SYSTEM
-            </div>
-
-            <h2>
-              SmartOverlay Modules
-            </h2>
-
-          </div>
-
-          <span class="system-ready">
-            ● ONLINE
-          </span>
-
-        </div>
-
-
-        <div class="module-grid">
-
-          <div class="module">
-            <strong>Canvas</strong>
-            <span>Free-form editor</span>
-          </div>
-
-          <div class="module">
-            <strong>Scenes</strong>
-            <span>Layout management</span>
-          </div>
-
-          <div class="module">
-            <strong>Media</strong>
-            <span>Supabase Storage</span>
-          </div>
-
-          <div class="module">
-            <strong>Questions</strong>
-            <span>Question engine</span>
-          </div>
-
-          <div class="module">
-            <strong>Quiz</strong>
-            <span>Live scoring</span>
-          </div>
-
-          <div class="module">
-            <strong>Timer</strong>
-            <span>Live countdown</span>
-          </div>
-
-          <div class="module">
-            <strong>PDF</strong>
-            <span>Presentation engine</span>
-          </div>
-
-          <div class="module">
-            <strong>Overlay</strong>
-            <span>Broadcast output</span>
-          </div>
-
-        </div>
-
-      </section>
-
-
-      <section class="workflow glass">
-
-        <div class="section-heading">
-
-          <div>
-
-            <div class="eyebrow">
-              WORKFLOW
-            </div>
-
-            <h2>
-              Controller → Overlay
-            </h2>
-
+            <span class="eyebrow">WORKFLOW</span>
+            <h2>Production Flow</h2>
           </div>
 
         </div>
 
 
-        <div class="workflow-steps">
+        <div class="workflow">
 
           <div class="workflow-step">
-
             <span>01</span>
-
-            <strong>
-              Build
-            </strong>
-
-            <small>
-              Create your layout
-            </small>
-
+            <strong>Theme</strong>
+            <small>Choose visual style</small>
           </div>
-
 
           <div class="workflow-line"></div>
 
-
           <div class="workflow-step">
-
             <span>02</span>
-
-            <strong>
-              Configure
-            </strong>
-
-            <small>
-              Add content & behavior
-            </small>
-
+            <strong>Scene</strong>
+            <small>Create workspace</small>
           </div>
-
 
           <div class="workflow-line"></div>
 
-
           <div class="workflow-step">
-
             <span>03</span>
-
-            <strong>
-              Preview
-            </strong>
-
-            <small>
-              Check the live canvas
-            </small>
-
+            <strong>Content</strong>
+            <small>Add live content</small>
           </div>
-
 
           <div class="workflow-line"></div>
 
-
           <div class="workflow-step">
-
             <span>04</span>
+            <strong>Graphics</strong>
+            <small>Move & design boxes</small>
+          </div>
 
-            <strong>
-              LIVE
-            </strong>
+          <div class="workflow-line"></div>
 
-            <small>
-              Send to broadcast
-            </small>
+          <div class="workflow-step workflow-live">
+            <span>05</span>
+            <strong>LIVE</strong>
+            <small>Send to overlay</small>
+          </div>
 
+        </div>
+
+      </section>
+
+
+      <section class="section">
+
+        <div class="section-heading">
+
+          <div>
+            <span class="eyebrow">SYSTEM</span>
+            <h2>Core Modules</h2>
+          </div>
+
+        </div>
+
+
+        <div class="module-list">
+
+          <div class="module-item">
+            <strong>Free-form Canvas</strong>
+            <span>16:9 / 9:16</span>
+          </div>
+
+          <div class="module-item">
+            <strong>Box System</strong>
+            <span>Unlimited Elements</span>
+          </div>
+
+          <div class="module-item">
+            <strong>Scene Engine</strong>
+            <span>Save & Load</span>
+          </div>
+
+          <div class="module-item">
+            <strong>Question Engine</strong>
+            <span>Bulk Import</span>
+          </div>
+
+          <div class="module-item">
+            <strong>Quiz Engine</strong>
+            <span>Live Scoring</span>
+          </div>
+
+          <div class="module-item">
+            <strong>PDF Engine</strong>
+            <span>Live PDF Control</span>
+          </div>
+
+          <div class="module-item">
+            <strong>Media Engine</strong>
+            <span>Images / Video / Audio</span>
+          </div>
+
+          <div class="module-item">
+            <strong>Firebase Sync</strong>
+            <span>Real-time Control</span>
           </div>
 
         </div>
@@ -389,15 +363,17 @@
     </main>
 
 
-    <footer class="footer">
+    <footer class="app-footer">
 
-      <span>
-        SmartOverlay
-      </span>
+      <div>
+        <strong>SmartOverlay</strong>
+        <span>Live Graphics Studio</span>
+      </div>
 
-      <span>
-        Live Production System
-      </span>
+      <div class="system-status">
+        <span class="status-dot"></span>
+        System Ready
+      </div>
 
     </footer>
 
@@ -406,37 +382,11 @@
 
   <script type="module">
 
-    const status =
-      document.getElementById(
-        "systemStatus"
-      );
+    import "./js/app.js";
 
-    window.addEventListener(
-      "online",
-      () => {
-        if (status) {
-          status.textContent =
-            "Online";
-        }
-      }
+    console.log(
+      "SmartOverlay Dashboard Loaded"
     );
-
-    window.addEventListener(
-      "offline",
-      () => {
-        if (status) {
-          status.textContent =
-            "Offline";
-        }
-      }
-    );
-
-    if (status) {
-      status.textContent =
-        navigator.onLine
-          ? "Ready"
-          : "Offline";
-    }
 
   </script>
 
