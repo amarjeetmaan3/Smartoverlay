@@ -1,0 +1,175 @@
+/* =========================================
+   SmartOverlay Animation System
+   ========================================= */
+
+@keyframes so-fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes so-fade-out {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes so-slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes so-slide-down {
+  from {
+    opacity: 0;
+    transform: translateY(-25px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes so-slide-left {
+  from {
+    opacity: 0;
+    transform: translateX(25px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes so-slide-right {
+  from {
+    opacity: 0;
+    transform: translateX(-25px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes so-scale-in {
+  from {
+    opacity: 0;
+    transform: scale(0.88);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes so-pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.45;
+  }
+}
+
+.animate-fade-in {
+  animation: so-fade-in 280ms ease both;
+}
+
+.animate-fade-out {
+  animation: so-fade-out 280ms ease both;
+}
+
+.animate-slide-up {
+  animation: so-slide-up 320ms ease both;
+}
+
+.animate-slide-down {
+  animation: so-slide-down 320ms ease both;
+}
+
+.animate-slide-left {
+  animation: so-slide-left 320ms ease both;
+}
+
+.animate-slide-right {
+  animation: so-slide-right 320ms ease both;
+}
+
+.animate-scale-in {
+  animation: so-scale-in 280ms ease both;
+}
+
+.animate-pulse {
+  animation: so-pulse 1.4s ease-in-out infinite;
+}
+
+/* Scrolling text */
+
+.scroll-left {
+  animation: so-scroll-left var(--scroll-duration, 8s) linear infinite;
+}
+
+.scroll-right {
+  animation: so-scroll-right var(--scroll-duration, 8s) linear infinite;
+}
+
+@keyframes so-scroll-left {
+  from {
+    transform: translateX(100%);
+  }
+
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes so-scroll-right {
+  from {
+    transform: translateX(-100%);
+  }
+
+  to {
+    transform: translateX(100%);
+  }
+}
+
+.pause-animation {
+  animation-play-state: paused !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-fade-in,
+  .animate-fade-out,
+  .animate-slide-up,
+  .animate-slide-down,
+  .animate-slide-left,
+  .animate-slide-right,
+  .animate-scale-in,
+  .animate-pulse,
+  .scroll-left,
+  .scroll-right {
+    animation: none !important;
+  }
+}
