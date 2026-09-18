@@ -1,1 +1,112 @@
-.overlay-page{overflow:hidden;background:transparent}.overlay-root{position:relative;width:100vw;min-height:100vh;overflow:hidden;background:transparent}.overlay-placeholder{position:absolute;inset:0;display:grid;place-items:center;align-content:center;text-align:center;color:#7e8aa4;gap:10px}.overlay-placeholder h1{margin:0;color:#dfe5f2}.overlay-placeholder p{margin:0;font-size:12px}
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background: transparent !important;
+}
+
+.overlay-app {
+  position: fixed;
+  inset: 0;
+
+  width: 100vw;
+  height: 100vh;
+
+  overflow: hidden;
+  background: transparent;
+
+  pointer-events: none;
+}
+
+#overlayRoot {
+  position: absolute;
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  overflow: hidden;
+  background: transparent;
+
+  pointer-events: none;
+}
+
+.overlay-element {
+  position: absolute;
+
+  box-sizing: border-box;
+
+  transform-origin: center center;
+
+  pointer-events: none;
+
+  will-change:
+    transform,
+    left,
+    top,
+    width,
+    height,
+    opacity;
+}
+
+.overlay-element img,
+.overlay-element video,
+.overlay-element iframe {
+  width: 100%;
+  height: 100%;
+  display: block;
+  border: 0;
+}
+
+.overlay-element img,
+.overlay-element video {
+  object-fit: contain;
+}
+
+.overlay-element video {
+  background: #000;
+}
+
+.overlay-text {
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  overflow: hidden;
+
+  color: #fff;
+  font-size: 32px;
+  font-weight: 700;
+
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.overlay-pdf {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  background: #fff;
+}
+
+.overlay-hidden {
+  display: none !important;
+}
+
+.overlay-scroll {
+  white-space: nowrap;
+  will-change: transform;
+}
+
+.overlay-fullscreen {
+  position: fixed !important;
+  inset: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+}
