@@ -1,0 +1,1 @@
+export function applyTextStyle(box,style={}){if(!box)return null;Object.assign(box,{fontWeight:style.fontWeight??box.fontWeight,fontStyle:style.fontStyle??box.fontStyle,textDecoration:style.textDecoration??box.textDecoration,textTransform:style.textTransform??box.textTransform,color:style.color??box.color});return box}export default applyTextStyle;

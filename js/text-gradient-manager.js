@@ -1,0 +1,1 @@
+export function setTextGradient(box,{enabled=false,from="#ffffff",to="#888888",angle=90}={}){if(!box)return null;box.gradientText=!!enabled;box.gradientFrom=from;box.gradientTo=to;box.gradientAngle=Number(angle)||90;return box}export default setTextGradient;

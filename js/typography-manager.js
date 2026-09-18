@@ -1,0 +1,1 @@
+export function applyTypography(box,options={}){if(!box)return null;const keys=["fontFamily","fontSize","fontWeight","fontStyle","lineHeight","letterSpacing","wordSpacing"];for(const key of keys)if(options[key]!=null)box[key]=options[key];return box}export default applyTypography;

@@ -1,0 +1,1 @@
+export function setSpacing(box,{letterSpacing,wordSpacing,lineHeight}={}){if(!box)return null;if(letterSpacing!=null)box.letterSpacing=Number(letterSpacing)||0;if(wordSpacing!=null)box.wordSpacing=Number(wordSpacing)||0;if(lineHeight!=null)box.lineHeight=Math.max(.5,Number(lineHeight)||1.15);return box}export default setSpacing;
