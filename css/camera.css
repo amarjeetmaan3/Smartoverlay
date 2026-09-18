@@ -1,0 +1,88 @@
+/* =========================================
+   SmartOverlay Camera / Video Box
+   ========================================= */
+
+.camera-box {
+  position: relative;
+
+  width: 100%;
+  height: 100%;
+
+  overflow: hidden;
+
+  background: #000;
+
+  border-radius: 8px;
+}
+
+.camera-video {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+
+  background: #000;
+}
+
+.camera-box.contain .camera-video {
+  object-fit: contain;
+}
+
+.camera-overlay {
+  position: absolute;
+  inset: 0;
+
+  pointer-events: none;
+}
+
+.camera-label {
+  position: absolute;
+
+  left: 10px;
+  bottom: 10px;
+
+  padding: 5px 8px;
+
+  border-radius: 6px;
+
+  background: rgba(0, 0, 0, 0.65);
+  color: #fff;
+
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.camera-live-dot {
+  display: inline-block;
+
+  width: 7px;
+  height: 7px;
+
+  margin-right: 5px;
+
+  border-radius: 50%;
+
+  background: #ef4444;
+  box-shadow: 0 0 9px rgba(239, 68, 68, 0.8);
+
+  animation: so-pulse 1.2s ease-in-out infinite;
+}
+
+.camera-offline {
+  position: absolute;
+  inset: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: var(--text-muted);
+
+  font-size: 12px;
+}
+
+.camera-mirror {
+  transform: scaleX(-1);
+}
