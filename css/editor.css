@@ -1,1 +1,77 @@
-.element.dragging{opacity:.82;cursor:grabbing}.canvas::-webkit-scrollbar,.sidebar::-webkit-scrollbar,.properties::-webkit-scrollbar{width:7px;height:7px}.canvas::-webkit-scrollbar-thumb,.sidebar::-webkit-scrollbar-thumb,.properties::-webkit-scrollbar-thumb{background:rgba(255,255,255,.12);border-radius:99px}
+.overlay-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  min-width: 20px;
+  min-height: 20px;
+
+  padding: 12px;
+  overflow: hidden;
+
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 8px;
+
+  background: rgba(108, 99, 255, 0.12);
+  color: #fff;
+
+  font-weight: 600;
+  text-align: center;
+
+  transform-origin: center center;
+
+  transition:
+    border-color 120ms ease,
+    box-shadow 120ms ease,
+    background 120ms ease;
+}
+
+.overlay-box:hover {
+  border-color: rgba(255, 255, 255, 0.32);
+  background: rgba(108, 99, 255, 0.18);
+}
+
+.overlay-box.selected {
+  border: 2px solid var(--accent);
+  box-shadow:
+    0 0 0 2px rgba(108, 99, 255, 0.18),
+    0 0 25px rgba(108, 99, 255, 0.22);
+}
+
+.overlay-box[data-type="image"] {
+  background: rgba(34, 197, 94, 0.1);
+}
+
+.overlay-box[data-type="pdf"] {
+  background: rgba(239, 68, 68, 0.1);
+}
+
+.overlay-box[data-type="timer"] {
+  font-variant-numeric: tabular-nums;
+}
+
+.overlay-box[data-type="question"] {
+  justify-content: flex-start;
+  text-align: left;
+}
+
+.overlay-box[data-type="score"] {
+  font-variant-numeric: tabular-nums;
+}
+
+.overlay-box[data-type="camera"] {
+  background: #000;
+}
+
+.properties-form label {
+  width: 100%;
+}
+
+.properties-form .btn {
+  margin-top: 4px;
+}
+
+#opacityInput {
+  width: 100%;
+  margin-top: 5px;
+}
