@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
   <meta charset="UTF-8">
 
   <meta
@@ -11,12 +10,14 @@
 
   <title>SmartOverlay Controller</title>
 
+  <!-- Core CSS -->
   <link rel="stylesheet" href="css/base.css">
   <link rel="stylesheet" href="css/theme.css">
   <link rel="stylesheet" href="css/dashboard.css">
   <link rel="stylesheet" href="css/editor.css">
   <link rel="stylesheet" href="css/responsive.css">
 
+  <!-- Phase 1 CSS -->
   <link rel="stylesheet" href="css/scene.css">
   <link rel="stylesheet" href="css/timeline.css">
   <link rel="stylesheet" href="css/question.css">
@@ -35,22 +36,36 @@
   <link rel="stylesheet" href="css/camera.css">
   <link rel="stylesheet" href="css/form.css">
 
+  <!-- Phase 2 CSS -->
+  <link rel="stylesheet" href="css/editor-canvas.css">
+  <link rel="stylesheet" href="css/box.css">
+  <link rel="stylesheet" href="css/box-selection.css">
+  <link rel="stylesheet" href="css/resize-handles.css">
+  <link rel="stylesheet" href="css/transform.css">
+  <link rel="stylesheet" href="css/layers.css">
+  <link rel="stylesheet" href="css/alignment.css">
+  <link rel="stylesheet" href="css/grid.css">
+  <link rel="stylesheet" href="css/snapping.css">
+  <link rel="stylesheet" href="css/guides.css">
+  <link rel="stylesheet" href="css/multi-selection.css">
+  <link rel="stylesheet" href="css/mobile-editor.css">
+
 </head>
 
 <body class="controller-page">
 
 <div class="controller-app">
 
-
   <!-- TOP BAR -->
-
   <header class="controller-topbar">
 
     <div class="controller-brand">
 
-      <a href="index.html"
-         class="back-button"
-         title="Dashboard">
+      <a
+        href="index.html"
+        class="back-button"
+        title="Dashboard"
+      >
         ←
       </a>
 
@@ -71,27 +86,31 @@
       <button
         id="undoBtn"
         class="icon-btn"
-        title="Undo">
+        title="Undo"
+      >
         ↶
       </button>
 
       <button
         id="redoBtn"
         class="icon-btn"
-        title="Redo">
+        title="Redo"
+      >
         ↷
       </button>
 
       <button
         id="saveBtn"
-        class="btn btn-primary">
+        class="btn btn-primary"
+      >
         Save
       </button>
 
       <a
         href="overlay.html"
         target="_blank"
-        class="btn btn-secondary">
+        class="btn btn-secondary"
+      >
         Preview
       </a>
 
@@ -100,14 +119,11 @@
   </header>
 
 
-
-  <!-- MAIN WORKSPACE -->
-
+  <!-- WORKSPACE -->
   <main class="controller-workspace">
 
 
-    <!-- LEFT TOOL PANEL -->
-
+    <!-- LEFT TOOLS -->
     <aside class="left-panel">
 
       <div class="panel-header">
@@ -119,7 +135,8 @@
 
         <button
           class="tool-btn active"
-          data-tool="select">
+          data-tool="select"
+        >
           <span>↖</span>
           <small>Select</small>
         </button>
@@ -127,7 +144,8 @@
 
         <button
           class="tool-btn"
-          data-tool="text">
+          data-tool="text"
+        >
           <span>T</span>
           <small>Text</small>
         </button>
@@ -135,7 +153,8 @@
 
         <button
           class="tool-btn"
-          data-tool="image">
+          data-tool="image"
+        >
           <span>▧</span>
           <small>Image</small>
         </button>
@@ -143,7 +162,8 @@
 
         <button
           class="tool-btn"
-          data-tool="pdf">
+          data-tool="pdf"
+        >
           <span>PDF</span>
           <small>PDF</small>
         </button>
@@ -151,7 +171,8 @@
 
         <button
           class="tool-btn"
-          data-tool="question">
+          data-tool="question"
+        >
           <span>?</span>
           <small>Question</small>
         </button>
@@ -159,7 +180,8 @@
 
         <button
           class="tool-btn"
-          data-tool="timer">
+          data-tool="timer"
+        >
           <span>◷</span>
           <small>Timer</small>
         </button>
@@ -167,7 +189,8 @@
 
         <button
           class="tool-btn"
-          data-tool="score">
+          data-tool="score"
+        >
           <span>★</span>
           <small>Score</small>
         </button>
@@ -175,7 +198,8 @@
 
         <button
           class="tool-btn"
-          data-tool="camera">
+          data-tool="camera"
+        >
           <span>▣</span>
           <small>Camera</small>
         </button>
@@ -186,11 +210,66 @@
       <div class="panel-divider"></div>
 
 
+      <!-- EDITOR CONTROLS -->
+      <div class="editor-side-controls">
+
+        <div class="panel-header">
+          <strong>Editor</strong>
+        </div>
+
+
+        <button
+          id="toggleGridBtn"
+          class="btn btn-secondary full-width"
+        >
+          Grid
+        </button>
+
+
+        <button
+          id="centerBoxBtn"
+          class="btn btn-secondary full-width"
+        >
+          Center
+        </button>
+
+
+        <button
+          id="duplicateBoxBtn"
+          class="btn btn-secondary full-width"
+        >
+          Duplicate
+        </button>
+
+
+        <button
+          id="copyBoxBtn"
+          class="btn btn-secondary full-width"
+        >
+          Copy
+        </button>
+
+
+        <button
+          id="pasteBoxBtn"
+          class="btn btn-secondary full-width"
+        >
+          Paste
+        </button>
+
+      </div>
+
+
+      <div class="panel-divider"></div>
+
+
+      <!-- MEDIA -->
       <div class="media-upload">
 
         <div class="panel-header">
           <strong>Media</strong>
         </div>
+
 
         <input
           type="file"
@@ -199,15 +278,19 @@
           hidden
         >
 
+
         <button
           id="uploadMediaBtn"
-          class="btn btn-secondary full-width">
+          class="btn btn-secondary full-width"
+        >
           Upload Media
         </button>
 
+
         <div
           id="uploadStatus"
-          class="upload-status">
+          class="upload-status"
+        >
           No file selected
         </div>
 
@@ -217,13 +300,11 @@
 
 
 
-    <!-- CENTER -->
-
+    <!-- CENTER EDITOR -->
     <section class="center-panel">
 
 
-      <!-- CENTER HEADER -->
-
+      <!-- CANVAS HEADER -->
       <div class="canvas-header">
 
         <div class="canvas-title">
@@ -232,7 +313,7 @@
             Intro
           </strong>
 
-          <span>
+          <span id="canvasSizeLabel">
             1920 × 1080
           </span>
 
@@ -243,7 +324,8 @@
 
           <button
             id="zoomOutBtn"
-            class="icon-btn">
+            class="icon-btn"
+          >
             −
           </button>
 
@@ -253,13 +335,15 @@
 
           <button
             id="zoomInBtn"
-            class="icon-btn">
+            class="icon-btn"
+          >
             +
           </button>
 
           <button
             id="fitCanvasBtn"
-            class="icon-btn">
+            class="icon-btn"
+          >
             Fit
           </button>
 
@@ -269,17 +353,18 @@
 
 
 
-      <!-- CANVAS -->
-
+      <!-- EDITOR VIEWPORT -->
       <div
         id="editorViewport"
-        class="editor-viewport">
+        class="editor-viewport"
+      >
 
         <div
           id="editorCanvas"
-          class="editor-canvas">
+          class="editor-canvas"
+        >
 
-          <!-- Dynamic boxes appear here -->
+          <!-- Dynamic boxes -->
 
         </div>
 
@@ -287,45 +372,56 @@
 
 
 
-      <!-- BOTTOM TOOLBAR -->
-
+      <!-- EDITOR TOOLBAR -->
       <div class="editor-toolbar">
 
         <button
           id="addBoxBtn"
-          class="toolbar-btn">
+          class="toolbar-btn"
+        >
           ＋ Add Box
         </button>
 
+
         <button
           id="duplicateBtn"
-          class="toolbar-btn">
+          class="toolbar-btn"
+        >
           Duplicate
         </button>
 
+
         <button
           id="deleteBtn"
-          class="toolbar-btn danger">
+          class="toolbar-btn danger"
+        >
           Delete
         </button>
 
+
         <button
           id="clearBtn"
-          class="toolbar-btn">
+          class="toolbar-btn"
+        >
           Clear
         </button>
 
-      </div>
 
+        <button
+          id="gridBtn"
+          class="toolbar-btn"
+        >
+          Grid
+        </button>
+
+      </div>
 
     </section>
 
 
 
-    <!-- RIGHT PANEL -->
-
+    <!-- RIGHT PROPERTIES -->
     <aside class="right-panel">
-
 
       <div class="panel-header properties-header">
 
@@ -333,7 +429,8 @@
 
         <button
           id="closeProperties"
-          class="icon-btn">
+          class="icon-btn"
+        >
           ×
         </button>
 
@@ -343,6 +440,7 @@
       <div class="properties-body">
 
 
+        <!-- CONTENT -->
         <div class="property-section">
 
           <label>Element</label>
@@ -350,11 +448,14 @@
           <input
             id="propText"
             type="text"
-            placeholder="Element text">
+            placeholder="Element text"
+          >
 
         </div>
 
 
+
+        <!-- POSITION -->
         <div class="property-section">
 
           <label>Position</label>
@@ -363,18 +464,23 @@
 
             <div>
               <span>X</span>
+
               <input
                 id="propX"
                 type="number"
-                value="0">
+                value="0"
+              >
             </div>
+
 
             <div>
               <span>Y</span>
+
               <input
                 id="propY"
                 type="number"
-                value="0">
+                value="0"
+              >
             </div>
 
           </div>
@@ -382,6 +488,8 @@
         </div>
 
 
+
+        <!-- SIZE -->
         <div class="property-section">
 
           <label>Size</label>
@@ -390,18 +498,23 @@
 
             <div>
               <span>Width</span>
+
               <input
                 id="propWidth"
                 type="number"
-                value="300">
+                value="300"
+              >
             </div>
+
 
             <div>
               <span>Height</span>
+
               <input
                 id="propHeight"
                 type="number"
-                value="100">
+                value="100"
+              >
             </div>
 
           </div>
@@ -409,6 +522,8 @@
         </div>
 
 
+
+        <!-- TRANSFORM -->
         <div class="property-section">
 
           <label>Transform</label>
@@ -417,20 +532,25 @@
 
             <div>
               <span>Rotation</span>
+
               <input
                 id="propRotation"
                 type="number"
-                value="0">
+                value="0"
+              >
             </div>
+
 
             <div>
               <span>Opacity</span>
+
               <input
                 id="propOpacity"
                 type="number"
                 min="0"
                 max="100"
-                value="100">
+                value="100"
+              >
             </div>
 
           </div>
@@ -438,6 +558,8 @@
         </div>
 
 
+
+        <!-- LAYER -->
         <div class="property-section">
 
           <label>Layer</label>
@@ -465,6 +587,8 @@
         </div>
 
 
+
+        <!-- STATE -->
         <div class="property-section">
 
           <label>State</label>
@@ -484,6 +608,43 @@
         </div>
 
 
+
+        <!-- ALIGNMENT -->
+        <div class="property-section">
+
+          <label>Alignment</label>
+
+          <div class="alignment-toolbar">
+
+            <button id="alignLeftBtn">
+              Left
+            </button>
+
+            <button id="alignCenterXBtn">
+              Center
+            </button>
+
+            <button id="alignRightBtn">
+              Right
+            </button>
+
+            <button id="alignTopBtn">
+              Top
+            </button>
+
+            <button id="alignCenterYBtn">
+              Middle
+            </button>
+
+            <button id="alignBottomBtn">
+              Bottom
+            </button>
+
+          </div>
+
+        </div>
+
+
       </div>
 
     </aside>
@@ -492,8 +653,7 @@
 
 
 
-  <!-- SCENES -->
-
+  <!-- SCENE BAR -->
   <section class="scene-bar">
 
     <div class="scene-bar-header">
@@ -502,7 +662,8 @@
 
       <button
         id="newSceneBtn"
-        class="btn btn-primary">
+        class="btn btn-primary"
+      >
         + New Scene
       </button>
 
@@ -511,35 +672,45 @@
 
     <div
       id="sceneList"
-      class="scene-list">
+      class="scene-list"
+    >
 
       <button
         class="scene-item active"
-        data-scene="Intro">
+        data-scene="Intro"
+      >
         Intro
       </button>
 
+
       <button
         class="scene-item"
-        data-scene="Question">
+        data-scene="Question"
+      >
         Question
       </button>
 
+
       <button
         class="scene-item"
-        data-scene="Explanation">
+        data-scene="Explanation"
+      >
         Explanation
       </button>
 
-      <button
-        class="scene-item"
-        data-scene="Test">
-        Test
-      </button>
 
       <button
         class="scene-item"
-        data-scene="Result">
+        data-scene="Test"
+      >
+        Test
+      </button>
+
+
+      <button
+        class="scene-item"
+        data-scene="Result"
+      >
         Result
       </button>
 
@@ -552,11 +723,401 @@
 
 
 
-<!-- CORE -->
-
+<!-- MAIN CONTROLLER -->
 <script type="module" src="js/controller.js"></script>
 
+
+<!-- PHASE 2 EDITOR -->
 <script type="module">
+
+  import EditorCore
+    from "./js/editor-core.js";
+
+  import {
+    snapBox
+  } from "./js/snap-manager.js";
+
+  import {
+    align
+  } from "./js/alignment-manager.js";
+
+
+  const canvas =
+    document.getElementById("editorCanvas");
+
+
+  if (canvas) {
+
+    window.smartOverlayEditor =
+      new EditorCore(canvas);
+
+  }
+
+
+  /*
+   * Add Box
+   */
+
+  const addBoxBtn =
+    document.getElementById("addBoxBtn");
+
+
+  addBoxBtn?.addEventListener(
+    "click",
+    () => {
+
+      const editor =
+        window.smartOverlayEditor;
+
+      if (!editor) return;
+
+
+      const box =
+        editor.addBox({
+          type: "text",
+          content: "New Box",
+          x: 100,
+          y: 100,
+          width: 300,
+          height: 100
+        });
+
+
+      console.log(
+        "Box created:",
+        box
+      );
+
+    }
+  );
+
+
+  /*
+   * Grid
+   */
+
+  const gridButtons = [
+    document.getElementById("gridBtn"),
+    document.getElementById("toggleGridBtn")
+  ];
+
+
+  gridButtons.forEach(
+    button => {
+
+      button?.addEventListener(
+        "click",
+        () => {
+
+          window.smartOverlayEditor
+            ?.grid
+            .toggle();
+
+        }
+      );
+
+    }
+  );
+
+
+  /*
+   * Zoom
+   */
+
+  document
+    .getElementById("zoomInBtn")
+    ?.addEventListener(
+      "click",
+      () => {
+
+        const editor =
+          window.smartOverlayEditor;
+
+        if (!editor) return;
+
+        editor.canvasManager.zoomIn();
+
+        const value =
+          Math.round(
+            editor.canvasManager.zoom * 100
+          );
+
+        document.getElementById(
+          "zoomValue"
+        ).textContent = value + "%";
+
+      }
+    );
+
+
+  document
+    .getElementById("zoomOutBtn")
+    ?.addEventListener(
+      "click",
+      () => {
+
+        const editor =
+          window.smartOverlayEditor;
+
+        if (!editor) return;
+
+        editor.canvasManager.zoomOut();
+
+        const value =
+          Math.round(
+            editor.canvasManager.zoom * 100
+          );
+
+        document.getElementById(
+          "zoomValue"
+        ).textContent = value + "%";
+
+      }
+    );
+
+
+  /*
+   * Fit Canvas
+   */
+
+  document
+    .getElementById("fitCanvasBtn")
+    ?.addEventListener(
+      "click",
+      () => {
+
+        const editor =
+          window.smartOverlayEditor;
+
+        if (!editor) return;
+
+        editor.canvasManager.fit(
+          document.getElementById(
+            "editorViewport"
+          ).clientWidth,
+          document.getElementById(
+            "editorViewport"
+          ).clientHeight
+        );
+
+      }
+    );
+
+
+  /*
+   * Delete
+   */
+
+  document
+    .getElementById("deleteBtn")
+    ?.addEventListener(
+      "click",
+      () => {
+
+        const editor =
+          window.smartOverlayEditor;
+
+        if (!editor) return;
+
+        const ids =
+          editor.selection.getAll();
+
+        ids.forEach(
+          id => editor.remove(id)
+        );
+
+        editor.selection.clear();
+
+      }
+    );
+
+
+  /*
+   * Clear
+   */
+
+  document
+    .getElementById("clearBtn")
+    ?.addEventListener(
+      "click",
+      () => {
+
+        const editor =
+          window.smartOverlayEditor;
+
+        if (!editor) return;
+
+        editor.boxSystem
+          .all()
+          .forEach(
+            box =>
+              editor.remove(box.id)
+          );
+
+        editor.selection.clear();
+
+      }
+    );
+
+
+  /*
+   * Duplicate
+   */
+
+  const duplicate =
+    () => {
+
+      const editor =
+        window.smartOverlayEditor;
+
+      if (!editor) return;
+
+      const selected =
+        editor.selection.getAll();
+
+      selected.forEach(
+        id => {
+
+          const box =
+            editor.boxSystem.get(id);
+
+          if (!box) return;
+
+          const copy =
+            editor.addBox({
+              ...box,
+              id: undefined,
+              x: box.x + 20,
+              y: box.y + 20
+            });
+
+          editor.selection.select(
+            copy.id
+          );
+
+        }
+      );
+
+    };
+
+
+  document
+    .getElementById("duplicateBtn")
+    ?.addEventListener(
+      "click",
+      duplicate
+    );
+
+
+  document
+    .getElementById("duplicateBoxBtn")
+    ?.addEventListener(
+      "click",
+      duplicate
+    );
+
+
+  /*
+   * Center
+   */
+
+  document
+    .getElementById("centerBoxBtn")
+    ?.addEventListener(
+      "click",
+      () => {
+
+        const editor =
+          window.smartOverlayEditor;
+
+        if (!editor) return;
+
+        const ids =
+          editor.selection.getAll();
+
+        const boxes =
+          ids
+            .map(
+              id =>
+                editor.boxSystem.get(id)
+            )
+            .filter(Boolean);
+
+        align(
+          boxes,
+          "center-x"
+        );
+
+        align(
+          boxes,
+          "center-y"
+        );
+
+        boxes.forEach(
+          box =>
+            editor.renderer.render(box)
+        );
+
+      }
+    );
+
+
+  /*
+   * Copy / Paste
+   */
+
+  document
+    .getElementById("copyBoxBtn")
+    ?.addEventListener(
+      "click",
+      () => {
+
+        const editor =
+          window.smartOverlayEditor;
+
+        if (!editor) return;
+
+        const boxes =
+          editor.selection
+            .getAll()
+            .map(
+              id =>
+                editor.boxSystem.get(id)
+            )
+            .filter(Boolean);
+
+        editor.clipboard.copy(boxes);
+
+      }
+    );
+
+
+  document
+    .getElementById("pasteBoxBtn")
+    ?.addEventListener(
+      "click",
+      () => {
+
+        const editor =
+          window.smartOverlayEditor;
+
+        if (!editor) return;
+
+        const boxes =
+          editor.clipboard.paste();
+
+        boxes.forEach(
+          box =>
+            editor.addBox(box)
+        );
+
+      }
+    );
+
+
+  /*
+   * Media Upload
+   */
 
   import {
     uploadFile
@@ -573,24 +1134,24 @@
     document.getElementById("uploadStatus");
 
 
-  uploadButton.addEventListener(
+  uploadButton?.addEventListener(
     "click",
     () => {
-      mediaInput.click();
+
+      mediaInput?.click();
+
     }
   );
 
 
-  mediaInput.addEventListener(
+  mediaInput?.addEventListener(
     "change",
     async () => {
 
       const file =
         mediaInput.files[0];
 
-      if (!file) {
-        return;
-      }
+      if (!file) return;
 
 
       status.textContent =
@@ -616,6 +1177,12 @@
           )
         );
 
+
+        console.log(
+          "Media uploaded:",
+          result
+        );
+
       } catch (error) {
 
         console.error(error);
@@ -628,8 +1195,12 @@
     }
   );
 
-</script>
 
+  console.log(
+    "SmartOverlay Phase 2 Editor Loaded"
+  );
+
+</script>
 
 </body>
 </html>
