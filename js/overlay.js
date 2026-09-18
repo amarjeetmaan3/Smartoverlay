@@ -1,202 +1,172 @@
-let timer = {
-  duration: 0,
-  remaining: 0,
-  running: false,
-  paused: false,
-  startedAt: null,
-  interval: null
-};
+import { supabase } from "./supabase.js";
 
-function emit() {
-  window.dispatchEvent(
-    new CustomEvent("smartoverlay:timer", {
-      detail: getTimer()
-    })
-  );
+const BUCKET = "Ajsmartoverlayfiles";
+
+const overlayRoot =
+  document.getElementById("overlayRoot") ||
+  document.getElementById("overlay") ||
+  document.body;
+
+let currentScene = null;
+let activeElements = new Map();
+
+function clearOverlay() {
+  activeElements.forEach((element) => {
+    element.remove();
+  });
+
+  activeElements.clear();
 }
 
-export function getTimer() {
-  return {
-    duration: timer.duration,
-    remaining: timer.remaining,
-    running: timer.running,
-    paused: timer.paused
-  };
-}
+function createElement(item) {
+  const element = document.createElement("div");
 
-export function setTimer(seconds) {
-  stopTimer();
+  element.className = "smartoverlay-element";
+  element.dataset.type = item.type || "text";
 
-  const value = Math.max(
-    0,
-    Number(seconds) || 0
-  );
+  element.style.position = "absolute";
+  element.style.left = `${item.x || 0}px`;
+  element.style.top = `${item.y || 0}px`;
+  element.style.width = `${item.width || 320}px`;
+  element.style.height = `${item.height || 120}px`;
+  element.style.opacity =
+    `${(item.opacity ?? 100) / 100}`;
 
-  timer.duration = value;
-  timer.remaining = value;
-  timer.paused = false;
+  if (item.type === "image" && item.url) {
+    const image = document.createElement("img");
 
-  emit();
+    image.src = item.url;
+    image.alt = item.name || "SmartOverlay image";
 
-  return getTimer();
-}
+    image.style.width = "100%";
+    image.style.height = "100%";
+    image.style.objectFit = "contain";
 
-export function startTimer() {
-  if (timer.remaining <= 0) {
-    return getTimer();
+    element.appendChild(image);
   }
 
-  if (timer.running) {
-    return getTimer();
+  else if (item.type === "pdf" && item.url) {
+    const iframe = document.createElement("iframe");
+
+    iframe.src = item.url;
+    iframe.style.width = "100%";
+    iframe.style.height = "100%";
+    iframe.style.border = "0";
+
+    element.appendChild(iframe);
   }
 
-  timer.running = true;
-  timer.paused = false;
-  timer.startedAt = Date.now();
+  else if (
+    item.type === "media" &&
+    item.url &&
+    item.mimeType?.startsWith("video/")
+  ) {
+    const video = document.createElement("video");
 
-  timer.interval = setInterval(tick, 250);
+    video.src = item.url;
+    video.autoplay = true;
+    video.muted = true;
+    video.loop = true;
+    video.playsInline = true;
 
-  emit();
+    video.style.width = "100%";
+    video.style.height = "100%";
+    video.style.objectFit = "contain";
 
-  return getTimer();
-}
-
-export function pauseTimer() {
-  if (!timer.running) {
-    return getTimer();
+    element.appendChild(video);
   }
 
-  timer.running = false;
-  timer.paused = true;
-
-  clearInterval(timer.interval);
-  timer.interval = null;
-
-  emit();
-
-  return getTimer();
-}
-
-export function resumeTimer() {
-  if (!timer.paused) {
-    return startTimer();
+  else {
+    element.textContent =
+      item.text || "";
   }
 
-  return startTimer();
+  overlayRoot.appendChild(element);
+
+  return element;
 }
 
-export function stopTimer() {
-  clearInterval(timer.interval);
+export function renderScene(scene) {
+  currentScene = scene;
 
-  timer.interval = null;
-  timer.running = false;
-  timer.paused = false;
-  timer.startedAt = null;
+  clearOverlay();
 
-  return getTimer();
-}
+  if (!scene?.boxes) return;
 
-export function resetTimer() {
-  stopTimer();
+  scene.boxes.forEach((item, index) => {
+    const element = createElement(item);
 
-  timer.remaining = timer.duration;
-
-  emit();
-
-  return getTimer();
-}
-
-function tick() {
-  if (!timer.running) return;
-
-  const elapsed =
-    Math.floor(
-      (Date.now() - timer.startedAt) /
-        1000
+    activeElements.set(
+      item.id || index,
+      element
     );
-
-  const remaining =
-    Math.max(
-      0,
-      timer.remaining - elapsed
-    );
-
-  timer.remaining = remaining;
-  timer.startedAt = Date.now();
-
-  emit();
-
-  if (timer.remaining <= 0) {
-    timer.running = false;
-    timer.paused = false;
-
-    clearInterval(timer.interval);
-    timer.interval = null;
-
-    window.dispatchEvent(
-      new CustomEvent(
-        "smartoverlay:timer-finished"
-      )
-    );
-
-    emit();
-  }
+  });
 }
 
-export function formatTime(seconds) {
-  const value = Math.max(
-    0,
-    Math.floor(
-      Number(seconds) || 0
-    )
-  );
+export function showFile(file) {
+  if (!file?.url) return;
 
-  const hours =
-    Math.floor(value / 3600);
+  const type =
+    file.type === "application/pdf"
+      ? "pdf"
+      : file.type?.startsWith("image/")
+        ? "image"
+        : "media";
 
-  const minutes =
-    Math.floor(
-      (value % 3600) / 60
-    );
+  const element = createElement({
+    type,
+    url: file.url,
+    name: file.name,
+    mimeType: file.type,
+    x: 0,
+    y: 0,
+    width: 1920,
+    height: 1080,
+    opacity: 100
+  });
 
-  const secs =
-    value % 60;
-
-  if (hours > 0) {
-    return [
-      hours,
-      minutes,
-      secs
-    ]
-      .map(
-        (part) =>
-          String(part).padStart(2, "0")
-      )
-      .join(":");
-  }
-
-  return [
-    minutes,
-    secs
-  ]
-    .map(
-      (part) =>
-        String(part).padStart(2, "0")
-    )
-    .join(":");
+  return element;
 }
 
-window.smartOverlayTimer = {
-  getTimer,
-  setTimer,
-  startTimer,
-  pauseTimer,
-  resumeTimer,
-  stopTimer,
-  resetTimer,
-  formatTime
+export function removeElement(id) {
+  const element =
+    activeElements.get(id);
+
+  if (!element) return;
+
+  element.remove();
+  activeElements.delete(id);
+}
+
+export function clearScene() {
+  clearOverlay();
+  currentScene = null;
+}
+
+export function getCurrentScene() {
+  return currentScene;
+}
+
+export function getPublicFileUrl(path) {
+  if (!path) return "";
+
+  const { data } =
+    supabase.storage
+      .from(BUCKET)
+      .getPublicUrl(path);
+
+  return data.publicUrl;
+}
+
+window.smartOverlay = {
+  renderScene,
+  showFile,
+  removeElement,
+  clearScene,
+  getCurrentScene,
+  getPublicFileUrl
 };
 
 console.log(
-  "SmartOverlay Timer initialized"
+  "SmartOverlay Overlay initialized"
 );
