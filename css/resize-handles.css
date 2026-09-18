@@ -1,0 +1,6 @@
+/* SmartOverlay Phase 2 - Resize Handles */
+.so-handle{position:absolute;width:10px;height:10px;border:1px solid currentColor;background:currentColor;z-index:9999}
+.so-handle.nw{left:-5px;top:-5px}.so-handle.n{left:50%;top:-5px;transform:translateX(-50%)}
+.so-handle.ne{right:-5px;top:-5px}.so-handle.e{right:-5px;top:50%;transform:translateY(-50%)}
+.so-handle.se{right:-5px;bottom:-5px}.so-handle.s{left:50%;bottom:-5px;transform:translateX(-50%)}
+.so-handle.sw{left:-5px;bottom:-5px}.so-handle.w{left:-5px;top:50%;transform:translateY(-50%)}

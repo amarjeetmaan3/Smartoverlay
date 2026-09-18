@@ -1,0 +1,4 @@
+/* SmartOverlay Phase 2 - Transform */
+.so-transform-box{will-change:transform,left,top,width,height}
+.so-transform-rotator{position:absolute;left:50%;top:-30px;width:1px;height:25px;background:currentColor;transform:translateX(-50%)}
+.so-transform-rotator::after{content:"";position:absolute;top:-4px;left:-5px;width:10px;height:10px;border:1px solid currentColor;border-radius:50%}

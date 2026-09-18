@@ -1,0 +1,5 @@
+/* SmartOverlay Phase 2 - Box */
+.so-box{position:absolute;box-sizing:border-box;min-width:20px;min-height:20px;user-select:none;transform-origin:center center}
+.so-box.selected{outline:1px solid currentColor}
+.so-box.locked{pointer-events:none}
+.so-box.hidden{display:none}

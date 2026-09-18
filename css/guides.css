@@ -1,0 +1,3 @@
+/* SmartOverlay Phase 2 - Guides */
+.so-guide{position:absolute;pointer-events:none;z-index:10001}
+.so-guide.v{top:0;bottom:0;width:1px}.so-guide.h{left:0;right:0;height:1px}
