@@ -1,444 +1,185 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>SmartOverlay — Live Studio</title>
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>SmartOverlay Live Output</title>
 
   <link rel="stylesheet" href="css/base.css">
   <link rel="stylesheet" href="css/theme.css">
-  <link rel="stylesheet" href="css/dashboard.css">
+  <link rel="stylesheet" href="css/overlay.css">
   <link rel="stylesheet" href="css/responsive.css">
+
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/overlay-editor.css">
+  <link rel="stylesheet" href="css/pdf.css">
+  <link rel="stylesheet" href="css/timer.css">
+  <link rel="stylesheet" href="css/score.css">
+  <link rel="stylesheet" href="css/camera.css">
+
 </head>
 
-<body>
 
-  <div class="app-shell">
+<body class="overlay-page">
 
-    <header class="topbar glass">
 
-      <a
-        class="brand"
-        href="index.html"
-        aria-label="SmartOverlay Home"
-      >
-        <span class="brand-mark">SO</span>
+  <main
+    id="overlayRoot"
+    class="overlay-root">
 
-        <span class="brand-text">
-          SmartOverlay
-        </span>
-      </a>
+  </main>
 
-      <div class="topbar-center">
 
-        <span class="status-dot"></span>
+  <div
+    id="overlayStatus"
+    class="overlay-status">
 
-        <span id="systemStatus">
-          Ready
-        </span>
-
-      </div>
-
-      <div class="top-actions">
-
-        <a
-          class="icon-btn"
-          href="controller.html"
-        >
-          Controller
-        </a>
-
-        <a
-          class="icon-btn primary"
-          href="overlay.html"
-        >
-          Open Overlay ↗
-        </a>
-
-      </div>
-
-    </header>
-
-
-    <main class="dashboard">
-
-      <section class="hero glass">
-
-        <div class="hero-content">
-
-          <div class="eyebrow">
-            LIVE PRODUCTION STUDIO
-          </div>
-
-          <h1>
-            Build. Control.
-            <span>Go Live.</span>
-          </h1>
-
-          <p>
-            Create professional live overlays,
-            questions, PDFs, timers, media and
-            scenes from one control center.
-          </p>
-
-          <div class="hero-actions">
-
-            <a
-              class="btn primary"
-              href="controller.html"
-            >
-              Open Controller
-            </a>
-
-            <a
-              class="btn"
-              href="overlay.html"
-            >
-              Preview Overlay
-            </a>
-
-          </div>
-
-        </div>
-
-        <div class="hero-orbit">
-
-          <div class="orbit-card card-one">
-            TEXT
-          </div>
-
-          <div class="orbit-card card-two">
-            PDF
-          </div>
-
-          <div class="orbit-card card-three">
-            QUIZ
-          </div>
-
-          <div class="orbit-core">
-            SO
-          </div>
-
-        </div>
-
-      </section>
-
-
-      <section class="quick-grid">
-
-        <a
-          class="feature-card glass"
-          href="controller.html"
-        >
-
-          <div class="feature-icon">
-            ↗
-          </div>
-
-          <h3>
-            Live Controller
-          </h3>
-
-          <p>
-            Control every overlay element,
-            scene and live graphic.
-          </p>
-
-          <span class="feature-link">
-            Open Studio →
-          </span>
-
-        </a>
-
-
-        <a
-          class="feature-card glass"
-          href="overlay.html"
-        >
-
-          <div class="feature-icon">
-            ◉
-          </div>
-
-          <h3>
-            Live Overlay
-          </h3>
-
-          <p>
-            Clean 16:9 broadcast canvas
-            for your live stream.
-          </p>
-
-          <span class="feature-link">
-            Preview →
-          </span>
-
-        </a>
-
-
-        <div class="feature-card glass">
-
-          <div class="feature-icon">
-            ?
-          </div>
-
-          <h3>
-            Question Engine
-          </h3>
-
-          <p>
-            Questions, options, answers,
-            explanations and quiz controls.
-          </p>
-
-          <span class="feature-status">
-            Ready
-          </span>
-
-        </div>
-
-
-        <div class="feature-card glass">
-
-          <div class="feature-icon">
-            ▤
-          </div>
-
-          <h3>
-            PDF Studio
-          </h3>
-
-          <p>
-            Display PDFs with page,
-            zoom and presentation controls.
-          </p>
-
-          <span class="feature-status">
-            Ready
-          </span>
-
-        </div>
-
-      </section>
-
-
-      <section class="system-panel glass">
-
-        <div class="section-heading">
-
-          <div>
-
-            <div class="eyebrow">
-              SYSTEM
-            </div>
-
-            <h2>
-              SmartOverlay Modules
-            </h2>
-
-          </div>
-
-          <span class="system-ready">
-            ● ONLINE
-          </span>
-
-        </div>
-
-
-        <div class="module-grid">
-
-          <div class="module">
-            <strong>Canvas</strong>
-            <span>Free-form editor</span>
-          </div>
-
-          <div class="module">
-            <strong>Scenes</strong>
-            <span>Layout management</span>
-          </div>
-
-          <div class="module">
-            <strong>Media</strong>
-            <span>Supabase Storage</span>
-          </div>
-
-          <div class="module">
-            <strong>Questions</strong>
-            <span>Question engine</span>
-          </div>
-
-          <div class="module">
-            <strong>Quiz</strong>
-            <span>Live scoring</span>
-          </div>
-
-          <div class="module">
-            <strong>Timer</strong>
-            <span>Live countdown</span>
-          </div>
-
-          <div class="module">
-            <strong>PDF</strong>
-            <span>Presentation engine</span>
-          </div>
-
-          <div class="module">
-            <strong>Overlay</strong>
-            <span>Broadcast output</span>
-          </div>
-
-        </div>
-
-      </section>
-
-
-      <section class="workflow glass">
-
-        <div class="section-heading">
-
-          <div>
-
-            <div class="eyebrow">
-              WORKFLOW
-            </div>
-
-            <h2>
-              Controller → Overlay
-            </h2>
-
-          </div>
-
-        </div>
-
-
-        <div class="workflow-steps">
-
-          <div class="workflow-step">
-
-            <span>01</span>
-
-            <strong>
-              Build
-            </strong>
-
-            <small>
-              Create your layout
-            </small>
-
-          </div>
-
-
-          <div class="workflow-line"></div>
-
-
-          <div class="workflow-step">
-
-            <span>02</span>
-
-            <strong>
-              Configure
-            </strong>
-
-            <small>
-              Add content & behavior
-            </small>
-
-          </div>
-
-
-          <div class="workflow-line"></div>
-
-
-          <div class="workflow-step">
-
-            <span>03</span>
-
-            <strong>
-              Preview
-            </strong>
-
-            <small>
-              Check the live canvas
-            </small>
-
-          </div>
-
-
-          <div class="workflow-line"></div>
-
-
-          <div class="workflow-step">
-
-            <span>04</span>
-
-            <strong>
-              LIVE
-            </strong>
-
-            <small>
-              Send to broadcast
-            </small>
-
-          </div>
-
-        </div>
-
-      </section>
-
-    </main>
-
-
-    <footer class="footer">
-
-      <span>
-        SmartOverlay
-      </span>
-
-      <span>
-        Live Production System
-      </span>
-
-    </footer>
+    SmartOverlay • LIVE
 
   </div>
 
 
   <script type="module">
 
-    const status =
-      document.getElementById(
-        "systemStatus"
+    import {
+      renderOverlay,
+      clearOverlay
+    } from "./js/overlay.js";
+
+    import {
+      listenData
+    } from "./js/firebase.js";
+
+
+    window.smartOverlayOutput = {
+
+      render(data) {
+
+        try {
+
+          renderOverlay(
+            data
+          );
+
+        } catch (error) {
+
+          console.error(
+            "Overlay render error:",
+            error
+          );
+
+        }
+
+      },
+
+
+      clear() {
+
+        try {
+
+          clearOverlay();
+
+        } catch (error) {
+
+          console.error(
+            "Overlay clear error:",
+            error
+          );
+
+        }
+
+      }
+
+    };
+
+
+    /*
+     * Firebase live overlay listener
+     *
+     * Controller data will later be synced
+     * through the Firebase Sync engine.
+     */
+
+    try {
+
+      listenData(
+        "smartOverlay/live",
+        (data) => {
+
+          if (!data) {
+
+            window.smartOverlayOutput.clear();
+
+            return;
+
+          }
+
+
+          window.smartOverlayOutput.render(
+            data
+          );
+
+        }
       );
 
-    window.addEventListener(
-      "online",
-      () => {
-        if (status) {
-          status.textContent =
-            "Online";
-        }
-      }
-    );
+    } catch (error) {
 
-    window.addEventListener(
-      "offline",
-      () => {
-        if (status) {
-          status.textContent =
-            "Offline";
-        }
-      }
-    );
+      console.warn(
+        "Firebase live listener not active yet:",
+        error
+      );
 
-    if (status) {
-      status.textContent =
-        navigator.onLine
-          ? "Ready"
-          : "Offline";
     }
+
+
+    window.addEventListener(
+      "smartoverlay:scene-change",
+      (event) => {
+
+        if (
+          event.detail
+        ) {
+
+          window.smartOverlayOutput.render(
+            event.detail
+          );
+
+        }
+
+      }
+    );
+
+
+    window.addEventListener(
+      "smartoverlay:overlay-clear",
+      () => {
+
+        window.smartOverlayOutput.clear();
+
+      }
+    );
+
+
+    console.log(
+      "SmartOverlay Overlay Loaded"
+    );
 
   </script>
 
+
+  <script
+    type="module"
+    src="js/overlay-core.js">
+  </script>
+
+
 </body>
+
 </html>
