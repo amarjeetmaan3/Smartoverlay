@@ -1,4 +1,3 @@
-export function normalizeSceneSync(scene = {}) {
-  return { id: scene.id || "scene", name: scene.name || "Untitled", layout: scene.layout || {}, content: scene.content || {}, behavior: scene.behavior || {}, updatedAt: Date.now() };
-}
-export default normalizeSceneSync;
+import {setData,updateData,listenData} from "./firebase.js";
+export const sceneSync={save:(path,scene)=>setData(path,scene),update:(path,patch)=>updateData(path,patch),listen:(path,cb)=>listenData(path,cb)};
+export default sceneSync;
