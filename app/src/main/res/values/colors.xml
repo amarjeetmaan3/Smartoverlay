@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+
+    <color name="smartoverlay_background">
+        #090B10
+    </color>
+
+    <color name="smartoverlay_surface">
+        #11151D
+    </color>
+
+    <color name="smartoverlay_text">
+        #F5F7FB
+    </color>
+
+    <color name="smartoverlay_muted">
+        #9BA5B3
+    </color>
+
+</resources>
