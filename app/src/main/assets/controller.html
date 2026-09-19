@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width,
+                 initial-scale=1.0,
+                 maximum-scale=1.0,
+                 user-scalable=no"
+    >
+
+    <title>SmartOverlay Controller</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            background: #0b1120;
+            color: #ffffff;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .app {
+            width: 100%;
+            max-width: 720px;
+            padding: 24px;
+            text-align: center;
+        }
+
+        .logo {
+            width: 76px;
+            height: 76px;
+            margin: 0 auto 20px;
+            border-radius: 18px;
+            background: #ffffff;
+            color: #0b1120;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            font-weight: 800;
+        }
+
+        h1 {
+            margin: 0 0 8px;
+            font-size: 30px;
+        }
+
+        p {
+            margin: 0;
+            color: #94a3b8;
+            line-height: 1.5;
+        }
+
+        .status {
+            margin-top: 24px;
+            padding: 14px;
+            border: 1px solid #1e293b;
+            border-radius: 12px;
+            background: #111827;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="app">
+
+    <div class="logo">
+        SO
+    </div>
+
+    <h1>SmartOverlay</h1>
+
+    <p>
+        Universal Live Overlay Controller
+    </p>
+
+    <div class="status">
+        Controller Web App Ready
+    </div>
+
+</div>
+
+<script>
+    const android = window.SmartOverlayAndroid;
+
+    if (android) {
+        console.log("SmartOverlay Android bridge connected");
+        console.log("Platform:", android.getPlatform());
+        console.log("Version:", android.getAppVersion());
+    }
+</script>
+
+</body>
+</html>
