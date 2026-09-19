@@ -1,0 +1,13 @@
+/* SmartOverlay Phase 12A — Controller Finalization */
+:root{
+  --controller-bg:#0b0d12;
+  --controller-panel:#11151d;
+  --controller-panel-2:#171c25;
+  --controller-border:rgba(255,255,255,.10);
+  --controller-text:#f4f7fb;
+  --controller-muted:#9aa4b2;
+  --controller-radius:12px;
+}
+.smart-controller{box-sizing:border-box;min-width:0;color:var(--controller-text)}
+.smart-controller-panel{background:var(--controller-panel);border:1px solid var(--controller-border);border-radius:var(--controller-radius)}
+.smart-controller button,.smart-controller input,.smart-controller select{font:inherit}
