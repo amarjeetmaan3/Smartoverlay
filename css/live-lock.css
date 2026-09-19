@@ -1,0 +1,12 @@
+/* SmartOverlay Phase 9 — live-lock.css */
+.so-live-live-lock {
+  box-sizing: border-box;
+}
+.so-live-live-lock button,
+.so-live-live-lock input,
+.so-live-live-lock select {
+  touch-action: manipulation;
+}
+@media (max-width: 900px) {
+  .so-live-live-lock button { min-height: 44px; }
+}

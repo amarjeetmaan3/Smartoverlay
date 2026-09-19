@@ -1,0 +1,12 @@
+/* SmartOverlay Phase 9 — live-notification.css */
+.so-live-live-notification {
+  box-sizing: border-box;
+}
+.so-live-live-notification button,
+.so-live-live-notification input,
+.so-live-live-notification select {
+  touch-action: manipulation;
+}
+@media (max-width: 900px) {
+  .so-live-live-notification button { min-height: 44px; }
+}

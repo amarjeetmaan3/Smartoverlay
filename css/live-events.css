@@ -1,0 +1,12 @@
+/* SmartOverlay Phase 9 — live-events.css */
+.so-live-live-events {
+  box-sizing: border-box;
+}
+.so-live-live-events button,
+.so-live-live-events input,
+.so-live-live-events select {
+  touch-action: manipulation;
+}
+@media (max-width: 900px) {
+  .so-live-live-events button { min-height: 44px; }
+}

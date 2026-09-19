@@ -1,0 +1,12 @@
+/* SmartOverlay Phase 9 — live-preview.css */
+.so-live-live-preview {
+  box-sizing: border-box;
+}
+.so-live-live-preview button,
+.so-live-live-preview input,
+.so-live-live-preview select {
+  touch-action: manipulation;
+}
+@media (max-width: 900px) {
+  .so-live-live-preview button { min-height: 44px; }
+}

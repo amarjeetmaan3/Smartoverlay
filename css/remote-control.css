@@ -1,0 +1,12 @@
+/* SmartOverlay Phase 9 — remote-control.css */
+.so-live-remote-control {
+  box-sizing: border-box;
+}
+.so-live-remote-control button,
+.so-live-remote-control input,
+.so-live-remote-control select {
+  touch-action: manipulation;
+}
+@media (max-width: 900px) {
+  .so-live-remote-control button { min-height: 44px; }
+}

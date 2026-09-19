@@ -1,0 +1,12 @@
+/* SmartOverlay Phase 9 — connection-status.css */
+.so-live-connection-status {
+  box-sizing: border-box;
+}
+.so-live-connection-status button,
+.so-live-connection-status input,
+.so-live-connection-status select {
+  touch-action: manipulation;
+}
+@media (max-width: 900px) {
+  .so-live-connection-status button { min-height: 44px; }
+}
