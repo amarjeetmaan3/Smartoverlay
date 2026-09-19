@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="activity_padding">16dp</dimen>
+    <dimen name="splash_logo_size">96dp</dimen>
+    <dimen name="default_corner_radius">12dp</dimen>
+    <dimen name="default_button_height">48dp</dimen>
+
+</resources>
