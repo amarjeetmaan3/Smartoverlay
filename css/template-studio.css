@@ -1,0 +1,4 @@
+/* SmartOverlay Phase 10 — template-studio.css */
+.so-scene-module { box-sizing:border-box; }
+.so-scene-module button,.so-scene-module input,.so-scene-module select { touch-action:manipulation; }
+@media (max-width:900px) { .so-scene-module button { min-height:44px; } }
