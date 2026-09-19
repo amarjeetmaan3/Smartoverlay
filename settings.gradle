@@ -1,4 +1,4 @@
-￼Enter file pluginManagement {
+Enter file pluginManagement {
     repositories {
         google()
         mavenCentral()
