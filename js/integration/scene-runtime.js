@@ -1,2 +1,2 @@
 /** SmartOverlay Phase 13A - Core Integration */
-export const MODULE_NAME = "integration-engine";
+export const MODULE_NAME = "scene-runtime";
