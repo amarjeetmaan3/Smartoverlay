@@ -1,0 +1,23 @@
+/* Live preview */
+.smartoverlay-controller .controller-preview {
+  aspect-ratio: 16 / 9;
+  width: 100%;
+  background: #05070b;
+  border: 1px solid var(--so-border);
+  border-radius: var(--so-radius);
+  overflow: hidden;
+  position: relative;
+}
+.smartoverlay-controller .controller-preview > * {
+  max-width: 100%;
+}
+.smartoverlay-controller .preview-label {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  padding: 4px 8px;
+  border-radius: 999px;
+  background: rgba(0,0,0,.65);
+  color: var(--so-muted);
+  font-size: 11px;
+}
