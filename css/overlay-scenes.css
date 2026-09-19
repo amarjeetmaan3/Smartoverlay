@@ -1,0 +1,5 @@
+/* SmartOverlay Phase 11 — Universal Web Overlay */
+:root{--overlay-bg:transparent;--overlay-width:100%;--overlay-height:100%}
+.smart-overlay-root{position:relative;width:var(--overlay-width);height:var(--overlay-height);overflow:hidden;background:var(--overlay-bg)}
+.smart-overlay-layer{position:absolute;inset:0;pointer-events:none}
+.smart-overlay-box{position:absolute;box-sizing:border-box}
