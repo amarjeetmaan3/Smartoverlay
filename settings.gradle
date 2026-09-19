@@ -1,4 +1,4 @@
-Enter file pluginManagement {
+pluginManagement {
     repositories {
         google()
         mavenCentral()
@@ -17,4 +17,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "SmartOverlay"
 
-include(":app")contents here
+include(":app")
