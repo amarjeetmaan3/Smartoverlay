@@ -1,0 +1,1 @@
+export class PDFPointerManager{constructor(){this.pointer={visible:false,x:0,y:0}}show(x,y){this.pointer={visible:true,x:Number(x)||0,y:Number(y)||0};return this.pointer}hide(){this.pointer.visible=false;return this.pointer}get(){return{...this.pointer}}}export default PDFPointerManager;

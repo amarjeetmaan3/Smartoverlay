@@ -1,0 +1,1 @@
+export async function uploadPDF(file,uploadFn){if(!file)throw new Error("No PDF selected");if(file.type!=="application/pdf"&&!file.name.toLowerCase().endsWith(".pdf"))throw new Error("Only PDF files are supported");if(typeof uploadFn!=="function")throw new Error("Upload function required");return uploadFn(file,"pdf")}export default uploadPDF;

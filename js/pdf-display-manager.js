@@ -1,0 +1,1 @@
+export class PDFDisplayManager{constructor(){this.flags={pdf:true,controls:true,annotations:true,pointer:true,notes:true}}set(v={}){Object.assign(this.flags,v);return this.get()}toggle(k){if(k in this.flags)this.flags[k]=!this.flags[k];return this.flags[k]}get(){return{...this.flags}}}export default PDFDisplayManager;

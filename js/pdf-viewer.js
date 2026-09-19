@@ -1,0 +1,1 @@
+export class PDFViewer{constructor(element=null){this.element=element}render(state={}){if(this.element){this.element.dataset.page=String(state.page||1);this.element.dataset.zoom=String(state.zoom||1);this.element.dataset.fit=state.fitMode||"box"}return state}}export default PDFViewer;

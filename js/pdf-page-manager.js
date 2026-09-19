@@ -1,0 +1,1 @@
+export class PDFPageManager{constructor(total=0){this.totalPages=Math.max(0,Number(total)||0);this.page=1}goTo(p){this.page=Math.max(1,Math.min(this.totalPages||1,Number(p)||1));return this.page}next(){return this.goTo(this.page+1)}previous(){return this.goTo(this.page-1)}get(){return{page:this.page,totalPages:this.totalPages}}}export default PDFPageManager;

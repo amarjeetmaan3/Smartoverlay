@@ -1,0 +1,1 @@
+export class PDFAnnotationManager{constructor(){this.items=[]}add(item={}){const x={id:Date.now().toString(36)+Math.random().toString(36).slice(2),...item};this.items.push(x);return x}remove(id){this.items=this.items.filter(x=>x.id!==id)}clear(){this.items=[]}getAll(){return this.items.map(x=>({...x}))}}export default PDFAnnotationManager;

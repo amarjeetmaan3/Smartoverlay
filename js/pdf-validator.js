@@ -1,0 +1,1 @@
+export function validatePDF(file){const errors=[];if(!file)errors.push("PDF file is required");else if(file.type!=="application/pdf"&&!String(file.name||"").toLowerCase().endsWith(".pdf"))errors.push("File must be a PDF");return{valid:!errors.length,errors}}export default validatePDF;

@@ -1,0 +1,1 @@
+export const PDF_FIT_MODES=["box","width","height","none"];export const normalizeFit=m=>PDF_FIT_MODES.includes(m)?m:"box";export default normalizeFit;
