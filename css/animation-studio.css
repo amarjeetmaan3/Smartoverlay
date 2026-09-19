@@ -1,0 +1,14 @@
+/* SmartOverlay Phase 8 — animation-studio.css */
+.so-animation-animation-studio {
+  box-sizing: border-box;
+}
+.so-animation-animation-studio button,
+.so-animation-animation-studio input,
+.so-animation-animation-studio select {
+  touch-action: manipulation;
+}
+@media (max-width: 900px) {
+  .so-animation-animation-studio button {
+    min-height: 44px;
+  }
+}

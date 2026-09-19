@@ -1,0 +1,14 @@
+/* SmartOverlay Phase 8 — animation-color.css */
+.so-animation-animation-color {
+  box-sizing: border-box;
+}
+.so-animation-animation-color button,
+.so-animation-animation-color input,
+.so-animation-animation-color select {
+  touch-action: manipulation;
+}
+@media (max-width: 900px) {
+  .so-animation-animation-color button {
+    min-height: 44px;
+  }
+}

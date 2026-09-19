@@ -1,0 +1,14 @@
+/* SmartOverlay Phase 8 — animation-opacity.css */
+.so-animation-animation-opacity {
+  box-sizing: border-box;
+}
+.so-animation-animation-opacity button,
+.so-animation-animation-opacity input,
+.so-animation-animation-opacity select {
+  touch-action: manipulation;
+}
+@media (max-width: 900px) {
+  .so-animation-animation-opacity button {
+    min-height: 44px;
+  }
+}

@@ -1,0 +1,14 @@
+/* SmartOverlay Phase 8 — animation-text.css */
+.so-animation-animation-text {
+  box-sizing: border-box;
+}
+.so-animation-animation-text button,
+.so-animation-animation-text input,
+.so-animation-animation-text select {
+  touch-action: manipulation;
+}
+@media (max-width: 900px) {
+  .so-animation-animation-text button {
+    min-height: 44px;
+  }
+}
