@@ -1,1 +1,1 @@
-
+export const productionConfig={firebaseRoot:"smartOverlay/live",controller:"controller.html",overlay:"overlay.html"};
