@@ -1,0 +1,44 @@
+name: SmartOverlay Android Release
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build-release:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup JDK
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v4
+
+      - name: Check signing configuration
+        run: |
+          if [ -z "${{ secrets.SMARTOVERLAY_KEYSTORE_BASE64 }}" ]; then
+            echo "Release keystore secret is missing."
+            exit 1
+          fi
+
+      - name: Decode release keystore
+        env:
+          KEYSTORE_BASE64: ${{ secrets.SMARTOVERLAY_KEYSTORE_BASE64 }}
+        run: |
+          mkdir -p app/keystore
+          echo "$KEYSTORE_BASE64" | base64 --decode > app/keystore/smartoverlay-release.jks
+
+      - name: Build Release APK
+        run: gradle :app:assembleRelease
+
+      - name: Upload Release APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: SmartOverlay-release
+          path: app/build/outputs/apk/release/app-release.apk
