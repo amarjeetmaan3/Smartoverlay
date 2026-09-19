@@ -1,0 +1,14 @@
+# SmartOverlay release signing configuration
+#
+# IMPORTANT:
+# Rename this file to signing.properties for local release builds.
+#
+# NEVER upload the real signing.properties to GitHub.
+
+storeFile=/secure/path/smartoverlay-release.keystore
+
+storePassword=CHANGE_ME
+
+keyAlias=smartoverlay
+
+keyPassword=CHANGE_ME
