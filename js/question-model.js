@@ -1,0 +1,1 @@
+export function normalizeQuestion(d={},i=1){return{id:d.id||`q_${Date.now()}_${Math.random().toString(36).slice(2,7)}`,No:d.No??d.no??i,Question:d.Question??d.question??"",A:d.A??"",B:d.B??"",C:d.C??"",D:d.D??"",Answer:d.Answer??d.answer??"",Explanation:d.Explanation??d.explanation??"",category:d.category??d.Category??""}}export default normalizeQuestion;

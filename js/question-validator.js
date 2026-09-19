@@ -1,0 +1,1 @@
+export function validateQuestion(q={}){const errors=[];if(!String(q.Question??"").trim())errors.push("Question is required");["A","B","C","D"].forEach(k=>{if(!String(q[k]??"").trim())errors.push(`Option ${k} is required`)});if(!String(q.Answer??"").trim())errors.push("Answer is required");return{valid:!errors.length,errors}}export default validateQuestion;
