@@ -1,5 +1,4 @@
-import {setChannel,publish,subscribe} from "./firebase-sync.js";
-export function setSceneChannel(id){return setChannel("scene-"+id);}
-export function publishScene(scene){return publish({type:"scene",scene});}
-export function subscribeScene(callback){return subscribe(data=>{if(data?.type==="scene")callback(data.scene,data);});}
-window.smartOverlaySceneSync={setSceneChannel,publishScene,subscribeScene};
+export function normalizeSceneSync(scene = {}) {
+  return { id: scene.id || "scene", name: scene.name || "Untitled", layout: scene.layout || {}, content: scene.content || {}, behavior: scene.behavior || {}, updatedAt: Date.now() };
+}
+export default normalizeSceneSync;
