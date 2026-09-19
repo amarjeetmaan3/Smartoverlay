@@ -1,0 +1,18 @@
+/* Performance defaults for browser-source rendering */
+.smartoverlay-overlay .overlay-layer,
+.smartoverlay-overlay .overlay-element,
+.smartoverlay-overlay .overlay-media,
+.smartoverlay-overlay .overlay-scene {
+  contain: layout paint;
+}
+.smartoverlay-overlay img,
+.smartoverlay-overlay video,
+.smartoverlay-overlay canvas {
+  backface-visibility: hidden;
+}
+@media (prefers-reduced-motion: reduce) {
+  .smartoverlay-overlay .overlay-scene {
+    animation: none !important;
+    transition: none !important;
+  }
+}

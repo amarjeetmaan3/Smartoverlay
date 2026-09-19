@@ -1,0 +1,19 @@
+/* Overlay media */
+.smartoverlay-overlay .overlay-media {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.smartoverlay-overlay .overlay-media img,
+.smartoverlay-overlay .overlay-media video {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.smartoverlay-overlay .overlay-media.is-cover img,
+.smartoverlay-overlay .overlay-media.is-cover video {
+  object-fit: cover;
+}

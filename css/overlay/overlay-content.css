@@ -1,0 +1,26 @@
+/* Generic overlay content */
+.smartoverlay-overlay .overlay-content {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+.smartoverlay-overlay .overlay-text {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+.smartoverlay-overlay .overlay-question {
+  position: absolute;
+  left: 5%;
+  right: 5%;
+  top: 10%;
+  padding: 2%;
+  pointer-events: none;
+}
+.smartoverlay-overlay .overlay-answer,
+.smartoverlay-overlay .overlay-explanation {
+  position: absolute;
+  left: 5%;
+  right: 5%;
+  bottom: 8%;
+  pointer-events: none;
+}
