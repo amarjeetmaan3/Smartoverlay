@@ -1,3 +1,9 @@
-/* SmartOverlay 13M — Android APK Final Integration */
-export const moduleInfo = { phase: "13M", purpose: "Android APK Final Integration" };
-export function init(context = {}) { return { ...moduleInfo, context }; }
+package com.smartoverlay.controller
+
+class FinalFirebaseBridge {
+    @Volatile private var connected = false
+
+    fun setConnected(value: Boolean) { connected = value }
+    fun isConnected(): Boolean = connected
+    fun status(): String = if (connected) "connected" else "disconnected"
+}

@@ -1,3 +1,8 @@
-/* SmartOverlay 13M — Android APK Final Integration */
-export const moduleInfo = { phase: "13M", purpose: "Android APK Final Integration" };
-export function init(context = {}) { return { ...moduleInfo, context }; }
+package com.smartoverlay.controller
+
+class FinalOfflineManager {
+    @Volatile private var offline = false
+    fun setOffline(value: Boolean) { offline = value }
+    fun isOffline(): Boolean = offline
+    fun status(): String = if (offline) "offline" else "online"
+}

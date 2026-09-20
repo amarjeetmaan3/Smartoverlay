@@ -1,3 +1,8 @@
-/* SmartOverlay 13M — Android APK Final Integration */
-export const moduleInfo = { phase: "13M", purpose: "Android APK Final Integration" };
-export function init(context = {}) { return { ...moduleInfo, context }; }
+package com.smartoverlay.controller
+
+class FinalUpdateManager {
+    fun isUpgrade(newVersionCode: Int, installedVersionCode: Int): Boolean = newVersionCode > installedVersionCode
+    fun isSameVersion(newVersionCode: Int, installedVersionCode: Int): Boolean = newVersionCode == installedVersionCode
+    fun isOlderVersion(newVersionCode: Int, installedVersionCode: Int): Boolean = newVersionCode < installedVersionCode
+    fun canInstallUpdate(newVersionCode: Int, installedVersionCode: Int): Boolean = isUpgrade(newVersionCode, installedVersionCode)
+}

@@ -1,3 +1,9 @@
-/* SmartOverlay 13M — Android APK Final Integration */
-export const moduleInfo = { phase: "13M", purpose: "Android APK Final Integration" };
-export function init(context = {}) { return { ...moduleInfo, context }; }
+package com.smartoverlay.controller
+
+class FinalAuthSession {
+    var userId: String? = null
+    var isSignedIn: Boolean = false
+
+    fun signIn(id: String) { userId = id; isSignedIn = true }
+    fun signOut() { userId = null; isSignedIn = false }
+}

@@ -1,3 +1,8 @@
-/* SmartOverlay 13M — Android APK Final Integration */
-export const moduleInfo = { phase: "13M", purpose: "Android APK Final Integration" };
-export function init(context = {}) { return { ...moduleInfo, context }; }
+package com.smartoverlay.controller
+
+import android.app.Activity
+
+class FinalBackButtonManager(private val activity: Activity) {
+    fun close() = activity.finish()
+    fun closeAll() = activity.finishAffinity()
+}
