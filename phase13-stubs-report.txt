@@ -1,0 +1,252 @@
+========================================
+FILE: js/integration/overlay/overlay-content.js
+SIZE: 88 bytes
+========================================
+/* SmartOverlay Phase 13G: overlay-content.js */
+export function init(){ return true; }
+
+========================================
+FILE: js/integration/overlay/overlay-entry.js
+SIZE: 86 bytes
+========================================
+/* SmartOverlay Phase 13G: overlay-entry.js */
+export function init(){ return true; }
+
+========================================
+FILE: js/integration/overlay/overlay-layout.js
+SIZE: 87 bytes
+========================================
+/* SmartOverlay Phase 13G: overlay-layout.js */
+export function init(){ return true; }
+
+========================================
+FILE: js/integration/overlay/overlay-media.js
+SIZE: 86 bytes
+========================================
+/* SmartOverlay Phase 13G: overlay-media.js */
+export function init(){ return true; }
+
+========================================
+FILE: js/integration/overlay/overlay-question.js
+SIZE: 89 bytes
+========================================
+/* SmartOverlay Phase 13G: overlay-question.js */
+export function init(){ return true; }
+
+========================================
+FILE: js/integration/overlay/overlay-quiz.js
+SIZE: 85 bytes
+========================================
+/* SmartOverlay Phase 13G: overlay-quiz.js */
+export function init(){ return true; }
+
+========================================
+FILE: js/integration/overlay/overlay-renderer.js
+SIZE: 89 bytes
+========================================
+/* SmartOverlay Phase 13G: overlay-renderer.js */
+export function init(){ return true; }
+
+========================================
+FILE: js/integration/overlay/overlay-scenes.js
+SIZE: 87 bytes
+========================================
+/* SmartOverlay Phase 13G: overlay-scenes.js */
+export function init(){ return true; }
+
+========================================
+FILE: js/integration/production/controller/controller-editor.js
+SIZE: 90 bytes
+========================================
+/* SmartOverlay Phase 13G: controller-editor.js */
+export function init(){ return true; }
+
+========================================
+FILE: js/integration/production/controller/controller-entry.js
+SIZE: 89 bytes
+========================================
+/* SmartOverlay Phase 13G: controller-entry.js */
+export function init(){ return true; }
+
+========================================
+FILE: js/integration/production/controller/controller-live.js
+SIZE: 88 bytes
+========================================
+/* SmartOverlay Phase 13G: controller-live.js */
+export function init(){ return true; }
+
+========================================
+FILE: js/integration/production/controller/controller-media.js
+SIZE: 89 bytes
+========================================
+/* SmartOverlay Phase 13G: controller-media.js */
+export function init(){ return true; }
+
+========================================
+FILE: js/integration/production/controller/controller-pdf.js
+SIZE: 87 bytes
+========================================
+/* SmartOverlay Phase 13G: controller-pdf.js */
+export function init(){ return true; }
+
+========================================
+FILE: js/integration/production/controller/controller-properties.js
+SIZE: 94 bytes
+========================================
+/* SmartOverlay Phase 13G: controller-properties.js */
+export function init(){ return true; }
+
+========================================
+FILE: js/integration/production/controller/controller-question-bank.js
+SIZE: 97 bytes
+========================================
+/* SmartOverlay Phase 13G: controller-question-bank.js */
+export function init(){ return true; }
+
+========================================
+FILE: js/integration/production/controller/controller-quiz.js
+SIZE: 88 bytes
+========================================
+/* SmartOverlay Phase 13G: controller-quiz.js */
+export function init(){ return true; }
+
+========================================
+FILE: js/integration/production/controller/controller-scenes.js
+SIZE: 90 bytes
+========================================
+/* SmartOverlay Phase 13G: controller-scenes.js */
+export function init(){ return true; }
+
+========================================
+FILE: js/integration/production/controller/controller-ui.js
+SIZE: 86 bytes
+========================================
+/* SmartOverlay Phase 13G: controller-ui.js */
+export function init(){ return true; }
+
+========================================
+FILE: js/integration/production/engine-registry.js
+SIZE: 88 bytes
+========================================
+/* SmartOverlay Phase 13G: engine-registry.js */
+export function init(){ return true; }
+
+========================================
+FILE: js/integration/production/firebase-health.js
+SIZE: 88 bytes
+========================================
+/* SmartOverlay Phase 13G: firebase-health.js */
+export function init(){ return true; }
+
+========================================
+FILE: js/integration/production/integration-diagnostics.js
+SIZE: 96 bytes
+========================================
+/* SmartOverlay Phase 13G: integration-diagnostics.js */
+export function init(){ return true; }
+
+========================================
+FILE: js/integration/production/media-wiring.js
+SIZE: 85 bytes
+========================================
+/* SmartOverlay Phase 13G: media-wiring.js */
+export function init(){ return true; }
+
+========================================
+FILE: js/integration/production/module-registry.js
+SIZE: 88 bytes
+========================================
+/* SmartOverlay Phase 13G: module-registry.js */
+export function init(){ return true; }
+
+========================================
+FILE: js/integration/production/pdf-wiring.js
+SIZE: 83 bytes
+========================================
+/* SmartOverlay Phase 13G: pdf-wiring.js */
+export function init(){ return true; }
+
+========================================
+FILE: js/integration/production/production-editor.js
+SIZE: 90 bytes
+========================================
+/* SmartOverlay Phase 13G: production-editor.js */
+export function init(){ return true; }
+
+========================================
+FILE: js/integration/production/production-events.js
+SIZE: 90 bytes
+========================================
+/* SmartOverlay Phase 13G: production-events.js */
+export function init(){ return true; }
+
+========================================
+FILE: js/integration/production/production-health.js
+SIZE: 90 bytes
+========================================
+/* SmartOverlay Phase 13G: production-health.js */
+export function init(){ return true; }
+
+========================================
+FILE: js/integration/production/production-loader.js
+SIZE: 90 bytes
+========================================
+/* SmartOverlay Phase 13G: production-loader.js */
+export function init(){ return true; }
+
+========================================
+FILE: js/integration/production/production-overlay.js
+SIZE: 91 bytes
+========================================
+/* SmartOverlay Phase 13G: production-overlay.js */
+export function init(){ return true; }
+
+========================================
+FILE: js/integration/production/production-router.js
+SIZE: 90 bytes
+========================================
+/* SmartOverlay Phase 13G: production-router.js */
+export function init(){ return true; }
+
+========================================
+FILE: js/integration/production/production-store.js
+SIZE: 89 bytes
+========================================
+/* SmartOverlay Phase 13G: production-store.js */
+export function init(){ return true; }
+
+========================================
+FILE: js/integration/production/production-validator.js
+SIZE: 93 bytes
+========================================
+/* SmartOverlay Phase 13G: production-validator.js */
+export function init(){ return true; }
+
+========================================
+FILE: js/integration/production/question-wiring.js
+SIZE: 88 bytes
+========================================
+/* SmartOverlay Phase 13G: question-wiring.js */
+export function init(){ return true; }
+
+========================================
+FILE: js/integration/production/quiz-wiring.js
+SIZE: 84 bytes
+========================================
+/* SmartOverlay Phase 13G: quiz-wiring.js */
+export function init(){ return true; }
+
+========================================
+FILE: js/integration/production/realtime-test.js
+SIZE: 86 bytes
+========================================
+/* SmartOverlay Phase 13G: realtime-test.js */
+export function init(){ return true; }
+
+========================================
+FILE: js/integration/production/scene-wiring.js
+SIZE: 85 bytes
+========================================
+/* SmartOverlay Phase 13G: scene-wiring.js */
+export function init(){ return true; }
+
