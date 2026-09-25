@@ -1,0 +1,24 @@
+/* Live control room */
+.smartoverlay-controller .live-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+.smartoverlay-controller .live-actions {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 8px;
+}
+.smartoverlay-controller .live-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: var(--so-muted);
+}
+.smartoverlay-controller .live-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: currentColor;
+}

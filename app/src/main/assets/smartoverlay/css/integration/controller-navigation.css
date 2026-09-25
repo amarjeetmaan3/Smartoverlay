@@ -1,0 +1,21 @@
+/* Navigation */
+.smartoverlay-controller .controller-nav {
+  background: #0e141f;
+  border-right: 1px solid var(--so-border);
+  padding: 14px;
+}
+.smartoverlay-controller .controller-nav-list {
+  display: grid;
+  gap: 6px;
+  margin: 12px 0 0;
+}
+.smartoverlay-controller .controller-nav-item {
+  width: 100%;
+  text-align: left;
+  background: transparent;
+  border-color: transparent;
+}
+.smartoverlay-controller .controller-nav-item.is-active {
+  background: var(--so-surface-2);
+  border-color: var(--so-border);
+}

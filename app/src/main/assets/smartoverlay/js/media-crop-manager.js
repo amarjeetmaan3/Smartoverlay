@@ -1,0 +1,1 @@
+export function setCrop(box,{x=0,y=0,scale=1,position="center"}={}){if(!box)return null;box.crop={x:Number(x)||0,y:Number(y)||0,scale:Math.max(.1,Number(scale)||1),position};return box}export function resetCrop(box){if(box)box.crop={x:0,y:0,scale:1,position:"center"};return box}export default setCrop;

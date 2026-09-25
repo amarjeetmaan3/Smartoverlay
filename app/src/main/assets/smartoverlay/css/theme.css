@@ -1,0 +1,55 @@
+:root {
+  --theme-primary: #6c63ff;
+  --theme-secondary: #8b5cf6;
+  --theme-glow: rgba(108, 99, 255, 0.28);
+}
+
+body {
+  min-height: 100vh;
+}
+
+.brand-mark {
+  width: 42px;
+  height: 42px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  background: linear-gradient(
+    135deg,
+    var(--theme-primary),
+    var(--theme-secondary)
+  );
+  color: #fff;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  box-shadow: 0 8px 28px var(--theme-glow);
+}
+
+.brand-mark.small {
+  width: 32px;
+  height: 32px;
+  border-radius: 9px;
+  font-size: 11px;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 800;
+  letter-spacing: -0.3px;
+}
+
+.live-dot {
+  width: 8px;
+  height: 8px;
+  display: inline-block;
+  border-radius: 50%;
+  background: var(--success);
+  box-shadow: 0 0 12px rgba(34, 197, 94, 0.8);
+}
+
+.active {
+  box-shadow: 0 0 0 1px var(--theme-primary);
+}

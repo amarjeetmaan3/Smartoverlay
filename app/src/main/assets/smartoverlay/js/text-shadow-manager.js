@@ -1,0 +1,1 @@
+export function setTextShadow(box,{x=2,y=2,blur=6,color="rgba(0,0,0,.6)"}={}){if(!box)return null;box.textShadow={x:Number(x)||0,y:Number(y)||0,blur:Math.max(0,Number(blur)||0),color};return box}export default setTextShadow;

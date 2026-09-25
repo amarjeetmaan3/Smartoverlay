@@ -1,0 +1,14 @@
+/* SmartOverlay Phase 8 — animation-scale.css */
+.so-animation-animation-scale {
+  box-sizing: border-box;
+}
+.so-animation-animation-scale button,
+.so-animation-animation-scale input,
+.so-animation-animation-scale select {
+  touch-action: manipulation;
+}
+@media (max-width: 900px) {
+  .so-animation-animation-scale button {
+    min-height: 44px;
+  }
+}

@@ -1,0 +1,1 @@
+export class QuestionStateManager{constructor(){this.state={currentIndex:0,selectedIds:[],mode:"manual",order:"original"}}set(d={}){this.state={...this.state,...d};return this.state}get(){return{...this.state}}reset(){this.state={currentIndex:0,selectedIds:[],mode:"manual",order:"original"};return this.get()}}export default QuestionStateManager;

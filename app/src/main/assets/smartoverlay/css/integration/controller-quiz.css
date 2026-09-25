@@ -1,0 +1,17 @@
+/* Quiz controls */
+.smartoverlay-controller .quiz-control {
+  display: grid;
+  gap: 10px;
+}
+.smartoverlay-controller .quiz-score {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+.smartoverlay-controller .quiz-score > div {
+  padding: 12px;
+  background: var(--so-surface-2);
+  border: 1px solid var(--so-border);
+  border-radius: 10px;
+  text-align: center;
+}

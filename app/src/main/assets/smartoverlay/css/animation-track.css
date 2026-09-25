@@ -1,0 +1,14 @@
+/* SmartOverlay Phase 8 — animation-track.css */
+.so-animation-animation-track {
+  box-sizing: border-box;
+}
+.so-animation-animation-track button,
+.so-animation-animation-track input,
+.so-animation-animation-track select {
+  touch-action: manipulation;
+}
+@media (max-width: 900px) {
+  .so-animation-animation-track button {
+    min-height: 44px;
+  }
+}

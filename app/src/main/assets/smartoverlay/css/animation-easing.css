@@ -1,0 +1,14 @@
+/* SmartOverlay Phase 8 — animation-easing.css */
+.so-animation-animation-easing {
+  box-sizing: border-box;
+}
+.so-animation-animation-easing button,
+.so-animation-animation-easing input,
+.so-animation-animation-easing select {
+  touch-action: manipulation;
+}
+@media (max-width: 900px) {
+  .so-animation-animation-easing button {
+    min-height: 44px;
+  }
+}

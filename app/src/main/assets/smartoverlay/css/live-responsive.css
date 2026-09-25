@@ -1,0 +1,12 @@
+/* SmartOverlay Phase 9 — live-responsive.css */
+.so-live-live-responsive {
+  box-sizing: border-box;
+}
+.so-live-live-responsive button,
+.so-live-live-responsive input,
+.so-live-live-responsive select {
+  touch-action: manipulation;
+}
+@media (max-width: 900px) {
+  .so-live-live-responsive button { min-height: 44px; }
+}

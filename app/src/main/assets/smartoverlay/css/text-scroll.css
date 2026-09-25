@@ -1,0 +1,1 @@
+.so-text-scroll{overflow:hidden;white-space:nowrap}.so-text-scroll-track{display:inline-block;white-space:nowrap;will-change:transform}.so-text-scroll.running .so-text-scroll-track{animation:soTextScroll var(--so-scroll-duration,8s) linear infinite}@keyframes soTextScroll{from{transform:translateX(var(--so-scroll-from,100%))}to{transform:translateX(var(--so-scroll-to,-100%))}}

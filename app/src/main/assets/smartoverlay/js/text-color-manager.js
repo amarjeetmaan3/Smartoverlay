@@ -1,0 +1,1 @@
+export function setTextColor(box,color){if(box)box.color=String(color||"#ffffff");return box}export function setTextOpacity(box,opacity){if(box)box.opacity=Math.max(0,Math.min(1,Number(opacity)));return box}export default {setTextColor,setTextOpacity};

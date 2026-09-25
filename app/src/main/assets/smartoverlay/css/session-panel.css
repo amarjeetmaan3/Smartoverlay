@@ -1,0 +1,12 @@
+/* SmartOverlay Phase 9 — session-panel.css */
+.so-live-session-panel {
+  box-sizing: border-box;
+}
+.so-live-session-panel button,
+.so-live-session-panel input,
+.so-live-session-panel select {
+  touch-action: manipulation;
+}
+@media (max-width: 900px) {
+  .so-live-session-panel button { min-height: 44px; }
+}

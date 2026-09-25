@@ -1,0 +1,1 @@
+import {PDFAnnotationManager} from "./pdf-annotation-manager.js";export class PDFHighlightManager extends PDFAnnotationManager{addHighlight(data={}){return this.add({type:"highlight",...data})}}export default PDFHighlightManager;

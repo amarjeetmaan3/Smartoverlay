@@ -1,0 +1,14 @@
+/* SmartOverlay Phase 8 — animation-responsive.css */
+.so-animation-animation-responsive {
+  box-sizing: border-box;
+}
+.so-animation-animation-responsive button,
+.so-animation-animation-responsive input,
+.so-animation-animation-responsive select {
+  touch-action: manipulation;
+}
+@media (max-width: 900px) {
+  .so-animation-animation-responsive button {
+    min-height: 44px;
+  }
+}

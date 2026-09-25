@@ -1,0 +1,1 @@
+import {parseCSV} from "./excel-parser.js";export async function importQuestionFile(file){if(!file)throw new Error("No file selected");if(!/\.(csv|txt)$/i.test(file.name))throw new Error("Export Excel sheet as CSV for browser import.");return parseCSV(await file.text())}export default importQuestionFile;

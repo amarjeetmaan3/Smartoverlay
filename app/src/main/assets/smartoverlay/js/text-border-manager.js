@@ -1,0 +1,1 @@
+export function setTextBorder(box,{width,color,radius,style}={}){if(!box)return null;if(width!=null)box.borderWidth=Math.max(0,Number(width));if(color!=null)box.borderColor=color;if(radius!=null)box.borderRadius=Math.max(0,Number(radius));if(style!=null)box.borderStyle=style;return box}export default setTextBorder;

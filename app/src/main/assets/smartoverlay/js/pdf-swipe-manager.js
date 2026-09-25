@@ -1,0 +1,1 @@
+export class PDFSwipeManager{constructor({threshold=50,onLeft=()=>{},onRight=()=>{}}={}){this.threshold=threshold;this.onLeft=onLeft;this.onRight=onRight;this.startX=null}start(x){this.startX=Number(x)}end(x){if(this.startX===null)return;const d=Number(x)-this.startX;if(Math.abs(d)>=this.threshold)d<0?this.onLeft():this.onRight();this.startX=null}}export default PDFSwipeManager;

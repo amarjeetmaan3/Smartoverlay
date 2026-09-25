@@ -53,7 +53,7 @@ class ControllerWebView(
          */
 
         loadUrl(
-            "file:///android_asset/controller.html"
+            "file:///android_asset/smartoverlay/controller.html"
         )
     }
 }

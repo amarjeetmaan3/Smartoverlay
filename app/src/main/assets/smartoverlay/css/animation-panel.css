@@ -1,0 +1,14 @@
+/* SmartOverlay Phase 8 — animation-panel.css */
+.so-animation-animation-panel {
+  box-sizing: border-box;
+}
+.so-animation-animation-panel button,
+.so-animation-animation-panel input,
+.so-animation-animation-panel select {
+  touch-action: manipulation;
+}
+@media (max-width: 900px) {
+  .so-animation-animation-panel button {
+    min-height: 44px;
+  }
+}

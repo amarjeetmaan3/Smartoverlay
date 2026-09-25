@@ -1,0 +1,1 @@
+export function getCategories(qs=[]){return[...new Set(qs.map(q=>q.category||q.Category).filter(Boolean))]}export function filterCategory(qs=[],c=""){return c?qs.filter(q=>(q.category||q.Category)===c):[...qs]}export default{getCategories,filterCategory};

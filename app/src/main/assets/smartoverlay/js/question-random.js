@@ -1,0 +1,1 @@
+export function randomQuestions(qs=[],n=1){const a=[...qs];n=Math.max(0,Math.min(a.length,Number(n)||0));for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a.slice(0,n)}export default randomQuestions;

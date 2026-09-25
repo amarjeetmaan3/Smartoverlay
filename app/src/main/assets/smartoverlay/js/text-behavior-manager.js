@@ -1,0 +1,1 @@
+export function setTextBehavior(box,{mode,autoStart,loop,repeatCount,pauseOnHide}={}){if(!box)return null;box.behavior={...(box.behavior||{}),...(mode!=null?{mode}:{}),...(autoStart!=null?{autoStart}:{}),...(loop!=null?{loop}:{}),...(repeatCount!=null?{repeatCount}:{}),...(pauseOnHide!=null?{pauseOnHide}:{})};return box}export default setTextBehavior;

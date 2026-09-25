@@ -1,0 +1,4 @@
+/* SmartOverlay Phase 2 - Editor Canvas */
+.editor-viewport{position:relative;flex:1;overflow:hidden;display:flex;align-items:center;justify-content:center;touch-action:none}
+.editor-canvas{position:relative;width:1920px;height:1080px;transform-origin:center center;background:transparent;overflow:visible}
+.editor-canvas.portrait{width:1080px;height:1920px}

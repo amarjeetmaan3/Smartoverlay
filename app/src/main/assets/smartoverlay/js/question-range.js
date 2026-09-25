@@ -1,0 +1,1 @@
+export function selectQuestionRange(qs,start,end){const a=Math.min(Number(start)||1,Number(end)||1),b=Math.max(Number(start)||1,Number(end)||1);return qs.filter(q=>Number(q.No)>=a&&Number(q.No)<=b)}export default selectQuestionRange;

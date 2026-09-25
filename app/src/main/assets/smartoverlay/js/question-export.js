@@ -1,0 +1,1 @@
+export function questionsToCSV(qs=[]){const h=["No","Question","A","B","C","D","Answer","Explanation"],e=v=>`"${String(v??"").replace(/"/g,'""')}"`;return[h.join(","),...qs.map(q=>h.map(k=>e(q[k])).join(","))].join("\n")}export default questionsToCSV;

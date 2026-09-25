@@ -1,0 +1,17 @@
+/* Contextual panels */
+.smartoverlay-controller .controller-panel {
+  background: var(--so-surface);
+  border: 1px solid var(--so-border);
+  border-radius: var(--so-radius);
+  padding: 14px;
+}
+.smartoverlay-controller .controller-panel + .controller-panel { margin-top: 10px; }
+.smartoverlay-controller .panel-title {
+  margin: 0 0 10px;
+  font-size: 14px;
+  font-weight: 700;
+}
+.smartoverlay-controller .panel-grid {
+  display: grid;
+  gap: 9px;
+}

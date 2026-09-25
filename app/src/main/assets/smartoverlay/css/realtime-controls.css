@@ -1,0 +1,12 @@
+/* SmartOverlay Phase 9 — realtime-controls.css */
+.so-live-realtime-controls {
+  box-sizing: border-box;
+}
+.so-live-realtime-controls button,
+.so-live-realtime-controls input,
+.so-live-realtime-controls select {
+  touch-action: manipulation;
+}
+@media (max-width: 900px) {
+  .so-live-realtime-controls button { min-height: 44px; }
+}

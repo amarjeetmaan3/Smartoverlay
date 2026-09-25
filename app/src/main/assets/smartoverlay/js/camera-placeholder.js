@@ -1,0 +1,1 @@
+export function createCameraPlaceholder(data={}){return {type:"camera-placeholder",content:"",placeholder:true,label:data.label||"CAMERA",x:0,y:0,width:640,height:360,opacity:1,visible:true,locked:false,zIndex:1,...data}}export function isCameraPlaceholder(box){return box?.type==="camera-placeholder"||box?.placeholder===true}export default createCameraPlaceholder;

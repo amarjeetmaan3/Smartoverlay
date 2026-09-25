@@ -1,0 +1,16 @@
+/* PDF controls */
+.smartoverlay-controller .pdf-layout {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 8px;
+  align-items: center;
+}
+.smartoverlay-controller .pdf-page {
+  font-variant-numeric: tabular-nums;
+  color: var(--so-muted);
+}
+.smartoverlay-controller .pdf-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+}

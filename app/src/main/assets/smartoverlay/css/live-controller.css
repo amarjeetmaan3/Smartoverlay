@@ -1,0 +1,12 @@
+/* SmartOverlay Phase 9 — live-controller.css */
+.so-live-live-controller {
+  box-sizing: border-box;
+}
+.so-live-live-controller button,
+.so-live-live-controller input,
+.so-live-live-controller select {
+  touch-action: manipulation;
+}
+@media (max-width: 900px) {
+  .so-live-live-controller button { min-height: 44px; }
+}

@@ -1,0 +1,21 @@
+/* Main controller layout */
+.smartoverlay-controller .controller-shell {
+  display: grid;
+  grid-template-columns: 240px minmax(0, 1fr);
+  min-height: 100vh;
+}
+.smartoverlay-controller .controller-main {
+  min-width: 0;
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
+}
+.smartoverlay-controller .controller-content {
+  min-width: 0;
+  padding: 16px;
+}
+.smartoverlay-controller .controller-card {
+  background: var(--so-surface);
+  border: 1px solid var(--so-border);
+  border-radius: var(--so-radius);
+  padding: 14px;
+}

@@ -1,0 +1,3 @@
+/* SmartOverlay Phase 2 - Alignment */
+.alignment-toolbar{display:grid;grid-template-columns:repeat(3,1fr);gap:5px}
+.alignment-toolbar button{min-height:34px}

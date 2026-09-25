@@ -1,0 +1,46 @@
+/* SmartOverlay Phase 13E - Controller application base */
+:root {
+  --so-bg: #0b0f16;
+  --so-surface: #121824;
+  --so-surface-2: #182131;
+  --so-border: #273247;
+  --so-text: #f5f7fb;
+  --so-muted: #98a4b7;
+  --so-accent: #4f8cff;
+  --so-success: #35c98b;
+  --so-danger: #ef6262;
+  --so-radius: 14px;
+}
+.smartoverlay-controller {
+  box-sizing: border-box;
+  min-height: 100%;
+  color: var(--so-text);
+  background: var(--so-bg);
+  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+.smartoverlay-controller *, .smartoverlay-controller *::before, .smartoverlay-controller *::after {
+  box-sizing: inherit;
+}
+.smartoverlay-controller button,
+.smartoverlay-controller input,
+.smartoverlay-controller select,
+.smartoverlay-controller textarea {
+  font: inherit;
+}
+.smartoverlay-controller button {
+  min-height: 42px;
+  border: 1px solid var(--so-border);
+  border-radius: 10px;
+  background: var(--so-surface-2);
+  color: var(--so-text);
+  padding: 8px 12px;
+  cursor: pointer;
+}
+.smartoverlay-controller button:hover { border-color: var(--so-accent); }
+.smartoverlay-controller button:focus-visible {
+  outline: 2px solid var(--so-accent);
+  outline-offset: 2px;
+}
+.smartoverlay-controller .is-hidden { display: none !important; }
+.smartoverlay-controller .status-online { color: var(--so-success); }
+.smartoverlay-controller .status-offline { color: var(--so-danger); }

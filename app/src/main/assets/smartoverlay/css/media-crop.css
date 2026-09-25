@@ -1,0 +1,1 @@
+.so-media-crop{overflow:hidden}.so-media-crop img,.so-media-crop video{transform-origin:center center}.so-media-crop[data-crop='top'] img,.so-media-crop[data-crop='top'] video{object-position:center top}.so-media-crop[data-crop='bottom'] img,.so-media-crop[data-crop='bottom'] video{object-position:center bottom}

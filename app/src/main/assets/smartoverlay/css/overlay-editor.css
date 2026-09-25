@@ -1,0 +1,205 @@
+/* =========================================
+   SmartOverlay Advanced Editor
+   ========================================= */
+
+.editor-element {
+  position: absolute;
+
+  box-sizing: border-box;
+
+  min-width: 20px;
+  min-height: 20px;
+
+  transform-origin: center center;
+
+  touch-action: none;
+}
+
+.editor-element.selected {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+}
+
+.editor-element.locked {
+  cursor: not-allowed !important;
+}
+
+.resize-handle {
+  position: absolute;
+
+  width: 10px;
+  height: 10px;
+
+  border: 2px solid #fff;
+  border-radius: 3px;
+
+  background: var(--accent);
+
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
+
+  z-index: 1000;
+}
+
+.resize-handle.nw {
+  top: -6px;
+  left: -6px;
+  cursor: nwse-resize;
+}
+
+.resize-handle.ne {
+  top: -6px;
+  right: -6px;
+  cursor: nesw-resize;
+}
+
+.resize-handle.sw {
+  bottom: -6px;
+  left: -6px;
+  cursor: nesw-resize;
+}
+
+.resize-handle.se {
+  right: -6px;
+  bottom: -6px;
+  cursor: nwse-resize;
+}
+
+.rotation-handle {
+  position: absolute;
+
+  top: -34px;
+  left: 50%;
+
+  width: 12px;
+  height: 12px;
+
+  border: 2px solid #fff;
+  border-radius: 50%;
+
+  background: var(--accent);
+
+  transform: translateX(-50%);
+
+  cursor: grab;
+}
+
+.rotation-line {
+  position: absolute;
+
+  top: -24px;
+  left: 50%;
+
+  width: 1px;
+  height: 18px;
+
+  background: var(--accent);
+
+  transform: translateX(-50%);
+}
+
+.selection-label {
+  position: absolute;
+
+  left: 0;
+  top: -24px;
+
+  padding: 3px 7px;
+
+  border-radius: 5px;
+
+  background: var(--accent);
+  color: #fff;
+
+  font-size: 9px;
+  font-weight: 700;
+
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+.snap-line {
+  position: absolute;
+
+  background: var(--accent);
+
+  opacity: 0.8;
+
+  pointer-events: none;
+
+  z-index: 9999;
+}
+
+.snap-line.horizontal {
+  left: 0;
+  right: 0;
+  height: 1px;
+}
+
+.snap-line.vertical {
+  top: 0;
+  bottom: 0;
+  width: 1px;
+}
+
+.alignment-guide {
+  position: absolute;
+
+  border: 1px dashed var(--accent);
+
+  pointer-events: none;
+  z-index: 9998;
+}
+
+.lock-indicator {
+  position: absolute;
+
+  right: 5px;
+  top: 5px;
+
+  width: 20px;
+  height: 20px;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 5px;
+
+  background: rgba(0, 0, 0, 0.55);
+  color: #fff;
+
+  font-size: 10px;
+
+  pointer-events: none;
+}
+
+@media (pointer: coarse) {
+  .resize-handle {
+    width: 16px;
+    height: 16px;
+  }
+
+  .resize-handle.nw {
+    top: -9px;
+    left: -9px;
+  }
+
+  .resize-handle.ne {
+    top: -9px;
+    right: -9px;
+  }
+
+  .resize-handle.sw {
+    bottom: -9px;
+    left: -9px;
+  }
+
+  .resize-handle.se {
+    right: -9px;
+    bottom: -9px;
+  }
+
+  .rotation-handle {
+    width: 16px;
+    height: 16px;
+  }
+}

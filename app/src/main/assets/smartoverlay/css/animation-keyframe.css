@@ -1,0 +1,14 @@
+/* SmartOverlay Phase 8 — animation-keyframe.css */
+.so-animation-animation-keyframe {
+  box-sizing: border-box;
+}
+.so-animation-animation-keyframe button,
+.so-animation-animation-keyframe input,
+.so-animation-animation-keyframe select {
+  touch-action: manipulation;
+}
+@media (max-width: 900px) {
+  .so-animation-animation-keyframe button {
+    min-height: 44px;
+  }
+}

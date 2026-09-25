@@ -1,0 +1,1 @@
+export class FontManager{constructor(){this.fonts=["Arial","Helvetica","Verdana","Georgia","Times New Roman","Courier New","Trebuchet MS"]}add(font){if(font&&!this.fonts.includes(font))this.fonts.push(font);return this.fonts}list(){return [...this.fonts]}remove(font){this.fonts=this.fonts.filter(x=>x!==font);return this.fonts}}export default FontManager;

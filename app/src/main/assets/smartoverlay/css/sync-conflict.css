@@ -1,0 +1,12 @@
+/* SmartOverlay Phase 9 — sync-conflict.css */
+.so-live-sync-conflict {
+  box-sizing: border-box;
+}
+.so-live-sync-conflict button,
+.so-live-sync-conflict input,
+.so-live-sync-conflict select {
+  touch-action: manipulation;
+}
+@media (max-width: 900px) {
+  .so-live-sync-conflict button { min-height: 44px; }
+}

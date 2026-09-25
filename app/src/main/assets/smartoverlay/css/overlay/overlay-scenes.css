@@ -1,0 +1,21 @@
+/* Scene transitions */
+.smartoverlay-overlay .overlay-scene {
+  position: absolute;
+  inset: 0;
+  opacity: 1;
+  pointer-events: none;
+}
+.smartoverlay-overlay .overlay-scene.is-entering {
+  animation: smartoverlay-scene-in .2s ease-out both;
+}
+.smartoverlay-overlay .overlay-scene.is-exiting {
+  animation: smartoverlay-scene-out .2s ease-in both;
+}
+@keyframes smartoverlay-scene-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes smartoverlay-scene-out {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}

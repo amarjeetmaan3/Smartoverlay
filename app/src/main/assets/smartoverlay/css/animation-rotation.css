@@ -1,0 +1,14 @@
+/* SmartOverlay Phase 8 — animation-rotation.css */
+.so-animation-animation-rotation {
+  box-sizing: border-box;
+}
+.so-animation-animation-rotation button,
+.so-animation-animation-rotation input,
+.so-animation-animation-rotation select {
+  touch-action: manipulation;
+}
+@media (max-width: 900px) {
+  .so-animation-animation-rotation button {
+    min-height: 44px;
+  }
+}

@@ -1,0 +1,1 @@
+export class PDFStateManager{constructor(){this.reset()}set(v={}){this.state={...this.state,...v};return this.get()}get(){return JSON.parse(JSON.stringify(this.state))}reset(){this.state={active:false,file:null,page:1,totalPages:0,zoom:1,fitMode:"box",transition:"none",annotations:[],notes:[]};return this.get()}}export default PDFStateManager;

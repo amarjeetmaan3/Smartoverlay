@@ -1,0 +1,3 @@
+/* SmartOverlay Phase 2 - Selection */
+.so-selection{position:absolute;inset:0;pointer-events:none;border:1px solid currentColor}
+.so-selection-label{position:absolute;top:-22px;left:0;padding:3px 6px;font-size:11px}

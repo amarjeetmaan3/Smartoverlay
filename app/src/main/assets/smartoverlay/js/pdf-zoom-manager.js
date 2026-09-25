@@ -1,0 +1,1 @@
+export class PDFZoomManager{constructor(z=1){this.zoom=Number(z)||1}in(){return this.set(this.zoom+.1)}out(){return this.set(this.zoom-.1)}reset(){return this.set(1)}set(v){this.zoom=Math.max(.1,Math.min(8,Number(v)||1));return this.zoom}}export default PDFZoomManager;

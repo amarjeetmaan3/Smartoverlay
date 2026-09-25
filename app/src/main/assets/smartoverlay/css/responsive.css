@@ -1,0 +1,285 @@
+/* =========================================
+   SmartOverlay Responsive System
+   Desktop • Tablet • Mobile
+   ========================================= */
+
+@media (max-width: 1200px) {
+  .workspace {
+    grid-template-columns: 170px minmax(0, 1fr) 240px;
+  }
+
+  .sidebar,
+  .properties {
+    padding: 11px;
+  }
+
+  .tool-btn,
+  .scene-btn {
+    font-size: 12px;
+  }
+}
+
+/* =========================================
+   Tablet
+   ========================================= */
+
+@media (max-width: 1000px) {
+  .workspace {
+    grid-template-columns: 175px minmax(0, 1fr);
+  }
+
+  .properties {
+    display: none;
+  }
+
+  .editor-area {
+    min-width: 0;
+  }
+
+  .canvas-wrap {
+    padding: 4px;
+  }
+
+  .topbar-center {
+    position: static;
+    transform: none;
+    margin-left: auto;
+  }
+}
+
+/* =========================================
+   Small Tablet / Large Mobile
+   ========================================= */
+
+@media (max-width: 760px) {
+  .topbar {
+    height: 58px;
+  }
+
+  .workspace {
+    min-height: calc(100vh - 58px);
+    grid-template-columns: 1fr;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .sidebar {
+    order: 2;
+    width: 100%;
+    max-height: 170px;
+    overflow-x: auto;
+    overflow-y: auto;
+  }
+
+  .editor-area {
+    order: 1;
+    min-height: 0;
+    flex: 1;
+  }
+
+  .properties {
+    display: none;
+  }
+
+  .panel-title {
+    margin-top: 6px;
+  }
+
+  .tool-btn,
+  .scene-btn {
+    display: inline-flex;
+    width: auto;
+    min-width: 82px;
+    margin-right: 5px;
+    margin-bottom: 5px;
+  }
+
+  .add-scene {
+    display: inline-flex;
+    width: auto;
+    min-width: 110px;
+  }
+
+  .canvas-wrap {
+    min-height: 0;
+  }
+
+  .canvas {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .editor-toolbar {
+    min-height: 46px;
+  }
+
+  .toolbar-actions {
+    overflow-x: auto;
+    max-width: 65%;
+  }
+
+  .toolbar-actions button {
+    flex-shrink: 0;
+  }
+}
+
+/* =========================================
+   Mobile
+   ========================================= */
+
+@media (max-width: 520px) {
+  .topbar {
+    padding: 0 8px;
+  }
+
+  .brand {
+    font-size: 13px;
+  }
+
+  .brand-mark.small {
+    width: 30px;
+    height: 30px;
+  }
+
+  .top-actions {
+    gap: 4px;
+  }
+
+  .top-actions .icon-btn {
+    min-height: 36px;
+    padding: 0 9px;
+    font-size: 11px;
+  }
+
+  .workspace {
+    gap: 7px;
+    padding: 6px;
+  }
+
+  .editor-toolbar {
+    padding: 7px 9px;
+    font-size: 11px;
+  }
+
+  .toolbar-actions {
+    max-width: 58%;
+  }
+
+  .toolbar-actions button {
+    min-height: 30px;
+    padding: 0 8px;
+    font-size: 11px;
+  }
+
+  .sidebar {
+    padding: 9px;
+    border-radius: 14px;
+  }
+
+  .tool-btn,
+  .scene-btn {
+    min-height: 40px;
+    min-width: 78px;
+    padding: 0 10px;
+  }
+
+  .canvas {
+    border-radius: 8px;
+  }
+
+  .overlay-box {
+    border-radius: 5px;
+  }
+}
+
+/* =========================================
+   Very Small Phones
+   ========================================= */
+
+@media (max-width: 380px) {
+  .top-actions .icon-btn {
+    padding: 0 7px;
+  }
+
+  .brand > span:last-child {
+    display: none;
+  }
+
+  .toolbar-actions {
+    max-width: 52%;
+  }
+
+  .tool-btn,
+  .scene-btn {
+    min-width: 70px;
+    font-size: 11px;
+  }
+}
+
+/* =========================================
+   Touch Optimization
+   ========================================= */
+
+@media (pointer: coarse) {
+  button,
+  .tool-btn,
+  .scene-btn,
+  .add-scene,
+  .overlay-box {
+    touch-action: manipulation;
+  }
+
+  .tool-btn,
+  .scene-btn,
+  .add-scene {
+    min-height: 44px;
+  }
+
+  input,
+  select,
+  textarea {
+    min-height: 42px;
+  }
+
+  .overlay-box {
+    user-select: none;
+    -webkit-user-select: none;
+  }
+}
+
+/* =========================================
+   Landscape Mobile
+   ========================================= */
+
+@media (max-height: 520px) and (orientation: landscape) {
+  .topbar {
+    height: 48px;
+  }
+
+  .workspace {
+    min-height: calc(100vh - 48px);
+  }
+
+  .sidebar {
+    max-height: 105px;
+  }
+
+  .tool-btn,
+  .scene-btn {
+    min-height: 36px;
+  }
+}
+
+/* =========================================
+   Reduced Motion
+   ========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition: none !important;
+    animation: none !important;
+  }
+}

@@ -1,0 +1,12 @@
+/* SmartOverlay Phase 9 — sync-indicator.css */
+.so-live-sync-indicator {
+  box-sizing: border-box;
+}
+.so-live-sync-indicator button,
+.so-live-sync-indicator input,
+.so-live-sync-indicator select {
+  touch-action: manipulation;
+}
+@media (max-width: 900px) {
+  .so-live-sync-indicator button { min-height: 44px; }
+}

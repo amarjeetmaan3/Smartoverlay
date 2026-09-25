@@ -1,0 +1,153 @@
+/* =========================================
+   SmartOverlay Control Components
+   ========================================= */
+
+.control-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.control-section {
+  padding: 12px;
+
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+
+  background: rgba(255, 255, 255, 0.025);
+}
+
+.control-section-title {
+  margin-bottom: 10px;
+
+  color: var(--text-muted);
+
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.control-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.control-row + .control-row {
+  margin-top: 8px;
+}
+
+.control-row > * {
+  min-width: 0;
+}
+
+.control-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.control-grid.three {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.control-button {
+  min-height: 38px;
+  padding: 0 11px;
+
+  border: 1px solid var(--border);
+  border-radius: 8px;
+
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--text-soft);
+
+  transition:
+    background var(--transition),
+    border-color var(--transition),
+    color var(--transition);
+}
+
+.control-button:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+}
+
+.control-button.active {
+  background: rgba(108, 99, 255, 0.15);
+  border-color: rgba(108, 99, 255, 0.4);
+  color: #fff;
+}
+
+.control-button.danger {
+  color: #fca5a5;
+}
+
+.control-button.danger:hover {
+  background: rgba(239, 68, 68, 0.12);
+  border-color: rgba(239, 68, 68, 0.3);
+}
+
+.toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+
+  min-height: 38px;
+}
+
+.toggle-label {
+  color: var(--text-soft);
+  font-size: 12px;
+}
+
+.toggle input {
+  display: none;
+}
+
+.toggle-switch {
+  position: relative;
+
+  width: 42px;
+  height: 23px;
+
+  flex-shrink: 0;
+
+  border-radius: 999px;
+
+  background: rgba(255, 255, 255, 0.12);
+
+  cursor: pointer;
+  transition: background var(--transition);
+}
+
+.toggle-switch::after {
+  content: "";
+
+  position: absolute;
+  top: 3px;
+  left: 3px;
+
+  width: 17px;
+  height: 17px;
+
+  border-radius: 50%;
+  background: #fff;
+
+  transition: transform var(--transition);
+}
+
+.toggle input:checked + .toggle-switch {
+  background: var(--accent);
+}
+
+.toggle input:checked + .toggle-switch::after {
+  transform: translateX(19px);
+}
+
+@media (max-width: 600px) {
+  .control-grid.three {
+    grid-template-columns: 1fr 1fr;
+  }
+}

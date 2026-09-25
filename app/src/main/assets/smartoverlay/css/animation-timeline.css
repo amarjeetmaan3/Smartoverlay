@@ -1,0 +1,14 @@
+/* SmartOverlay Phase 8 — animation-timeline.css */
+.so-animation-animation-timeline {
+  box-sizing: border-box;
+}
+.so-animation-animation-timeline button,
+.so-animation-animation-timeline input,
+.so-animation-animation-timeline select {
+  touch-action: manipulation;
+}
+@media (max-width: 900px) {
+  .so-animation-animation-timeline button {
+    min-height: 44px;
+  }
+}
