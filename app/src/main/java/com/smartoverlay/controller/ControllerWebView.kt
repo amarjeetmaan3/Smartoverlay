@@ -1,13 +1,23 @@
 package com.smartoverlay.controller
 
 import android.content.Context
+import android.webkit.WebResourceRequest
+import android.webkit.WebResourceResponse
 import android.webkit.WebSettings
 import android.webkit.WebView
 import android.webkit.WebViewClient
+import androidx.webkit.WebViewAssetLoader
 
 class ControllerWebView(
     context: Context
 ) : WebView(context) {
+
+    private val assetLoader = WebViewAssetLoader.Builder()
+        .addPathHandler(
+            "/assets/",
+            WebViewAssetLoader.AssetsPathHandler(context)
+        )
+        .build()
 
     init {
 
@@ -17,11 +27,9 @@ class ControllerWebView(
 
             domStorageEnabled = true
 
-            databaseEnabled = true
+            allowFileAccess = false
 
-            allowFileAccess = true
-
-            allowContentAccess = true
+            allowContentAccess = false
 
             cacheMode = WebSettings.LOAD_DEFAULT
 
@@ -34,7 +42,25 @@ class ControllerWebView(
             displayZoomControls = false
         }
 
-        webViewClient = WebViewClient()
+        webViewClient = object : WebViewClient() {
+
+            override fun shouldInterceptRequest(
+                view: WebView,
+                request: WebResourceRequest
+            ): WebResourceResponse? {
+                return assetLoader.shouldInterceptRequest(request.url)
+            }
+
+            @Suppress("DEPRECATION")
+            override fun shouldInterceptRequest(
+                view: WebView,
+                url: String
+            ): WebResourceResponse? {
+                return assetLoader.shouldInterceptRequest(
+                    android.net.Uri.parse(url)
+                )
+            }
+        }
 
         addJavascriptInterface(
             WebAppBridge(context),
@@ -44,16 +70,8 @@ class ControllerWebView(
 
     fun loadController() {
 
-        /*
-         * Phase 12C APK will package the final
-         * SmartOverlay controller web files here.
-         *
-         * Expected asset:
-         * app/src/main/assets/controller.html
-         */
-
         loadUrl(
-            "file:///android_asset/smartoverlay/controller.html"
+            "https://appassets.androidplatform.net/assets/smartoverlay/controller.html"
         )
     }
 }
