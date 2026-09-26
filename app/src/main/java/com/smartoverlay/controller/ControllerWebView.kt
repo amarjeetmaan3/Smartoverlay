@@ -1,6 +1,7 @@
 package com.smartoverlay.controller
 
 import android.content.Context
+import android.net.Uri
 import android.webkit.WebResourceRequest
 import android.webkit.WebResourceResponse
 import android.webkit.WebSettings
@@ -20,25 +21,15 @@ class ControllerWebView(
         .build()
 
     init {
-
         settings.apply {
-
             javaScriptEnabled = true
-
             domStorageEnabled = true
-
             allowFileAccess = false
-
             allowContentAccess = false
-
             cacheMode = WebSettings.LOAD_DEFAULT
-
             mediaPlaybackRequiresUserGesture = false
-
             setSupportZoom(false)
-
             builtInZoomControls = false
-
             displayZoomControls = false
         }
 
@@ -56,9 +47,7 @@ class ControllerWebView(
                 view: WebView,
                 url: String
             ): WebResourceResponse? {
-                return assetLoader.shouldInterceptRequest(
-                    android.net.Uri.parse(url)
-                )
+                return assetLoader.shouldInterceptRequest(Uri.parse(url))
             }
         }
 
@@ -69,7 +58,6 @@ class ControllerWebView(
     }
 
     fun loadController() {
-
         loadUrl(
             "https://appassets.androidplatform.net/assets/smartoverlay/controller.html"
         )
