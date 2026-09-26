@@ -7,3 +7,4 @@ export async function startProduction({mode="controller"}={}) {
  if(mode==="overlay") await wireOverlay(state); else await wireController(state);
  window.smartOverlayProduction={mode,state}; return state;
 }
+}
