@@ -13,7 +13,7 @@ St.snap();drag={rz,sx:e.clientX,sy:e.clientY,x:b.x,y:b.y,w:b.w,h:b.h,r:cv.getBou
 cv.addEventListener("pointermove",e=>{if(!drag)return;const b=cur(),dx=(e.clientX-drag.sx)/drag.r.width*100,dy=(e.clientY-drag.sy)/drag.r.height*100;
 if(drag.rz){b.w=cl(drag.w+dx,3,100-b.x);b.h=cl(drag.h+dy,3,100-b.y)}else{b.x=cl(drag.x+dx,0,100-b.w);b.y=cl(drag.y+dy,0,100-b.h)}up()});
 cv.addEventListener("pointerup",()=>drag=null);
-F.forEach(([i,k,n])=>$(i).addEventListener(n==1?"change":"input",()=>{const b=cur();if(b){b[k]=n?+$(i).value:$(i).value;up()}}));
+F.forEach(([i,k,n])=>$(i).addEventListener(n==1?"change":"input",()=>{const b=cur();if(b){if(k=="text"&&b.bind!="text"&&b.bind!="image")b.bind="text";b[k]=n?+$(i).value:$(i).value;up()}}));
 $("insp").addEventListener("focusin",St.snap);
 $("fLock").onchange=()=>{const b=cur();if(b){b.lock=$("fLock").checked;St.pubL()}};
 $("addBtn").onclick=()=>{St.snap();const k=$("addBind").value,b=St.mk({bind:k,text:k=="text"?"नया टेक्स्ट":"",bgOpacity:k=="camera"?0:60});B().push(b);sel=b.id;up()};
