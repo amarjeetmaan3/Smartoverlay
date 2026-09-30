@@ -2,8 +2,8 @@ import*as St from"./store.js";import{renderCanvas}from"./render.js";
 const $=i=>document.getElementById(i),B=()=>St.boxes(),cur=()=>B().find(b=>b.id===sel),cl=(v,a,z)=>Math.max(a,Math.min(z,v));
 let sel=null,drag=null;
 const starter=()=>[St.mk({bind:"camera",x:2,y:2,w:38,h:42,bgOpacity:0}),St.mk({bind:"question",x:42,y:2,w:56,h:42,fs:2.2}),St.mk({bind:"timer",x:2,y:47,w:18,h:12,fs:4}),St.mk({bind:"stats",x:22,y:47,w:18,h:24,fs:1.6}),St.mk({bind:"explanation",x:42,y:47,w:56,h:30,fs:1.8}),St.mk({bind:"answer",x:2,y:74,w:38,h:14,fs:2.4})];
-const F=[["fBind","bind"],["fText","text"],["fColor","color"],["fBg","bg"],["fOp","bgOpacity",2],["fFs","fs",1],["fDir","dir"],["fX","x",1],["fY","y",1],["fW","w",1],["fH","h",1]];
-export function draw(){const cv=$("cv");cv.parentElement.style.aspectRatio=St.RATIO[St.S.L.ratio];renderCanvas(cv,St.S.L,St.S.D,true,sel);const b=cur();$("insp").style.display=b?"block":"none";if(b){F.forEach(([i,k])=>$(i).value=b[k]);$("fLock").checked=!!b.lock}}
+const F=[["fBind","bind"],["fText","text"],["fColor","color"],["fBg","bg"],["fOp","bgOpacity",2],["fFs","fs",1],["fDir","dir"],["fX","x",1],["fY","y",1],["fW","w",1],["fH","h",1],["fRot","rot",1]];
+export function draw(){const cv=$("cv");cv.parentElement.style.aspectRatio=St.RATIO[St.S.L.ratio];renderCanvas(cv,St.S.L,St.S.D,true,sel);const b=cur();$("insp").style.display=b?"block":"none";if(b){F.forEach(([i,k])=>$(i).value=b[k]);$("fLock").checked=!!b.lock;$("fHide").checked=!!b.hide}}
 const up=()=>{St.pubL();draw()};
 export function startEditor(){const cv=$("cv");
 if(!B().length)B().push(...starter());$("ratio").value=St.S.L.ratio;
@@ -16,6 +16,7 @@ cv.addEventListener("pointerup",()=>drag=null);
 F.forEach(([i,k,n])=>$(i).addEventListener(n==1?"change":"input",()=>{const b=cur();if(b){if(k=="text"&&b.bind!="text"&&b.bind!="image")b.bind="text";b[k]=n?+$(i).value:$(i).value;up()}}));
 $("insp").addEventListener("focusin",St.snap);
 $("fLock").onchange=()=>{const b=cur();if(b){b.lock=$("fLock").checked;St.pubL()}};
+$("fHide").onchange=()=>{const b=cur();if(b){b.hide=$("fHide").checked;up()}};
 $("addBtn").onclick=()=>{St.snap();const k=$("addBind").value,b=St.mk({bind:k,text:k=="text"?"नया टेक्स्ट":"",bgOpacity:k=="camera"?0:60});B().push(b);sel=b.id;up()};
 $("ratio").onchange=()=>{St.snap();St.S.L.ratio=$("ratio").value;sel=null;if(!B().length)B().push(...starter());up()};
 $("undo").onclick=()=>{St.undo();sel=null;draw()};$("redo").onclick=()=>{St.redo();sel=null;draw()};
@@ -23,4 +24,8 @@ $("dup").onclick=()=>{const b=cur();if(!b)return;St.snap();const c=St.mk({...b,x
 $("del").onclick=()=>{const i=B().findIndex(b=>b.id==sel);if(i<0)return;St.snap();B().splice(i,1);sel=null;up()};
 $("front").onclick=()=>{const i=B().findIndex(b=>b.id==sel);if(i<0)return;St.snap();B().push(...B().splice(i,1));up()};
 $("back").onclick=()=>{const i=B().findIndex(b=>b.id==sel);if(i<0)return;St.snap();B().unshift(...B().splice(i,1));up()};
-draw();St.pubL();St.pubD();return draw}
+const rs=()=>{const s=$("scList");s.innerHTML="";Object.keys(St.S.scenes).forEach(n=>{const o=document.createElement("option");o.textContent=n;s.appendChild(o)})};
+$("scSave").onclick=()=>{const n=St.safe($("scName").value);if(!n)return alert("सीन का नाम लिखिए");St.saveScene(n);rs();$("scList").value=n};
+$("scLoad").onclick=()=>{if(St.loadScene($("scList").value)){sel=null;$("ratio").value=St.S.L.ratio;draw()}};
+$("scDel").onclick=()=>{const n=$("scList").value;if(n&&confirm(n+" हटाएँ?")){St.delScene(n);rs()}};
+rs();draw();St.pubL();St.pubD();return draw}
