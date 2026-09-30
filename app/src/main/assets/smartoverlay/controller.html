@@ -41,9 +41,9 @@ window.addEventListener("unhandledrejection",event=>{
 </script>
 
 <script type="module">
-import("./js/integration/production/production-bootstrap.js")
+import("./js/integration/production/production-bootstrap.js?build=3")
 .then(()=>{
-  document.getElementById("bootStatus").textContent="SmartOverlay loaded.";
+  document.getElementById("bootStatus").textContent="SmartOverlay loaded. (build 3 - mode: "+(location.pathname.split("/").pop()||"").toLowerCase()+")";
 })
 .catch(error=>{
   const message=error&&error.stack?error.stack:String(error);
