@@ -1,1 +1,0 @@
-export function setTextBackground(box,{color,gradient,opacity}={}){if(!box)return null;if(color!=null)box.backgroundColor=color;if(gradient!=null)box.backgroundGradient=gradient;if(opacity!=null)box.backgroundOpacity=Math.max(0,Math.min(1,Number(opacity)));return box}export default setTextBackground;

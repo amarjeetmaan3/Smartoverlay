@@ -1,1 +1,0 @@
-export function filterQuestions(qs=[],c={}){const s=String(c.text||"").toLowerCase();return qs.filter(q=>(!s||Object.values(q).some(v=>String(v??"").toLowerCase().includes(s)))&&(!c.category||q.category===c.category))}export default filterQuestions;

@@ -1,1 +1,0 @@
-export class PDFBoxController{constructor(boxManager){this.boxManager=boxManager}create(data={}){return this.boxManager?.createBox?.({type:"pdf",...data})||null}update(id,data={}){return this.boxManager?.updateBox?.(id,data)||null}remove(id){return this.boxManager?.deleteBox?.(id)||null}}export default PDFBoxController;

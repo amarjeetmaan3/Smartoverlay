@@ -1,1 +1,0 @@
-export function searchQuestions(qs=[],query=""){const s=String(query).trim().toLowerCase();return s?qs.filter(q=>Object.values(q).some(v=>String(v??"").toLowerCase().includes(s))):[...qs]}export default searchQuestions;

@@ -1,1 +1,0 @@
-export const MEDIA_MASKS=["none","rounded","circle","pill"];export function setMask(box,mask){if(!box)return null;box.mask=MEDIA_MASKS.includes(mask)?mask:"none";return box}export default setMask;

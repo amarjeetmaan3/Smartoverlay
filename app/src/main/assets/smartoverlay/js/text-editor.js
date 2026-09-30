@@ -1,1 +1,0 @@
-export function setText(box,text){if(box)box.content=String(text??"");return box}export function getText(box){return box?.content??""}export function appendText(box,text){if(box)box.content+=String(text??"");return box}export default {setText,getText,appendText};

@@ -1,1 +1,0 @@
-export function exportPDFState(state){return JSON.stringify(state,null,2)}export function exportPDFBlob(state){return new Blob([exportPDFState(state)],{type:"application/json"})}export default exportPDFState;

@@ -1,1 +1,0 @@
-export const previous=m=>m?.previous?.();export const next=m=>m?.next?.();export const goTo=(m,p)=>m?.goTo?.(p);export default{previous,next,goTo};

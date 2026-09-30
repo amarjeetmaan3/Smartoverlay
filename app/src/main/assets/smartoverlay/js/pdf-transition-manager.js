@@ -1,1 +1,0 @@
-export const PDF_TRANSITIONS=["none","fade","slide-left","slide-right","slide-up","slide-down"];export const normalizeTransition=v=>PDF_TRANSITIONS.includes(v)?v:"none";export default normalizeTransition;
