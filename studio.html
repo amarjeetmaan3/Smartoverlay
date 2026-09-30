@@ -1,0 +1,34 @@
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>SmartOverlay Studio</title>
+<style>
+body{margin:0;padding:10px;background:#0b0f14;color:#f4f7fb;font:14px system-ui,sans-serif}
+h3{margin:14px 0 6px;font-size:15px}.row{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin:6px 0}
+button,select,input,textarea{background:#1c2430;color:#f4f7fb;border:1px solid #2b3644;border-radius:8px;padding:8px;font:inherit}
+button{font-weight:600;min-height:38px}input[type=number]{width:70px}input[type=color]{padding:0;width:44px;height:36px}textarea{width:100%;box-sizing:border-box}
+.wrap{width:100%;background:#1b2430 repeating-conic-gradient(#222c38 0 25%,#1b2430 0 50%) 0 0/24px 24px;border:1px solid #2b3644}
+#cv{touch-action:none}.sec{background:#151b24;border:1px solid #2b3644;border-radius:12px;padding:10px;margin-top:10px}#insp{display:none}
+</style></head><body>
+<div class="row"><b>SmartOverlay Studio</b><select id="ratio"><option>16:9</option><option>9:16</option></select><button id="undo">↶ Undo</button><button id="redo">↷ Redo</button></div>
+<div class="wrap"><div id="cv"></div></div>
+<div class="sec"><div class="row"><select id="addBind"><option value="text">Text</option><option value="question">Question</option><option value="answer">Answer</option><option value="explanation">Explanation</option><option value="qno">Q Number</option><option value="timer">Timer</option><option value="stats">Stats/Score</option><option value="camera">Camera (खाली)</option><option value="image">Image (URL)</option></select><button id="addBtn">+ Box जोड़ें</button></div>
+<div class="row"><button id="dup">Copy</button><button id="del">Delete</button><button id="front">Front</button><button id="back">Back</button></div>
+<div id="insp"><div class="row">Type <select id="fBind"><option>text</option><option>question</option><option>answer</option><option>explanation</option><option>qno</option><option>timer</option><option>stats</option><option>camera</option><option>image</option></select> Scroll <select id="fDir"><option value="">None</option><option value="l">Right→Left</option><option value="r">Left→Right</option><option value="u">Bottom→Top</option><option value="d">Top→Bottom</option></select></div>
+<textarea id="fText" rows="2"></textarea>
+<div class="row">Text <input type="color" id="fColor"> BG <input type="color" id="fBg"> BG% <input type="range" id="fOp" min="0" max="100"> Size <input type="number" id="fFs" step="0.1"></div>
+<div class="row">X <input type="number" id="fX"> Y <input type="number" id="fY"> W <input type="number" id="fW"> H <input type="number" id="fH"> <label><input type="checkbox" id="fLock"> Lock</label></div></div></div>
+<div class="sec"><h3>सवाल (Excel से कॉपी करके पेस्ट करें, या CSV चुनें)</h3>
+<div class="row" style="font-size:12px;color:#9ca9b8">कॉलम: No, Question, A, B, C, D, Answer, Explanation</div>
+<textarea id="csv" rows="3" placeholder="यहाँ पेस्ट करें"></textarea><div class="row"><button id="importBtn">Import</button><input type="file" id="file" accept=".csv,.txt"><span id="qinfo"></span></div>
+<div class="row"><button id="prev">◀</button><button id="next">▶</button><button id="rand">Random</button><input type="number" id="goto" placeholder="#"><button id="goBtn">Go</button></div>
+<div class="row"><label><input type="checkbox" id="chkQ"> Question</label><label><input type="checkbox" id="chkA"> Answer</label><label><input type="checkbox" id="chkE"> Explanation</label></div></div>
+<div class="sec"><h3>Timer और Score</h3><div class="row">सेकंड <input type="number" id="secs" value="30"><button id="tStart">Start</button><button id="tPause">Pause</button><button id="tReset">Reset</button></div>
+<div class="row"><label><input type="checkbox" id="autoTimer"> नए सवाल पर टाइमर</label><label><input type="checkbox" id="autoAns" checked> Time-up पर Answer</label><label><input type="checkbox" id="autoNext"> Auto Next</label></div>
+<div class="row"><button id="sc">✓ Correct</button><button id="sw">✕ Wrong</button><button id="ss">Skip</button><button id="scReset">Reset</button></div>
+<div class="row">सही + <input type="number" id="cm" step="0.25"> गलत − <input type="number" id="wm" step="0.25"></div></div>
+<div class="sec">ओवरले लिंक (OBS में): <b id="lnk"></b></div>
+<script type="module">
+import*as St from"./js/canvas/store.js";import{tick}from"./js/canvas/render.js";import{startEditor}from"./js/canvas/editor.js";import{startQuestions}from"./js/canvas/questions.js";
+document.getElementById("lnk").textContent=location.href.replace(/studio\.html.*/,"live.html");
+try{await St.load()}catch(e){alert("Firebase लोड एरर: "+e.message)}
+const draw=startEditor();startQuestions(draw);
+setInterval(()=>tick(document.getElementById("cv"),St.S.D),250);
+</script></body></html>
