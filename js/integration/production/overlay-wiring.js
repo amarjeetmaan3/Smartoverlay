@@ -7,9 +7,12 @@ export async function wireOverlay(state) {
 
   root.classList.add("smart-overlay-output");
 
-  const render = data => {
-    if (!data) return;
+  const render = raw => {
+    if (!raw) return;
 
+    // कंट्रोलर डेटा "smartOverlay/live/state" में लिखता है, इसलिए असली
+    // डेटा raw.state में होता है (पुराने फ़ॉर्मेट के लिए raw भी चलेगा)।
+    const data = raw.state || raw;
     const content = data.content || {};
 
     if (content.type === "clear") {
