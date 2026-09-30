@@ -19,8 +19,8 @@ function css(){if(document.getElementById("cvcss"))return;const s=document.creat
 @keyframes su{from{transform:translateY(100cqh)}to{transform:translateY(-100cqh)}}
 @keyframes sd{from{transform:translateY(-100cqh)}to{transform:translateY(100cqh)}}`;document.head.appendChild(s)}
 export function renderCanvas(root,L,d,ed,sel){css();root.className="cv"+(ed?" ed":"");root.replaceChildren();
-Object.values((L.layouts||{})[L.ratio]||{}).forEach(b=>{const e=document.createElement("div"),cam=b.bind=="camera";
-e.className="bx"+(b.id===sel?" sel":"")+(cam?" cam":"");e.dataset.id=b.id;
+Object.values((L.layouts||{})[L.ratio]||{}).forEach(b=>{if(b.hide&&!ed)return;const e=document.createElement("div"),cam=b.bind=="camera";
+e.className="bx"+(b.id===sel?" sel":"")+(cam?" cam":"");e.dataset.id=b.id;if(b.hide)e.style.opacity=.3;if(b.rot)e.style.transform="rotate("+b.rot+"deg)";
 Object.assign(e.style,{left:b.x+"%",top:b.y+"%",width:b.w+"%",height:b.h+"%",color:b.color,fontSize:b.fs+"cqw",background:cam&&!ed?"none":b.bg+Math.round(b.bgOpacity*2.55).toString(16).padStart(2,"0")});
 let t=txt(b,d);if(ed&&!t&&b.bind!="image")t="["+b.bind+"]";
 if(b.bind=="image"){const i=new Image();i.src=b.text||"";i.style.cssText="width:100%;height:100%;object-fit:contain;pointer-events:none";e.appendChild(i)}
