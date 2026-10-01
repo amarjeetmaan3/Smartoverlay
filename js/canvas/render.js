@@ -18,7 +18,7 @@ function css(){if(document.getElementById("cvcss"))return;const s=document.creat
 @keyframes sr{from{transform:translateX(-100cqw)}to{transform:translateX(100cqw)}}
 @keyframes su{from{transform:translateY(100cqh)}to{transform:translateY(-100cqh)}}
 @keyframes sd{from{transform:translateY(-100cqh)}to{transform:translateY(100cqh)}}`;document.head.appendChild(s)}
-export function renderCanvas(root,L,d,ed,sel){css();root.className="cv"+(ed?" ed":"");root.replaceChildren();
+export function renderCanvas(root,L,d,ed,sel){css();root.className="cv"+(ed?" ed":"");root.replaceChildren();const cy=ed?0:+root.dataset.cy||0;
 Object.values((L.layouts||{})[L.ratio]||{}).forEach(b=>{if(b.hide&&!ed)return;const e=document.createElement("div"),cam=b.bind=="camera";
 e.className="bx"+(b.id===sel?" sel":"")+(cam?" cam":"");e.dataset.id=b.id;if(b.hide)e.style.opacity=.3;if(b.rot)e.style.transform="rotate("+b.rot+"deg)";
 Object.assign(e.style,{left:b.x+"%",top:b.y+"%",width:b.w+"%",height:b.h+"%",color:b.color,fontSize:b.fs+"cqw",background:cam&&!ed?"none":b.bg+Math.round(b.bgOpacity*2.55).toString(16).padStart(2,"0")});
@@ -27,6 +27,7 @@ if(b.bind=="image"){const i=new Image();i.src=b.text||"";i.style.cssText="width:
 else if(b.bind=="timer"){e.dataset.b="timer";e.textContent=t}
 else if(b.dir){const m=document.createElement("div");m.className="mq "+(b.dir=="l"||b.dir=="r"?"h":"v");m.style.animationName="s"+b.dir;m.textContent=t;e.appendChild(m)}
 else e.textContent=t;
+if(cy){const w=document.createElement("div");w.className="cw";w.style.cssText="display:flex;align-items:center;justify-content:center;flex:none;width:100%;height:"+100/cy+"%;transform:scaleY("+cy+")";while(e.firstChild)w.appendChild(e.firstChild);e.appendChild(w)}
 if(ed&&b.id===sel){const h=document.createElement("i");h.className="rz";e.appendChild(h)}
 root.appendChild(e)})}
-export const tick=(r,d)=>r.querySelectorAll("[data-b=timer]").forEach(e=>e.textContent=fmt(left(d.timer||{})));
+export const tick=(r,d)=>r.querySelectorAll("[data-b=timer]").forEach(e=>(e.querySelector(".cw")||e).textContent=fmt(left(d.timer||{})));
