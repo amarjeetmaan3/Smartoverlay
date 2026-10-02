@@ -2,8 +2,9 @@ import*as St from"./store.js";import{renderCanvas}from"./render.js";
 const $=i=>document.getElementById(i),B=()=>St.boxes(),cur=()=>B().find(b=>b.id===sel),cl=(v,a,z)=>Math.max(a,Math.min(z,v));
 let sel=null,drag=null;
 const starter=()=>[St.mk({bind:"camera",x:2,y:2,w:38,h:42,bgOpacity:0}),St.mk({bind:"question",x:42,y:2,w:56,h:42,fs:2.2}),St.mk({bind:"timer",x:2,y:47,w:18,h:12,fs:4}),St.mk({bind:"stats",x:22,y:47,w:18,h:24,fs:1.6}),St.mk({bind:"explanation",x:42,y:47,w:56,h:30,fs:1.8}),St.mk({bind:"answer",x:2,y:74,w:38,h:14,fs:2.4})];
-const F=[["fBind","bind"],["fText","text"],["fColor","color"],["fBg","bg"],["fOp","bgOpacity",2],["fFs","fs",1],["fDir","dir"],["fX","x",1],["fY","y",1],["fW","w",1],["fH","h",1],["fRot","rot",1]];
-export function draw(){const cv=$("cv");cv.parentElement.style.aspectRatio=St.RATIO[St.S.L.ratio];renderCanvas(cv,St.S.L,St.S.D,true,sel);const b=cur();$("insp").style.display=b?"block":"none";if(b){F.forEach(([i,k])=>$(i).value=b[k]);$("fLock").checked=!!b.lock;$("fHide").checked=!!b.hide}}
+const F=[["fBind","bind"],["fText","text"],["fColor","color"],["fBg","bg"],["fOp","bgOpacity",2],["fFs","fs",1],["fDir","dir"],["fX","x",1],["fY","y",1],["fW","w",1],["fH","h",1],["fRot","rot",1],["fFf","ff"],["fFw","fw",1],["fAl","al"],["fLs","ls",1],["fBw","bw",1],["fBc","bc"],["fRad","rad",1],["fSh","sh",1],["fG2","g2"],["fFit","fit"],["fSec","sec",1]];
+const DEF={fw:700,ls:0,al:"center",bw:0,bc:"#ffffff",rad:0,sh:0,g2:"#000000",fit:"contain",sec:5,ff:"",rot:0,dir:""};;
+export function draw(){const cv=$("cv");cv.parentElement.style.aspectRatio=St.RATIO[St.S.L.ratio];renderCanvas(cv,St.S.L,St.S.D,true,sel);const b=cur();$("insp").style.display=b?"block":"none";if(b){F.forEach(([i,k])=>$(i).value=b[k]!=null?b[k]:DEF[k]??"");$("fLock").checked=!!b.lock;$("fHide").checked=!!b.hide}}
 const up=()=>{St.pubL();draw()};
 export function startEditor(){const cv=$("cv");
 if(!B().length)B().push(...starter());$("ratio").value=St.S.L.ratio;
@@ -17,6 +18,11 @@ F.forEach(([i,k,n])=>$(i).addEventListener(n==1?"change":"input",()=>{const b=cu
 $("insp").addEventListener("focusin",St.snap);
 $("fLock").onchange=()=>{const b=cur();if(b){b.lock=$("fLock").checked;St.pubL()}};
 $("fHide").onchange=()=>{const b=cur();if(b){b.hide=$("fHide").checked;up()}};
+$("fGoff").onclick=()=>{const b=cur();if(b){St.snap();b.g2="";up()}};
+$("fClr").onclick=()=>{const b=cur();if(b){St.snap();b.urls=[];up();$("upMsg").textContent="फ़ोटो हटाईं"}};
+$("fUp").onchange=async e=>{const b=cur(),fs=[...e.target.files];if(!b||!fs.length)return;St.snap();$("upMsg").textContent="अपलोड हो रहा है...";
+try{const{uploadFile}=await import("../media-manager.js"),u=[];for(const f of fs)u.push((await uploadFile(f,"images")).url);b.bind="image";b.urls=Object.values(b.urls||[]).concat(u);up();$("upMsg").textContent=b.urls.length+" फ़ोटो"}catch(x){$("upMsg").textContent="एरर: "+x.message}e.target.value=""};
+$("tpl").onclick=()=>{St.snap();B().push(St.mk({bind:"text",text:"आपका नाम",x:3,y:84,w:52,h:8,fs:3,bg:"#1d4ed8",bgOpacity:92,al:"left",rad:.5}),St.mk({bind:"text",text:"विषय / चैनल का नाम",x:3,y:92,w:52,h:5,fs:1.8,bg:"#000000",bgOpacity:75,al:"left",rad:.5}));up()};
 $("addBtn").onclick=()=>{St.snap();const k=$("addBind").value,b=St.mk({bind:k,text:k=="text"?"नया टेक्स्ट":"",bgOpacity:k=="camera"?0:60});B().push(b);sel=b.id;up()};
 $("ratio").onchange=()=>{St.snap();St.S.L.ratio=$("ratio").value;sel=null;if(!B().length)B().push(...starter());up()};
 $("undo").onclick=()=>{St.undo();sel=null;draw()};$("redo").onclick=()=>{St.redo();sel=null;draw()};
