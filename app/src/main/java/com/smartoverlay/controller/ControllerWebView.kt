@@ -1,9 +1,11 @@
 package com.smartoverlay.controller
 
 import android.content.Context
+import android.content.Intent
 import android.net.Uri
 import android.util.Log
 import android.webkit.ConsoleMessage
+import android.webkit.ValueCallback
 import android.webkit.WebResourceRequest
 import android.webkit.WebResourceResponse
 import android.webkit.WebSettings
@@ -21,6 +23,9 @@ class ControllerWebView(
             WebViewAssetLoader.AssetsPathHandler(context)
         )
         .build()
+
+    // फोटो/PDF/Excel चुनने के लिए: MainActivity इसे सेट करती है
+    var onFileChooser: ((ValueCallback<Array<Uri>>, Intent) -> Unit)? = null
 
     init {
         WebView.setWebContentsDebuggingEnabled(true)
@@ -77,6 +82,16 @@ class ControllerWebView(
         }
 
         webChromeClient = object : android.webkit.WebChromeClient() {
+
+            override fun onShowFileChooser(
+                webView: WebView,
+                filePathCallback: ValueCallback<Array<Uri>>,
+                fileChooserParams: android.webkit.WebChromeClient.FileChooserParams
+            ): Boolean {
+                val open = onFileChooser ?: return false
+                open(filePathCallback, fileChooserParams.createIntent())
+                return true
+            }
 
             override fun onConsoleMessage(
                 consoleMessage: ConsoleMessage
