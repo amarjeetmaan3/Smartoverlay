@@ -1,0 +1,10 @@
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>File Check</title>
+<style>body{margin:0;padding:14px;background:#0b0f14;color:#f4f7fb;font:14px/1.6 system-ui,sans-serif}pre{white-space:pre-wrap;word-break:break-word;background:#151b24;border:1px solid #2b3644;border-radius:10px;padding:12px}</style></head>
+<body><h3>फ़ाइल जाँच</h3><pre id="o">चल रहा है...</pre>
+<script type="module">
+const F=["js/firebase.js","js/supabase.js","js/media-manager.js","js/slideshow-engine.js","js/canvas/store.js","js/canvas/render.js","js/canvas/editor.js","js/canvas/questions.js"];
+const base=location.href.replace(/[^/]*$/,""),L=[];
+for(const f of F){try{const r=await fetch(base+f+"?t="+Date.now(),{cache:"no-store"}),t=await r.text(),h=t.trimStart().startsWith("<");
+L.push((r.ok&&!h?"✔ ":"✘ ")+f+"  ("+r.status+", "+t.length+" बाइट)"+(h?"  ← इसमें JS की जगह HTML पड़ी है!":!r.ok?"  ← फ़ाइल नहीं मिली":"")+"\n     शुरुआत: "+t.slice(0,45).replace(/\n/g," "))}catch(e){L.push("✘ "+f+" एरर: "+e)}
+document.getElementById("o").textContent=L.join("\n")}
+</script></body></html>
