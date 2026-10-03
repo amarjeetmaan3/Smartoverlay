@@ -1,5 +1,5 @@
 import*as St from"./store.js";
-const $=i=>document.getElementById(i);let bank=JSON.parse(localStorage.sq||"[]"),qi=0;
+const $=i=>document.getElementById(i)||document.createElement("i");let bank=JSON.parse(localStorage.sq||"[]"),qi=0;
 export function parse(t){const d=(t.split("\n")[0]||"").includes("\t")?"\t":",",rows=[];let r=[],c="",q=false;
 for(let i=0;i<t.length;i++){const h=t[i];if(q){if(h=='"'){if(t[i+1]=='"'){c+='"';i++}else q=false}else c+=h}
 else if(h=='"')q=true;else if(h==d){r.push(c);c=""}else if(h=="\n"||h=="\r"){if(h=="\r"&&t[i+1]=="\n")i++;r.push(c);rows.push(r);r=[];c=""}else c+=h}
