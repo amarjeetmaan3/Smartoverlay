@@ -1,40 +1,38 @@
-<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>SmartOverlay Controller</title>
-<style>
-body{margin:0;padding:10px;background:#0b0f14;color:#f4f7fb;font:14px system-ui,sans-serif}
-h3{margin:14px 0 6px;font-size:15px}.row{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin:6px 0}
-button,select,input,textarea{background:#1c2430;color:#f4f7fb;border:1px solid #2b3644;border-radius:8px;padding:8px;font:inherit}
-button{font-weight:600;min-height:38px}input[type=number]{width:70px}input[type=color]{padding:0;width:44px;height:36px}textarea{width:100%;box-sizing:border-box}
-.wrap{width:100%;background:#1b2430 repeating-conic-gradient(#222c38 0 25%,#1b2430 0 50%) 0 0/24px 24px;border:1px solid #2b3644}
-#cv{touch-action:none}.sec{background:#151b24;border:1px solid #2b3644;border-radius:12px;padding:10px;margin-top:10px}#insp{display:none}
-</style></head><body>
-<div class="row"><b>SmartOverlay Controller</b><select id="ratio"><option>16:9</option><option>9:16</option></select><button id="undo">↶ Undo</button><button id="redo">↷ Redo</button></div>
-<div class="wrap"><div id="cv"></div></div>
-<div class="sec"><div class="row"><select id="addBind"><option value="text">Text</option><option value="question">Question</option><option value="answer">Answer</option><option value="explanation">Explanation</option><option value="qno">Q Number</option><option value="timer">Timer</option><option value="stats">Stats/Score</option><option value="camera">Camera (खाली)</option><option value="image">Image (URL)</option><option value="pdf">PDF</option></select><button id="addBtn">+ Box जोड़ें</button></div>
-<div class="row"><button id="dup">Copy</button><button id="tpl">नाम-पट्टी</button><button id="split">Split</button><button id="merge">Merge</button> <label><input type="checkbox" id="snap"> Snap</label> Grid <input type="number" id="gs" value="5">%<button id="del">Delete</button><button id="front">Front</button><button id="back">Back</button></div>
-<div id="insp"><div class="row">Type <select id="fBind"><option>text</option><option>question</option><option>answer</option><option>explanation</option><option>qno</option><option>timer</option><option>stats</option><option>camera</option><option>image</option><option>pdf</option></select> Scroll <select id="fDir"><option value="">None</option><option value="l">Right→Left</option><option value="r">Left→Right</option><option value="u">Bottom→Top</option><option value="d">Top→Bottom</option></select></div>
-<textarea id="fText" rows="2" placeholder="बॉक्स में टेक्स्ट यहाँ लिखिए"></textarea>
-<div class="row">Text <input type="color" id="fColor"> BG <input type="color" id="fBg"> BG% <input type="range" id="fOp" min="0" max="100"> Size <input type="number" id="fFs" step="0.1"></div>
-<div class="row">Font <select id="fFf"><option value="">System</option><option value="Arial,sans-serif">Arial</option><option value="Georgia,serif">Georgia</option><option value="'Courier New',monospace">Mono</option><option value="Impact,sans-serif">Impact</option></select> Bold <select id="fFw"><option value="400">Normal</option><option value="700">Bold</option><option value="900">Black</option></select> Align <select id="fAl"><option value="center">Center</option><option value="left">Left</option><option value="right">Right</option></select> Space <input type="number" id="fLs" step="0.05"></div>
-<div class="row">Border <input type="number" id="fBw"> <input type="color" id="fBc"> Radius <input type="number" id="fRad" step="0.5"> Shadow <input type="number" id="fSh"> Gradient <input type="color" id="fG2"> <button id="fGoff">Grad off</button></div>
-<div class="row">Photo <input type="file" id="fUp" accept="image/*" multiple> <button id="fClr">Clear</button> Fit <select id="fFit"><option value="contain">Contain</option><option value="cover">Cover</option><option value="fill">Fill</option></select> हर <input type="number" id="fSec"> सेकंड <span id="upMsg"></span></div>
-<div class="row">PDF <input type="file" id="fPdf" accept="application/pdf"> <button id="pgP">◀ पेज</button><button id="pgN">पेज ▶</button></div>
-<div class="row">Zoom <input type="range" id="fZoom" min="1" max="6" step="0.1" style="width:140px"> फ़ोटो/PDF खिसकाएँ: <button id="pL">◀</button><button id="pU">▲</button><button id="pD">▼</button><button id="pR">▶</button> <button id="zRst">Reset</button></div>
-<div class="row">X <input type="number" id="fX"> Y <input type="number" id="fY"> W <input type="number" id="fW"> H <input type="number" id="fH"> <label><input type="checkbox" id="fLock"> Lock</label> <label><input type="checkbox" id="fHide"> Hide</label> Rot° <input type="number" id="fRot"></div></div></div>
-<div class="sec"><h3>सीन (पूरा लेआउट सेव/बदलें)</h3><div class="row"><input id="scName" placeholder="सीन का नाम"><button id="scSave">Save Scene</button></div><div class="row"><select id="scList"></select><button id="scLoad">Load (लाइव)</button><button id="scDel">Delete</button></div></div>
-<div class="sec"><h3>सवाल (Excel से कॉपी करके पेस्ट करें, या CSV चुनें)</h3>
-<div class="row" style="font-size:12px;color:#9ca9b8">कॉलम: No, Question, A, B, C, D, Answer, Explanation</div>
-<textarea id="csv" rows="3" placeholder="यहाँ पेस्ट करें"></textarea><div class="row"><button id="importBtn">Import</button><input type="file" id="file" accept=".csv,.txt,.xlsx,.xls"><span id="qinfo"></span></div>
-<div class="row"><button id="prev">◀</button><button id="next">▶</button><button id="rand">Random</button><input type="number" id="goto" placeholder="#"><button id="goBtn">Go</button></div>
-<div class="row"><label><input type="checkbox" id="chkQ"> Question</label><label><input type="checkbox" id="chkA"> Answer</label><label><input type="checkbox" id="chkE"> Explanation</label></div></div>
-<div class="sec"><h3>Timer और Score</h3><div class="row">सेकंड <input type="number" id="secs" value="30"><button id="tStart">Start</button><button id="tPause">Pause</button><button id="tReset">Reset</button></div>
-<div class="row"><label><input type="checkbox" id="autoTimer"> नए सवाल पर टाइमर</label><label><input type="checkbox" id="autoAns" checked> Time-up पर Answer</label><label><input type="checkbox" id="autoNext"> Auto Next</label></div>
-<div class="row"><button id="sc">✓ Correct</button><button id="sw">✕ Wrong</button><button id="ss">Skip</button><button id="scReset">Reset</button></div>
-<div class="row">सही + <input type="number" id="cm" step="0.25"> गलत − <input type="number" id="wm" step="0.25"></div></div>
-<div class="sec">ओवरले लिंक (OBS में): <b id="lnk"></b></div>
-<script type="module">
-import*as St from"./js/canvas/store.js";import{tick}from"./js/canvas/render.js";import{startEditor}from"./js/canvas/editor.js";import{startQuestions}from"./js/canvas/questions.js";
-document.getElementById("lnk").textContent=location.href.replace(/controller\.html.*/,"overlay.html");
-try{await St.load()}catch(e){alert("Firebase लोड एरर: "+e.message)}
-const draw=startEditor();startQuestions(draw);
-setInterval(()=>tick(document.getElementById("cv"),St.S.D),250);
-</script></body></html>
+const f2=n=>String(n).padStart(2,"0"),fmt=s=>f2(Math.floor(s/60))+":"+f2(s%60);
+const left=t=>t.running?Math.max(0,Math.ceil((t.endsAt-Date.now())/1000)):(t.left||0);
+function txt(b,d){const q=d.q,s=d.show||{},c=d.score||{c:0,w:0,s:0,cm:1,wm:0};switch(b.bind){
+case"question":return q&&s.question?[q.question,...(q.options||[]).map((o,i)=>"ABCD"[i]+". "+o)].join("\n"):"";
+case"answer":return q&&s.answer?q.answer||"":"";
+case"explanation":return q&&s.explanation?q.explanation||"":"";
+case"qno":return"Q "+(q?q.n:0)+" / "+(d.total||0);
+case"timer":return fmt(left(d.timer||{}));
+case"stats":return"Correct: "+c.c+"\nWrong: "+c.w+"\nSkipped: "+c.s+"\nScore: "+(c.c*c.cm-c.w*c.wm).toFixed(2);
+case"camera":case"image":return"";default:return b.text||""}}
+const zt=b=>b.zoom>1||b.px||b.py?"translate("+(b.px||0)+"%,"+(b.py||0)+"%) scale("+(b.zoom||1)+")":"";
+const PJ="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/",docs={};let pl;
+const lib=()=>pl||(pl=new Promise((ok,no)=>{const s=document.createElement("script");s.src=PJ+"pdf.min.js";s.onload=()=>{pdfjsLib.GlobalWorkerOptions.workerSrc=PJ+"pdf.worker.min.js";ok()};s.onerror=()=>no(new Error("pdf.js लोड नहीं हुआ"));document.head.appendChild(s)}));
+async function pdf(c,u,n,z){if(!u)return;try{await lib();const d=docs[u]||(docs[u]=await pdfjsLib.getDocument(u).promise),p=await d.getPage(Math.min(Math.max(n,1),d.numPages)),v=p.getViewport({scale:Math.min(5,2*Math.max(1,z||1))});c.width=v.width;c.height=v.height;await p.render({canvasContext:c.getContext("2d"),viewport:v}).promise}catch(e){console.error(e)}}
+function css(){if(document.getElementById("cvcss"))return;const s=document.createElement("style");s.id="cvcss";s.textContent=`
+.cv{position:relative;width:100%;height:100%;container-type:size;overflow:hidden}
+.bx{position:absolute;box-sizing:border-box;overflow:hidden;display:flex;align-items:center;justify-content:center;text-align:center;white-space:pre-wrap;font-family:system-ui,sans-serif;font-weight:700;line-height:1.2;padding:.5cqw}
+.ed .bx{outline:1px dashed #fff5;cursor:move}.ed .bx.sel{outline:2px solid #38bdf8}.ed .bx.cam{outline:2px dashed #22c55e;color:#22c55e99}
+.rz{position:absolute;right:0;bottom:0;width:24px;height:24px;background:#38bdf8;cursor:nwse-resize;touch-action:none}
+.mq{animation:10s linear infinite}.mq.h{white-space:nowrap}.mq.v{width:100%}
+@keyframes sl{from{transform:translateX(100cqw)}to{transform:translateX(-100cqw)}}
+@keyframes sr{from{transform:translateX(-100cqw)}to{transform:translateX(100cqw)}}
+@keyframes su{from{transform:translateY(100cqh)}to{transform:translateY(-100cqh)}}
+@keyframes sd{from{transform:translateY(-100cqh)}to{transform:translateY(100cqh)}}`;document.head.appendChild(s)}
+export function renderCanvas(root,L,d,ed,sel){css();root.className="cv"+(ed?" ed":"");root.replaceChildren();const cy=ed?0:+root.dataset.cy||0;
+Object.values((L.layouts||{})[L.ratio]||{}).forEach(b=>{if(b.hide&&!ed)return;const e=document.createElement("div"),cam=b.bind=="camera";
+e.className="bx"+(b.id===sel?" sel":"")+(cam?" cam":"");e.dataset.id=b.id;const al=Math.round(b.bgOpacity*2.55).toString(16).padStart(2,"0"),c1=b.bg+al;if(b.hide)e.style.opacity=.3;if(b.rot)e.style.transform="rotate("+b.rot+"deg)";
+Object.assign(e.style,{left:b.x+"%",top:b.y+"%",width:b.w+"%",height:b.h+"%",color:b.color,fontSize:b.fs+"cqw",background:cam&&!ed?"none":b.g2?"linear-gradient(135deg,"+c1+","+b.g2+al+")":c1,fontFamily:b.ff||"system-ui,sans-serif",fontWeight:b.fw||700,letterSpacing:(b.ls||0)+"em",textAlign:b.al||"center",justifyContent:{left:"flex-start",right:"flex-end"}[b.al]||"center",border:b.bw?b.bw+"px solid "+(b.bc||"#fff"):"none",borderRadius:(b.rad||0)+"cqw",boxShadow:b.sh?"0 0 "+b.sh+"px #000c":"none"});
+let t=txt(b,d);if(ed&&!t&&b.bind!="image")t="["+b.bind+"]";
+if(b.bind=="image"){const U=Object.values(b.urls||[]),Ls=U.length?U:[b.text||""],sc=(b.sec||5)*1000,k=Math.floor(Date.now()/sc)%Ls.length,i=new Image();i.src=Ls[k];i.style.cssText="width:100%;height:100%;pointer-events:none;object-fit:"+(b.fit||"contain");i.style.transform=zt(b);if(Ls.length>1){i._u=Ls;i._s=sc;i.dataset.sl=1;i.dataset.k=k}e.appendChild(i)}
+else if(b.bind=="pdf"){const c=document.createElement("canvas");c.style.cssText="width:100%;height:100%;object-fit:contain;pointer-events:none";c.style.transform=zt(b);e.appendChild(c);pdf(c,b.text,b.page||1,b.zoom)}
+else if(b.bind=="timer"){e.dataset.b="timer";e.textContent=t}
+else if(b.dir){const m=document.createElement("div");m.className="mq "+(b.dir=="l"||b.dir=="r"?"h":"v");m.style.animationName="s"+b.dir;m.textContent=t;e.appendChild(m)}
+else e.textContent=t;
+if(cy){const w=document.createElement("div");w.className="cw";w.style.cssText="display:flex;align-items:center;justify-content:center;flex:none;width:100%;height:"+100/cy+"%;transform:scaleY("+cy+")";while(e.firstChild)w.appendChild(e.firstChild);e.appendChild(w)}
+if(ed&&b.id===sel){const h=document.createElement("i");h.className="rz";e.appendChild(h)}
+root.appendChild(e)})}
+export const tick=(r,d)=>{r.querySelectorAll("[data-b=timer]").forEach(e=>(e.querySelector(".cw")||e).textContent=fmt(left(d.timer||{})));r.querySelectorAll("img[data-sl]").forEach(i=>{const k=Math.floor(Date.now()/i._s)%i._u.length;if(i.dataset.k!=k){i.dataset.k=k;i.src=i._u[k]}})};
