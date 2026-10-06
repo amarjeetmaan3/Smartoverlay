@@ -2,12 +2,12 @@ import*as St from"./store.js";import{renderCanvas}from"./render.js";
 const $=i=>document.getElementById(i)||document.createElement("i"),B=()=>St.boxes(),cur=()=>B().find(b=>b.id===sel),cl=(v,a,z)=>Math.max(a,Math.min(z,v));
 let sel=null,drag=null;
 const starter=()=>[St.mk({bind:"camera",x:2,y:2,w:38,h:42,bgOpacity:0}),St.mk({bind:"question",x:42,y:2,w:56,h:42,fs:2.2}),St.mk({bind:"timer",x:2,y:47,w:18,h:12,fs:4}),St.mk({bind:"stats",x:22,y:47,w:18,h:24,fs:1.6}),St.mk({bind:"explanation",x:42,y:47,w:56,h:30,fs:1.8}),St.mk({bind:"answer",x:2,y:74,w:38,h:14,fs:2.4})];
-const F=[["fBind","bind"],["fText","text"],["fColor","color"],["fBg","bg"],["fOp","bgOpacity",2],["fFs","fs",1],["fDir","dir"],["fX","x",1],["fY","y",1],["fW","w",1],["fH","h",1],["fRot","rot",1],["fFf","ff"],["fFw","fw",1],["fAl","al"],["fLs","ls",1],["fBw","bw",1],["fBc","bc"],["fRad","rad",1],["fSh","sh",1],["fG2","g2"],["fFit","fit"],["fSec","sec",1],["fZoom","zoom",2]];
-const DEF={fw:700,ls:0,al:"center",bw:0,bc:"#ffffff",rad:0,sh:0,g2:"#000000",fit:"contain",sec:5,zoom:1,ff:"",rot:0,dir:""};;
+const F=[["fBind","bind"],["fText","text"],["fColor","color"],["fBg","bg"],["fOp","bgOpacity",2],["fFs","fs",1],["fDir","dir"],["fX","x",1],["fY","y",1],["fW","w",1],["fH","h",1],["fRot","rot",1],["fFf","ff"],["fFw","fw",1],["fAl","al"],["fLs","ls",1],["fBw","bw",1],["fBc","bc"],["fRad","rad",1],["fSh","sh",1],["fG2","g2"],["fFit","fit"],["fSec","sec",1],["fZoom","zoom",2],["fMs","ms",1],["fMg","mg",1],["fMd","md",1],["fMn","mn",1]];
+const DEF={fw:700,ls:0,al:"center",bw:0,bc:"#ffffff",rad:0,sh:0,g2:"#000000",fit:"contain",sec:5,zoom:1,ff:"",rot:0,dir:"",ms:10,mg:0,md:0,mn:0};;
 const g=()=>$("snap").checked?Math.max(1,+$("gs").value||5):0,sn=v=>g()?Math.round(v/g())*g():v;
 export function draw(){const cv=$("cv");cv.parentElement.style.aspectRatio=St.RATIO[St.S.L.ratio];cv.parentElement.style.setProperty("--r",St.S.L.ratio=="9:16"?0.5625:1.7778);renderCanvas(cv,St.S.L,St.S.D,true,sel);{const s=g();cv.style.backgroundImage=s?"linear-gradient(#fff3 1px,transparent 1px),linear-gradient(90deg,#fff3 1px,transparent 1px)":"none";cv.style.backgroundSize=s+"% "+s+"%"}const b=cur();$("insp").style.display=b?"block":"none";document.body.classList.toggle("hs",!!b);if(b){F.forEach(([i,k])=>$(i).value=b[k]!=null?b[k]:DEF[k]??"");$("fLock").checked=!!b.lock;$("fHide").checked=!!b.hide}}
 const up=()=>{St.pubL();draw()};
-export function startEditor(){const cv=$("cv");$("ver2").textContent=" | js v9";
+export function startEditor(){const cv=$("cv");$("ver2").textContent=" | js v11";
 if(!B().length)B().push(...starter());$("ratio").value=St.S.L.ratio;
 cv.addEventListener("pointerdown",e=>{const el=e.target.closest(".bx");if(!el){sel=null;return draw()}
 sel=el.dataset.id;const b=cur(),rz=e.target.classList.contains("rz");if(b.lock&&!rz){draw();return}
