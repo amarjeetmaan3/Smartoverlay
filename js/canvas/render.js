@@ -38,9 +38,9 @@ else e.textContent=t;
 if(cy){const w=document.createElement("div");w.className="cw";w.style.cssText="display:flex;align-items:center;justify-content:center;flex:none;width:100%;height:"+100/cy+"%;transform:scaleY("+cy+")";while(e.firstChild)w.appendChild(e.firstChild);e.appendChild(w)}
 if(ed&&b.id===sel){const h=document.createElement("i");h.className="rz";e.appendChild(h)}
 return e}
-// कैमरा खिड़की: कैमरा बॉक्स के नीचे की परतों में उतनी जगह कट जाती है
+// कैमरा खिड़की: कैमरा बॉक्स जहाँ भी हो (ऊपर या नीचे), बाकी सारे बॉक्स में उतनी जगह कटकर पारदर्शी हो जाती है
 function hole(bs,i,b){if(b.bind=="camera")return"none";const hs=[],p=(v,o,s)=>((v-o)/s*100).toFixed(3)+"%";
-for(let j=i+1;j<bs.length;j++){const c=bs[j];if(c.bind!="camera")continue;const x1=Math.max(b.x,c.x),y1=Math.max(b.y,c.y),x2=Math.min(b.x+b.w,c.x+c.w),y2=Math.min(b.y+b.h,c.y+c.h);if(x2<=x1||y2<=y1)continue;
+for(let j=0;j<bs.length;j++){const c=bs[j];if(j==i||c.bind!="camera")continue;const x1=Math.max(b.x,c.x),y1=Math.max(b.y,c.y),x2=Math.min(b.x+b.w,c.x+c.w),y2=Math.min(b.y+b.h,c.y+c.h);if(x2<=x1||y2<=y1)continue;
 hs.push(p(x1,b.x,b.w)+" "+p(y1,b.y,b.h)+","+p(x2,b.x,b.w)+" "+p(y1,b.y,b.h)+","+p(x2,b.x,b.w)+" "+p(y2,b.y,b.h)+","+p(x1,b.x,b.w)+" "+p(y2,b.y,b.h)+","+p(x1,b.x,b.w)+" "+p(y1,b.y,b.h)+",0 0")}
 return hs.length?"polygon(evenodd,0 0,100% 0,100% 100%,0 100%,0 0,"+hs.join(",")+")":"none"}
 // सिर्फ़ बदले हुए बॉक्स दोबारा बनते हैं, बाकी जस के तस रहते हैं (इसी से चिकनापन आता है)
